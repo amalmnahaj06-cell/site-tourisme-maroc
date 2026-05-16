@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Maroc Éternel — Portail Touristique</title>
+<!-- Tabler Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#0c0a08;
+  color:#e8e0d0;
+  overflow-x:hidden;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(12,10,8,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #2a2218;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s;
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:20px;
+  color:#e8d5a0;
+  letter-spacing:.25em;text-transform:uppercase;
+  cursor:pointer;
+}
+.logo span{color:#b8935a;font-style:italic;font-weight:400}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nl{
+  font-size:10px;font-weight:400;letter-spacing:.18em;
+  text-transform:uppercase;color:#a09070;
+  cursor:pointer;transition:color .3s;text-decoration:none;
+}
+.nl:hover{color:#c9a05a}
+.nav-cta{
+  border:1px solid #b8935a;color:#b8935a;
+  font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  padding:8px 20px;cursor:pointer;transition:all .3s;
+  background:transparent;
+}
+.nav-cta:hover{background:#b8935a;color:#0c0a08}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#home{
+  padding-top:60px; /* compense la navbar fixe */
+  position:relative;overflow:hidden;background:#0c0a08;
+}
+.hero-img{
+  width:100%;height:100vh;min-height:500px;
+  background:
+    linear-gradient(to bottom,rgba(12,10,8,.25) 0%,rgba(12,10,8,.2) 40%,rgba(12,10,8,.85) 85%,#0c0a08 100%),
+    url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1400&auto=format&fit=crop&q=90') center 30%/cover no-repeat;
+  display:flex;align-items:flex-end;
+  padding:0 48px 60px;
+  position:relative;
+}
+.hero-ornament{
+  position:absolute;top:40px;left:50%;transform:translateX(-50%);
+  width:280px;height:1px;background:linear-gradient(to right,transparent,#b8935a44,transparent);
+}
+.hero-ornament::before,.hero-ornament::after{
+  content:'';position:absolute;top:-3px;width:6px;height:6px;
+  border:1px solid #b8935a66;border-radius:50%;
+}
+.hero-ornament::before{left:0}
+.hero-ornament::after{right:0}
+.hero-text{position:relative;z-index:2;flex:1;animation:fadeUp .9s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{
+  font-size:9px;letter-spacing:.35em;text-transform:uppercase;
+  color:#b8935a;font-weight:400;margin-bottom:10px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#b8935a}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:clamp(38px,6vw,72px);line-height:1.08;
+  color:#f0e8d8;letter-spacing:.02em;margin-bottom:14px;
+}
+.hero-h1 em{font-style:italic;color:#e8c878;font-weight:300}
+.hero-body{
+  font-size:12px;font-weight:300;line-height:1.8;
+  color:#b0a080;max-width:380px;margin-bottom:20px;letter-spacing:.04em;
+}
+.hero-actions{display:flex;gap:14px;align-items:center}
+.btn-primary{
+  background:#b8935a;color:#0c0a08;
+  font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  padding:12px 28px;cursor:pointer;border:none;transition:all .3s;
+}
+.btn-primary:hover{background:#d4a86a}
+.btn-ghost{
+  border:1px solid #4a3a28;color:#a09070;
+  font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  padding:12px 28px;cursor:pointer;background:transparent;transition:all .3s;
+}
+.btn-ghost:hover{border-color:#c9a05a;color:#c9a05a}
+.hero-stats{
+  display:flex;flex-direction:column;gap:20px;
+  padding-left:40px;border-left:1px solid #2a2218;
+  position:relative;z-index:2;
+}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#e8c878}
+.hs-label{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#7a6848;font-weight:400}
+
+/* ============================================================
+   STRIP
+   ============================================================ */
+.divider{
+  display:flex;align-items:center;
+  padding:18px 48px;
+  background:#0c0a08;
+  border-top:1px solid #1a1510;border-bottom:1px solid #1a1510;
+}
+.div-item{
+  flex:1;display:flex;align-items:center;gap:10px;
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#8a7860;
+  padding:0 20px;border-right:1px solid #2a2218;
+}
+.div-item:first-child{padding-left:0}
+.div-item:last-child{border-right:none}
+.div-icon{color:#c9a05a;font-size:14px}
+
+/* ============================================================
+   SECTION COMMUNS
+   ============================================================ */
+.sec-eyebrow{
+  font-size:8.5px;letter-spacing:.35em;text-transform:uppercase;
+  color:#c9a05a;font-weight:500;margin-bottom:8px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-eyebrow::after{content:'';display:block;width:40px;height:1px;background:#c9a05a}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;color:#f0e8d8;letter-spacing:.05em;margin-bottom:4px;
+}
+.sec-sub{font-size:11px;font-weight:300;color:#8a7860;letter-spacing:.08em;margin-bottom:32px}
+
+/* ============================================================
+   DESTINATIONS
+   ============================================================ */
+#destinations{background:#0c0a08;padding:64px 48px 48px}
+
+/* Grille ligne 1 – 4 cartes larges */
+.city-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-bottom:2px;
+}
+/* Grille ligne 2 – 4 cartes */
+.city-grid-b{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-bottom:2px;
+}
+/* Grille ligne 3 – 4 cartes + label centré */
+.city-grid-c{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-bottom:2px;
+}
+/* Ligne 4 – 3 cartes */
+.city-grid-d{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+}
+
+.city-card{
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:filter .4s;
+}
+.city-card:hover{filter:brightness(1.12)}
+.city-card-img{
+  height:180px;
+  background-size:cover;background-position:center;
+  position:relative;
+  transition:transform .6s ease;
+}
+.city-card:hover .city-card-img{transform:scale(1.05)}
+.city-card-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,8,5,.9) 0%,rgba(10,8,5,.15) 60%,transparent 100%);
+  transition:background .4s;
+}
+.city-card:hover .city-card-img::after{
+  background:linear-gradient(to top,rgba(10,8,5,.75) 0%,rgba(184,147,90,.08) 60%,transparent 100%);
+}
+.city-card-img.sm{height:130px}
+.city-card-inner{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:14px 14px 12px;z-index:1;
+}
+.city-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;color:#f0e8d8;
+  letter-spacing:.05em;display:block;margin-bottom:2px;
+}
+.city-name.sm-name{font-size:15px}
+.city-region{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#b8935a;font-weight:400}
+.city-hover-line{
+  position:absolute;bottom:0;left:0;width:0;height:2px;
+  background:linear-gradient(to right,#b8935a,#e8c878);
+  transition:width .5s ease;
+}
+.city-card:hover .city-hover-line{width:100%}
+
+/* Gradients couleur par ville */
+.g-tanger{background:linear-gradient(160deg,#0d1f35,#1a4a6e)}
+.g-tetouan{background:linear-gradient(160deg,#0d2535,#14506e)}
+.g-chefchaouen{background:linear-gradient(160deg,#0d1e3d,#1a3a7a)}
+.g-houceima{background:linear-gradient(160deg,#051a30,#0d3a5e)}
+.g-fes{background:linear-gradient(160deg,#2d1500,#7b3f00)}
+.g-ifrane{background:linear-gradient(160deg,#0a1a0a,#1a3a2a)}
+.g-casa{background:linear-gradient(160deg,#050f1e,#0d2a4a)}
+.g-rabat{background:linear-gradient(160deg,#1a0a0a,#4a1a1a)}
+.g-marrakech{background:linear-gradient(160deg,#2d0d0d,#8b1a1a)}
+.g-essaouira{background:linear-gradient(160deg,#0a1a2a,#1a3a5c)}
+.g-agadir{background:linear-gradient(160deg,#1a1200,#4a3500)}
+.g-taghazout{background:linear-gradient(160deg,#1a1000,#4a2800)}
+.g-merzouga{background:linear-gradient(160deg,#2a1500,#6b3500)}
+.g-ouarzazate{background:linear-gradient(160deg,#2a1800,#7a4000)}
+.g-dakhla{background:linear-gradient(160deg,#051525,#0d3555)}
+
+/* ============================================================
+   EXPÉRIENCES
+   ============================================================ */
+#experiences{background:#080604;padding:64px 48px;border-top:1px solid #1a1510}
+.exp-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:#1a1510;margin-top:28px;
+}
+.exp-card{background:#0c0a08;padding:28px 22px}
+.exp-icon{
+  width:38px;height:38px;border:1px solid #2a2218;
+  display:flex;align-items:center;justify-content:center;
+  color:#b8935a;font-size:17px;margin-bottom:14px;
+}
+.exp-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:300;color:#e8dfc8;margin-bottom:6px;letter-spacing:.04em;
+}
+.exp-desc{font-size:10px;font-weight:300;color:#9a8a6a;line-height:1.65;letter-spacing:.04em}
+
+/* ============================================================
+   HÔTELS VEDETTE
+   ============================================================ */
+#hebergement{background:#0a0806;padding:64px 48px;border-top:1px solid #1a1510}
+.hotels-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:#1a1510;margin-top:28px;
+}
+.hotel-card{background:#0c0a08;overflow:hidden}
+.hotel-img-h{
+  height:110px;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:10px 14px;
+  background-size:cover;background-position:center;
+}
+.h-stars{font-size:10px;color:#c8a870;letter-spacing:.1em}
+.h-city{
+  font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#b8935a;
+  border:1px solid #b8935a44;padding:3px 8px;
+}
+.hotel-body-c{padding:16px 14px 18px}
+.hotel-name-c{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:300;color:#eeddc8;margin-bottom:5px;letter-spacing:.04em;
+}
+.hotel-desc-c{font-size:10px;font-weight:300;color:#8a7860;line-height:1.55;margin-bottom:12px;letter-spacing:.03em}
+.hotel-price-c{font-size:9px;letter-spacing:.12em;color:#9a8870;margin-bottom:12px}
+.hotel-price-c span{color:#c9a05a;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300}
+.btn-book{
+  display:block;text-align:center;border:1px solid #3a3020;
+  color:#a09070;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
+  padding:9px;width:100%;cursor:pointer;transition:all .3s;background:transparent;
+}
+.btn-book:hover{border-color:#c9a05a;color:#c9a05a}
+
+/* ============================================================
+   GASTRONOMIE
+   ============================================================ */
+#gastronomie{background:#080604;border-top:1px solid #1a1510;padding:64px 48px}
+.gastro-cols{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin-top:28px}
+.plats-list{display:flex;flex-direction:column}
+.plat-item{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid #1a1510;
+}
+.plat-num{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#3a3020;width:30px;flex-shrink:0}
+.plat-n{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:#e0d0a8;letter-spacing:.06em}
+.plat-d{font-size:9.5px;font-weight:300;color:#8a7860;margin-top:2px;letter-spacing:.04em}
+.restos-grid-g{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1a1510}
+.resto-item-g{background:#0c0a08;padding:18px}
+.resto-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.resto-name-g{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:#e0d0a8;letter-spacing:.04em}
+.resto-stars-g{font-size:9px;color:#c9a05a;letter-spacing:.1em}
+.resto-ville-g{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#7a6848;margin-bottom:6px}
+.resto-desc-g{font-size:9.5px;font-weight:300;color:#8a7860;line-height:1.55;letter-spacing:.03em}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:#060503;border-top:1px solid #1a1510;padding:48px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.f-brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#e8d5a0;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.f-brand span{color:#b8935a;font-style:italic}
+.f-desc{font-size:10px;font-weight:300;color:#7a6848;line-height:1.7;letter-spacing:.04em;max-width:240px}
+.f-head{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#c9a05a;margin-bottom:14px;font-weight:500}
+.f-link{
+  display:block;font-size:10px;font-weight:300;color:#7a6848;
+  letter-spacing:.06em;margin-bottom:7px;cursor:pointer;
+  transition:color .3s;
+}
+.f-link:hover{color:#c9a05a}
+.footer-bot{
+  border-top:1px solid #1a1510;padding-top:18px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.f-copy{font-size:8.5px;letter-spacing:.1em;color:#4a3a22}
+
+/* ============================================================
+   OVERLAY DE PAGE VILLE (MODAL PLEIN ÉCRAN)
+   ============================================================ */
+#city-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:#0a0806;
+  overflow-y:auto;
+  display:none;
+  animation:overlayIn .35s ease both;
+}
+@keyframes overlayIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* En-tête de la page ville */
+.ov-header{
+  position:relative;height:340px;
+  background-size:cover;background-position:center;
+  display:flex;align-items:flex-end;padding:36px 52px;
+  overflow:hidden;
+}
+.ov-header::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,8,5,.97) 0%,rgba(10,8,5,.3) 60%,rgba(10,8,5,.1) 100%);
+}
+.ov-header-content{position:relative;z-index:1}
+.ov-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#b8935a;margin-bottom:6px}
+.ov-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,58px);font-weight:300;color:#f0e8d8;
+  letter-spacing:.04em;line-height:1;
+}
+.ov-subtitle{font-size:10px;font-weight:300;letter-spacing:.15em;color:#7a6040;margin-top:6px;text-transform:uppercase}
+.ov-close{
+  position:absolute;top:20px;right:24px;z-index:2;
+  width:40px;height:40px;border:1px solid #ffffff22;
+  display:flex;align-items:center;justify-content:center;
+  color:#ffffff88;font-size:16px;cursor:pointer;
+  transition:all .3s;background:rgba(0,0,0,.4);
+}
+.ov-close:hover{border-color:#b8935a;color:#b8935a}
+
+/* Onglets de navigation */
+.ov-tabs{
+  display:flex;border-bottom:1px solid #1e1a14;
+  padding:0 52px;background:#0c0a08;
+  position:sticky;top:0;z-index:10;
+}
+.ov-tab{
+  padding:14px 18px;
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:#6a5a40;font-weight:400;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  cursor:pointer;transition:color .3s,border-color .3s;
+}
+.ov-tab:hover{color:#a09070}
+.ov-tab.active{color:#c9a05a;border-bottom-color:#c9a05a}
+
+/* Corps du contenu par onglet */
+.ov-body{padding:44px 52px;display:none}
+.ov-body.active{display:block}
+
+/* ── Histoire ── */
+.histoire-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.hist-text{
+  font-size:12px;font-weight:300;line-height:1.9;
+  color:#9a8a70;letter-spacing:.04em;margin-bottom:20px;
+}
+.hist-text p+p{margin-top:12px}
+.timeline{border-left:1px solid #2a2218;padding-left:18px}
+.tl-item{margin-bottom:14px}
+.tl-yr{font-size:8.5px;letter-spacing:.15em;color:#c9a05a;font-weight:500;text-transform:uppercase}
+.tl-tx{font-size:10px;color:#8a7860;font-weight:300;line-height:1.55;margin-top:2px}
+.gallery-2x2{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:20px}
+.gal-ph{
+  height:90px;background-size:cover;background-position:center;
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:8px 10px;
+}
+.gal-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,3,2,.88),transparent 60%)}
+.gal-label{font-size:8px;color:#c8a870;font-weight:400;letter-spacing:.08em;position:relative;z-index:1}
+
+/* ── Sites ── */
+.sites-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1a1510}
+.site-card{
+  background:#0e0c09;padding:22px;
+  transition:background .3s;
+}
+.site-card:hover{background:#111008}
+.site-type{
+  font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:#c9a05a;margin-bottom:8px;font-weight:500;
+  display:flex;align-items:center;gap:6px;
+}
+.site-type::before{content:'';display:block;width:18px;height:1px;background:#c9a05a55}
+.site-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:300;color:#eeddc8;letter-spacing:.04em;margin-bottom:6px;
+}
+.site-desc{font-size:10px;font-weight:300;color:#9a8a70;line-height:1.6;letter-spacing:.03em}
+
+/* ── Hôtels ── */
+.hotels-ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#1a1510}
+.hotel-ov{background:#0e0c09;overflow:hidden;transition:background .3s}
+.hotel-ov:hover{background:#111008}
+.hotel-ov-img{height:90px;display:flex;align-items:flex-end;justify-content:space-between;padding:8px 12px;background-size:cover;background-position:center}
+.hotel-ov-body{padding:14px 14px 16px}
+.hotel-ov-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:#eeddc8;margin-bottom:4px;letter-spacing:.04em}
+.hotel-ov-desc{font-size:9.5px;font-weight:300;color:#9a8a70;line-height:1.55;margin-bottom:10px;letter-spacing:.03em}
+.hotel-ov-price{font-size:9px;letter-spacing:.12em;color:#9a8870;margin-bottom:10px}
+.hotel-ov-price span{color:#c9a05a;font-family:'Cormorant Garamond',serif;font-size:15px}
+.btn-reserve{
+  display:block;text-align:center;border:1px solid #3a3020;
+  color:#a09070;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
+  padding:8px;cursor:pointer;transition:all .3s;background:transparent;text-decoration:none;
+}
+.btn-reserve:hover{border-color:#c9a05a;color:#c9a05a}
+
+/* ── Restaurants ── */
+.restos-ov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1a1510}
+.resto-ov{background:#0e0c09;padding:20px;transition:background .3s}
+.resto-ov:hover{background:#111008}
+.resto-ov-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.resto-ov-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:#e8d8b0;letter-spacing:.04em}
+.resto-ov-stars{font-size:10px;color:#c9a05a;letter-spacing:.1em}
+.resto-ov-cuisine{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#7a6848;margin-bottom:8px}
+.resto-ov-desc{font-size:10px;font-weight:300;color:#9a8a70;line-height:1.55;letter-spacing:.03em;margin-bottom:10px}
+.resto-ov-contact{
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  padding-top:8px;border-top:1px solid #1a1510;
+}
+.resto-ov-info{font-size:9px;color:#8a7860;letter-spacing:.06em;display:flex;align-items:center;gap:5px}
+.resto-ov-info a{color:#8a7860;text-decoration:none;transition:color .3s}
+.resto-ov-info a:hover{color:#c9a05a}
+
+/* ── Activités ── */
+.acts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1a1510}
+.act-card{background:#0e0c09;padding:22px;transition:background .3s}
+.act-card:hover{background:#111008}
+.act-type{
+  font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:#c9a05a;
+  margin-bottom:8px;font-weight:500;display:flex;align-items:center;gap:6px;
+}
+.act-type::before{content:'';display:block;width:18px;height:1px;background:#c9a05a55}
+.act-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#eeddc8;letter-spacing:.04em;margin-bottom:6px}
+.act-desc{font-size:10px;font-weight:300;color:#9a8a70;line-height:1.6;letter-spacing:.03em;margin-bottom:10px}
+.act-contact{
+  font-size:9px;color:#8a7860;letter-spacing:.06em;
+  display:flex;align-items:center;gap:6px;
+}
+.act-contact a{color:#8a7860;text-decoration:none;transition:color .3s}
+.act-contact a:hover{color:#c9a05a}
+
+/* ============================================================
+   RESPONSIVE MOBILE
+   ============================================================ */
+@media(max-width:900px){
+  .nav{padding:12px 20px}
+  .nav-links{gap:14px}
+  .nl{display:none}
+  .hero-img{padding:0 24px 40px;flex-direction:column;justify-content:flex-end;gap:20px}
+  .hero-stats{flex-direction:row;padding-left:0;border-left:none;padding-top:14px;border-top:1px solid #2a2218}
+  #destinations,#experiences,#hebergement,#gastronomie,.footer{padding:40px 20px}
+  .city-grid,.city-grid-b,.city-grid-c{grid-template-columns:repeat(2,1fr)}
+  .city-grid-d{grid-template-columns:repeat(2,1fr)}
+  .exp-grid,.hotels-grid,.restos-grid-g{grid-template-columns:1fr 1fr}
+  .gastro-cols{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .ov-header{height:220px;padding:24px}
+  .ov-tabs{padding:0 20px}
+  .ov-body{padding:28px 20px}
+  .histoire-grid,.sites-grid,.hotels-ov-grid,.restos-ov-grid,.acts-grid{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0806}
+::-webkit-scrollbar-thumb{background:#3a2e1e;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#c9a05a}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="logo" onclick="scrollToTop()">Maroc <span>Éternel</span></div>
+  <div class="nav-links">
+    <a class="nl" href="#destinations">Destinations</a>
+    <a class="nl" href="#experiences">Expériences</a>
+    <a class="nl" href="#hebergement">Hébergement</a>
+    <a class="nl" href="#gastronomie">Gastronomie</a>
+    <button class="nav-cta" onclick="openCity('marrakech')">Explorer</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-img">
+    <div class="hero-ornament"></div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Portail officiel du tourisme</div>
+      <div class="hero-h1">Découvrez<br>le <em>Royaume du Maroc</em></div>
+      <div class="hero-body">Des médinas millénaires aux dunes infinies du Sahara — quinze destinations d'exception vous attendent.</div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">Explorer les destinations</button>
+        <button class="btn-ghost" onclick="document.getElementById('experiences').scrollIntoView({behavior:'smooth'})">Notre sélection</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hs-num">15</div><div class="hs-label">Destinations</div></div>
+      <div><div class="hs-num">3 500</div><div class="hs-label">Ans d'histoire</div></div>
+      <div><div class="hs-num">9</div><div class="hs-label">Sites UNESCO</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="divider">
+  <div class="div-item"><i class="ti ti-building-monument div-icon"></i>Patrimoine UNESCO</div>
+  <div class="div-item"><i class="ti ti-sun div-icon"></i>300 jours de soleil</div>
+  <div class="div-item"><i class="ti ti-tools-kitchen-2 div-icon"></i>Gastronomie mondiale</div>
+  <div class="div-item"><i class="ti ti-mountain div-icon"></i>Atlas & Sahara</div>
+  <div class="div-item"><i class="ti ti-waves div-icon"></i>1 200 km de côtes</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     DESTINATIONS – 15 VILLES
+══════════════════════════════════════════════ -->
+<section id="destinations">
+  <div class="sec-eyebrow">Destinations</div>
+  <div class="sec-title">Nos villes incontournables</div>
+  <div class="sec-sub">Du Nord méditerranéen aux confins du Sahara</div>
+
+  <!-- Ligne 1 – 4 grandes cartes -->
+  <div class="city-grid">
+    <div class="city-card" onclick="openCity('tanger')">
+      <div class="city-card-img g-tanger">
+        <div class="city-card-inner">
+          <span class="city-name">Tanger</span>
+          <span class="city-region">Détroit — Nord</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('tetouan')">
+      <div class="city-card-img g-tetouan">
+        <div class="city-card-inner">
+          <span class="city-name">Tétouan</span>
+          <span class="city-region">Rif — Colombe Blanche</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('chefchaouen')">
+      <div class="city-card-img g-chefchaouen">
+        <div class="city-card-inner">
+          <span class="city-name">Chefchaouen</span>
+          <span class="city-region">Rif — La Bleue</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('houceima')">
+      <div class="city-card-img g-houceima">
+        <div class="city-card-inner">
+          <span class="city-name">Al Hoceima</span>
+          <span class="city-region">Méditerranée — Nord</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+  </div>
+
+  <!-- Ligne 2 -->
+  <div class="city-grid-b" style="margin-top:2px">
+    <div class="city-card" onclick="openCity('fes')">
+      <div class="city-card-img g-fes sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Fès</span>
+          <span class="city-region">Capitale spirituelle</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('ifrane')">
+      <div class="city-card-img g-ifrane sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Ifrane</span>
+          <span class="city-region">Moyen Atlas — Suisse du Maroc</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('rabat')">
+      <div class="city-card-img g-rabat sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Rabat</span>
+          <span class="city-region">Capitale royale</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('casa')">
+      <div class="city-card-img g-casa sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Casablanca</span>
+          <span class="city-region">Métropole atlantique</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+  </div>
+
+  <!-- Ligne 3 -->
+  <div class="city-grid-c" style="margin-top:2px">
+    <div class="city-card" onclick="openCity('marrakech')">
+      <div class="city-card-img g-marrakech">
+        <div class="city-card-inner">
+          <span class="city-name">Marrakech</span>
+          <span class="city-region">Ville Rouge — Sud</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('essaouira')">
+      <div class="city-card-img g-essaouira">
+        <div class="city-card-inner">
+          <span class="city-name">Essaouira</span>
+          <span class="city-region">Cité des Alizés</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('agadir')">
+      <div class="city-card-img g-agadir">
+        <div class="city-card-inner">
+          <span class="city-name">Agadir</span>
+          <span class="city-region">Souss — Atlantique</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('taghazout')">
+      <div class="city-card-img g-taghazout">
+        <div class="city-card-inner">
+          <span class="city-name">Taghazout</span>
+          <span class="city-region">Surf — Souss</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+  </div>
+
+  <!-- Ligne 4 -->
+  <div class="city-grid-d" style="margin-top:2px">
+    <div class="city-card" onclick="openCity('merzouga')">
+      <div class="city-card-img g-merzouga sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Merzouga</span>
+          <span class="city-region">Erg Chebbi — Sahara</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('ouarzazate')">
+      <div class="city-card-img g-ouarzazate sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Ouarzazate</span>
+          <span class="city-region">Hollywood du Maroc</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+    <div class="city-card" onclick="openCity('dakhla')">
+      <div class="city-card-img g-dakhla sm">
+        <div class="city-card-inner">
+          <span class="city-name sm-name">Dakhla</span>
+          <span class="city-region">Sahara Atlantique</span>
+        </div>
+      </div>
+      <div class="city-hover-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     EXPÉRIENCES
+══════════════════════════════════════════════ -->
+<section id="experiences">
+  <div class="sec-eyebrow">Expériences</div>
+  <div class="sec-title">Art de vivre marocain</div>
+  <div class="sec-sub">Des aventures uniques, du désert à l'océan</div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-icon"><i class="ti ti-horse"></i></div>
+      <div class="exp-name">Trek saharien</div>
+      <div class="exp-desc">Traversée des ergs en dromadaire. Nuit sous les étoiles de l'Erg Chebbi. Bivouac berbère authentique.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon"><i class="ti ti-wave-sine"></i></div>
+      <div class="exp-name">Surf atlantique</div>
+      <div class="exp-desc">Taghazout, Essaouira, Sidi Ifni. Spots de renommée mondiale. Cours tous niveaux disponibles.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon"><i class="ti ti-mountain"></i></div>
+      <div class="exp-name">Ascension Toubkal</div>
+      <div class="exp-desc">4 167 m. Plus haut sommet d'Afrique du Nord. Deux jours depuis Imlil avec guide certifié.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon"><i class="ti ti-tools-kitchen-2"></i></div>
+      <div class="exp-name">Cuisine fassi</div>
+      <div class="exp-desc">Ateliers pastilla, couscous et tajine avec des chefs de Fès. Immersion culinaire totale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     HÉBERGEMENT
+══════════════════════════════════════════════ -->
+<section id="hebergement">
+  <div class="sec-eyebrow">Hébergement d'exception</div>
+  <div class="sec-title">Palaces & Riads de prestige</div>
+  <div class="sec-sub">Une sélection raffinée pour un séjour inoubliable</div>
+  <div class="hotels-grid">
+    <div class="hotel-card">
+      <div class="hotel-img-h g-marrakech">
+        <div class="h-stars">★ ★ ★ ★ ★</div>
+        <div class="h-city">Marrakech</div>
+      </div>
+      <div class="hotel-body-c">
+        <div class="hotel-name-c">La Mamounia</div>
+        <div class="hotel-desc-c">Palace légendaire depuis 1923. Favori de Winston Churchill. Jardins d'orangers et de roses à perte de vue.</div>
+        <div class="hotel-price-c">À partir de <span>4 000 MAD</span> / nuit</div>
+        <button class="btn-book" onclick="openCity('marrakech')">Voir Marrakech</button>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-h g-fes">
+        <div class="h-stars">★ ★ ★ ★ ★</div>
+        <div class="h-city">Fès</div>
+      </div>
+      <div class="hotel-body-c">
+        <div class="hotel-name-c">Riad Fès Relais</div>
+        <div class="hotel-desc-c">Le palace ultime de Fès. Hammam privé, spa, vue imprenable sur la médina millénaire.</div>
+        <div class="hotel-price-c">À partir de <span>2 000 MAD</span> / nuit</div>
+        <button class="btn-book" onclick="openCity('fes')">Voir Fès</button>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-h g-casa">
+        <div class="h-stars">★ ★ ★ ★ ★</div>
+        <div class="h-city">Casablanca</div>
+      </div>
+      <div class="hotel-body-c">
+        <div class="hotel-name-c">Four Seasons Casablanca</div>
+        <div class="hotel-desc-c">Palace face à l'Atlantique. Service impeccable et vue panoramique sur l'océan.</div>
+        <div class="hotel-price-c">À partir de <span>3 000 MAD</span> / nuit</div>
+        <button class="btn-book" onclick="openCity('casa')">Voir Casablanca</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     GASTRONOMIE
+══════════════════════════════════════════════ -->
+<section id="gastronomie">
+  <div class="sec-eyebrow">Art culinaire</div>
+  <div class="sec-title">La cuisine marocaine</div>
+  <div class="sec-sub">Épices, traditions et saveurs de mille ans</div>
+  <div class="gastro-cols">
+    <div>
+      <div class="plats-list">
+        <div class="plat-item"><div class="plat-num">01</div><div><div class="plat-n">Tajine</div><div class="plat-d">Mijoté en terre cuite — la recette reine du Maroc</div></div></div>
+        <div class="plat-item"><div class="plat-num">02</div><div><div class="plat-n">Couscous</div><div class="plat-d">Plat national du vendredi, servi en famille</div></div></div>
+        <div class="plat-item"><div class="plat-num">03</div><div><div class="plat-n">Pastilla</div><div class="plat-d">Feuilleté sucré-salé au pigeon ou aux fruits de mer</div></div></div>
+        <div class="plat-item"><div class="plat-num">04</div><div><div class="plat-n">Harira</div><div class="plat-d">Soupe de lentilles et tomates — incontournable du Ramadan</div></div></div>
+        <div class="plat-item"><div class="plat-num">05</div><div><div class="plat-n">Thé à la menthe</div><div class="plat-d">Rituel sacré d'hospitalité — versé de haut pour mousser</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="restos-grid-g">
+        <div class="resto-item-g"><div class="resto-top"><div class="resto-name-g">Dar Yacout</div><div class="resto-stars-g">★★★★★</div></div><div class="resto-ville-g">Marrakech</div><div class="resto-desc-g">Dîner de prestige dans un palais du XVIIIe. Musique gnaoua en live.</div></div>
+        <div class="resto-item-g"><div class="resto-top"><div class="resto-name-g">Rick's Café</div><div class="resto-stars-g">★★★★★</div></div><div class="resto-ville-g">Casablanca</div><div class="resto-desc-g">Ambiance film Casablanca 1940s. Institution mythique de la ville blanche.</div></div>
+        <div class="resto-item-g"><div class="resto-top"><div class="resto-name-g">Le Dhow</div><div class="resto-stars-g">★★★★★</div></div><div class="resto-ville-g">Rabat</div><div class="resto-desc-g">Restaurant flottant sur le Bouregreg. Vue unique sur les deux rives.</div></div>
+        <div class="resto-item-g"><div class="resto-top"><div class="resto-name-g">Restaurant Nur</div><div class="resto-stars-g">★★★★★</div></div><div class="resto-ville-g">Fès</div><div class="resto-desc-g">Gastronomie marocaine revisitée par un chef primé. Menu dégustation.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="f-brand">Maroc <span>Éternel</span></div>
+      <div class="f-desc">Portail touristique officiel du Maroc. Découvrez les richesses, la culture et l'hospitalité légendaire du Royaume.</div>
+    </div>
+    <div>
+      <div class="f-head">Destinations</div>
+      <span class="f-link" onclick="openCity('marrakech')">Marrakech</span>
+      <span class="f-link" onclick="openCity('fes')">Fès</span>
+      <span class="f-link" onclick="openCity('chefchaouen')">Chefchaouen</span>
+      <span class="f-link" onclick="openCity('merzouga')">Merzouga</span>
+      <span class="f-link" onclick="openCity('dakhla')">Dakhla</span>
+    </div>
+    <div>
+      <div class="f-head">Expériences</div>
+      <span class="f-link">Surf atlantique</span>
+      <span class="f-link">Trek & Atlas</span>
+      <span class="f-link">Désert & dunes</span>
+      <span class="f-link">Hammam & spa</span>
+    </div>
+    <div>
+      <div class="f-head">Pratique</div>
+      <span class="f-link">Visa & formalités</span>
+      <span class="f-link">Monnaie & budget</span>
+      <span class="f-link">Transport</span>
+      <span class="f-link">Santé & sécurité</span>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span class="f-copy">© 2026 Maroc Éternel — Projet GI1-2026</span>
+    <span class="f-copy">Fait avec soin au Maroc</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     OVERLAY PAGE VILLE (plein écran)
+══════════════════════════════════════════════ -->
+<div id="city-overlay">
+  <!-- En-tête avec image de fond -->
+  <div class="ov-header" id="ov-header">
+    <button class="ov-close" onclick="closeCity()">✕</button>
+    <div class="ov-header-content">
+      <div class="ov-eyebrow" id="ov-eyebrow">Destination</div>
+      <div class="ov-title" id="ov-title">Ville</div>
+      <div class="ov-subtitle" id="ov-subtitle">Région</div>
+    </div>
+  </div>
+
+  <!-- Onglets de navigation -->
+  <div class="ov-tabs">
+    <div class="ov-tab active" onclick="showTab('histoire')">Histoire</div>
+    <div class="ov-tab" onclick="showTab('sites')">Sites touristiques</div>
+    <div class="ov-tab" onclick="showTab('hotels')">Hôtels</div>
+    <div class="ov-tab" onclick="showTab('restaurants')">Restaurants</div>
+    <div class="ov-tab" onclick="showTab('activites')">Activités</div>
+  </div>
+
+  <!-- Contenu des onglets -->
+  <div class="ov-body active" id="tab-histoire"></div>
+  <div class="ov-body" id="tab-sites"></div>
+  <div class="ov-body" id="tab-hotels"></div>
+  <div class="ov-body" id="tab-restaurants"></div>
+  <div class="ov-body" id="tab-activites"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT – Données & Logique
+══════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ──────────────────────────────────────────────
+   BASE DE DONNÉES DES 15 VILLES
+────────────────────────────────────────────── */
+const CITIES = {
+
+  tanger:{
+    name:'Tanger',eyebrow:'Nord du Maroc',subtitle:'Détroit de Gibraltar · Fondée ~Xe s. av. J.-C.',
+    gradient:'linear-gradient(160deg,#0d1f35,#1a4a6e)',
+    histoire:{
+      texte:`Tanger est l'une des plus anciennes cités d'Afrique du Nord, fondée par les Phéniciens vers le Xe siècle avant J.-C. sous le nom d'Ingletha. Carrefour stratégique entre l'Atlantique et la Méditerranée, elle fut successivement romaine (Tingis), vandale, byzantine, arabe, portugaise, puis ville internationale de 1923 à 1956.\n\nCe cosmopolitisme unique a inspiré des génies : Matisse y peint ses nus lumineux, Delacroix y découvre l'Orient, et des écrivains de la Beat Generation — Burroughs, Kerouac, Ginsberg — y séjournent. Aujourd'hui, Tanger est en plein essor grâce au port Tanger Med, premier port d'Afrique.`,
+      timeline:[
+        {yr:'~950 av. J.-C.',tx:'Fondation phénicienne sous le nom d\'Ingletha'},
+        {yr:'146 av. J.-C.',tx:'Tingis, capitale romaine de Maurétanie Tingitane'},
+        {yr:'1471',tx:'Prise par les Portugais, début du comptoir européen'},
+        {yr:'1923–1956',tx:'Zone internationale sous administration multinationale'},
+        {yr:'1956',tx:'Réunification avec le Maroc indépendant'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#0d1f35,#1a4a6e)',label:'Médina & Kasbah'},
+        {bg:'linear-gradient(160deg,#051a30,#0d3a5e)',label:'Cap Spartel'},
+        {bg:'linear-gradient(160deg,#0a1520,#123050)',label:'Détroit de Gibraltar'},
+        {bg:'linear-gradient(160deg,#080d18,#0f2040)',label:'Corniche'},
+      ]
+    },
+    sites:[
+      {type:'Médina',name:'Kasbah de Tanger',desc:'Forteresse dominant le détroit, musée archéologique avec bronzes et mosaïques romaines. Vue imprenable sur Gibraltar par beau temps.'},
+      {type:'Nature',name:'Cap Spartel',desc:'Pointe la plus septentrionale de l\'Afrique, là où Atlantique et Méditerranée se rencontrent. Phare du XIXe siècle et couchers de soleil spectaculaires.'},
+      {type:'Site naturel',name:'Grottes d\'Hercule',desc:'Grottes préhistoriques creusées par la mer à 14 km de Tanger, liées au mythe d\'Hercule qui y aurait séparé Europe et Afrique.'},
+      {type:'Musée',name:'Légation américaine',desc:'Premier bien américain en dehors des États-Unis (1821), classé monument historique national américain. Musée de la relation maroco-américaine.'},
+      {type:'Marché',name:'Souk Petit Socco',desc:'Cœur historique de la médina, ancien marché de change et de contrebande, aujourd\'hui animé de cafés et d\'artisans.'},
+      {type:'Plage',name:'Plage Malabata',desc:'Grande plage à l\'est de la ville avec vue sur le port Tanger Med, station balnéaire moderne avec hôtels et restaurants.'},
+    ],
+    hotels:[
+      {name:'Hôtel El Minzah',stars:'★ ★ ★ ★ ★',desc:'Palace historique de 1930, favori des diplomates et artistes. Jardins d\'orangers, hammam et vue sur le détroit.',price:'950 MAD',gradient:'linear-gradient(160deg,#0d1f35,#1a4a6e)',link:'https://www.booking.com'},
+      {name:'Hilton Tanger City Center',stars:'★ ★ ★ ★ ★',desc:'Tour moderne au centre-ville, piscine panoramique, spa et vue à 360° sur la baie et le détroit de Gibraltar.',price:'1 200 MAD',gradient:'linear-gradient(160deg,#0a1a30,#153a60)',link:'https://www.hilton.com'},
+      {name:'Rembrandt Hotel & Spa',stars:'★ ★ ★ ★',desc:'Hôtel historique dans le quartier diplomatique, ambiance coloniale chic, terrasse panoramique sur le détroit.',price:'550 MAD',gradient:'linear-gradient(160deg,#080f20,#101e40)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'El Morocco Club',stars:'★★★★★',cuisine:'Marocain raffiné',desc:'Dîner dans un riad du XVIIe siècle. Cuisine marocaine gastronomique, cave à vins, musique andalouse en soirée.',phone:'+212 539-948-139',insta:'elmoroccoclub'},
+      {name:'Saveur de Poisson',stars:'★★★★',cuisine:'Fruits de mer',desc:'Institution incontournable de Tanger. Pas de menu — le chef choisit selon la pêche du jour. File d\'attente garantie.',phone:'+212 539-936-326',insta:'saveurdepoisson_tanger'},
+      {name:'Hammadi',stars:'★★★',cuisine:'Traditionnel marocain',desc:'Au cœur de la médina depuis 1955. Décor berbère authentique, tagines généreux et thé à la menthe cérémoniel.',phone:'+212 539-934-514',insta:'hammadi_tanger'},
+      {name:'Le Nabab',stars:'★★★★',cuisine:'Fusion méditerranéen',desc:'Vue panoramique sur la baie, cuisine franco-marocaine créative, terrasse idéale pour le coucher de soleil.',phone:'+212 539-322-885',insta:'lenabab_tanger'},
+    ],
+    activites:[
+      {type:'Excursion',name:'Asilah & ses fresques',desc:'Village côtier aux remparts portugaises du XVe siècle, célèbre pour son festival de peintures murales (août). À 45 km au sud de Tanger.',contact:'+212 539-417-282'},
+      {type:'Sport nautique',name:'Surf & kitesurf',desc:'Les plages de la Corniche offrent de bonnes conditions pour les débutants. École de surf avec matériel à louer.',contact:'+212 661-234-567'},
+      {type:'Culturel',name:'Visite guidée médina',desc:'Guide officiel pour explorer la kasbah, le palais du sultan, la mosquée de la Kasbah et les souks authentiques.',contact:'+212 539-940-100'},
+      {type:'Nature',name:'Randonnée Cap Malabata',desc:'Sentier côtier entre la plage Malabata et le cap, avec vue sur le détroit et les côtes espagnoles par temps clair.',contact:'+212 661-789-012'},
+    ]
+  },
+
+  tetouan:{
+    name:'Tétouan',eyebrow:'Nord du Maroc',subtitle:'Rif — La Colombe Blanche · Fondée IIIe s. av. J.-C.',
+    gradient:'linear-gradient(160deg,#0d2535,#14506e)',
+    histoire:{
+      texte:`Tétouan fut fondée au IIIe siècle avant J.-C. par les Berbères Maurétaniens. Détruite par les Romains en 148 av. J.-C., elle est reconstruite en 1484 par les Wattassides et les réfugiés andalous chassés d'Espagne après la Reconquista, qui lui donnent son architecture hispano-mauresqe unique.\n\nSa médina, surnommée "la Blanche" ou "la Colombe", est classée au patrimoine mondial de l'UNESCO depuis 1997. Capitale du Protectorat espagnol de 1912 à 1956, elle conserve de nombreux bâtiments de style néo-mauresque de cette époque.`,
+      timeline:[
+        {yr:'IIIe s. av. J.-C.',tx:'Fondation berbère de Tamuda sur la rivière Martil'},
+        {yr:'148 av. J.-C.',tx:'Destruction par Rome lors de la guerre jugurthine'},
+        {yr:'1484',tx:'Reconstruction par des réfugiés andalous de Grenade et Ronda'},
+        {yr:'1912–1956',tx:'Capitale du Protectorat espagnol du Maroc'},
+        {yr:'1997',tx:'Médina classée Patrimoine mondial UNESCO'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#0d2535,#14506e)',label:'Médina UNESCO'},
+        {bg:'linear-gradient(160deg,#0a1a2a,#103550)',label:'Place Hassan II'},
+        {bg:'linear-gradient(160deg,#080f1e,#0d2a40)',label:'Artisanat'},
+        {bg:'linear-gradient(160deg,#051520,#0a2535)',label:'Architecture andalouse'},
+      ]
+    },
+    sites:[
+      {type:'Médina UNESCO',name:'Médina de Tétouan',desc:'Labyrinthe de ruelles blanches aux influences hispano-mauresques. Souks d\'artisanat (broderies, zelliges, cuir), fondouks du XVIIe siècle.'},
+      {type:'Musée',name:'Musée Archéologique',desc:'Collections romaines de Tamuda, monnaies phéniciennes, céramiques berbères et objets islamiques médiévaux.'},
+      {type:'Musée',name:'Musée d\'Art et d\'Histoire',desc:'Dans l\'ancienne résidence du pacha, art populaire marocain, costumes andalous, instruments de musique traditionnels.'},
+      {type:'Culture',name:'École des Beaux-Arts',desc:'Fondée en 1945, l\'une des premières écoles d\'arts plastiques du Maroc. Galerie permanente ouverte au public.'},
+      {type:'Plage',name:'Plage Martil',desc:'Station balnéaire à 5 km, très animée en été, eau chaude et claire, restaurants de poissons frais sur la plage.'},
+      {type:'Nature',name:'Parc Naturel Bouhachem',desc:'Forêts de chênes-lièges et de cèdres dans les montagnes du Rif, randonnées et faune sauvage exceptionnelle.'},
+    ],
+    hotels:[
+      {name:'Sofitel Tamuda Bay',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles sur la baie de Tamuda, plage privée, thalasso, 4 restaurants et accès direct à la mer.',price:'2 100 MAD',gradient:'linear-gradient(160deg,#0d2535,#14506e)',link:'https://www.sofitel.com'},
+      {name:'Hôtel Chams',stars:'★ ★ ★ ★',desc:'Hôtel central avec piscine, vue sur le Rif, ambiance familiale et restaurant de cuisine marocaine traditionnelle.',price:'480 MAD',gradient:'linear-gradient(160deg,#0a1a2a,#103550)',link:'https://www.booking.com'},
+      {name:'Riad Dalia',stars:'★ ★ ★',desc:'Riad en pleine médina, chambres décorées d\'artisanat local, patio fleuri, petit-déjeuner marocain traditionnel.',price:'320 MAD',gradient:'linear-gradient(160deg,#080f1e,#0d2a40)',link:'https://www.airbnb.com'},
+    ],
+    restaurants:[
+      {name:'Blanco Riad',stars:'★★★★★',cuisine:'Fusion méditerranéen',desc:'Dans un riad du XVIIe siècle, cuisine créative mêlant influences marocaines et andalouses. Cave à vins sélectionnée.',phone:'+212 539-704-202',insta:'blancoriad'},
+      {name:'Restaurant Saigon',stars:'★★★',cuisine:'Fusion marocain-asiatique',desc:'Surprise gastronomique à Tétouan — fusion unique entre tajines marocains et recettes vietnamiennes du chef.',phone:'+212 539-963-777',insta:'saigon_tetouan'},
+      {name:'Café M\'siyar',stars:'★★★',cuisine:'Traditionnel marocain',desc:'Café-restaurant au cœur de la médina, réputé pour ses harira, ses brioches sfenj et son thé à la menthe.',phone:'+212 539-960-000',insta:'cafe_msiyar'},
+      {name:'La Marina Tamuda',stars:'★★★★',cuisine:'Fruits de mer',desc:'Sur la plage de Tamuda Bay, poissons grillés ultra-frais, paëlla et fruits de mer en bord de Méditerranée.',phone:'+212 539-978-200',insta:'marina_tamuda'},
+    ],
+    activites:[
+      {type:'Randonnée',name:'Montagnes du Rif',desc:'Sentiers de randonnée dans les massifs du Rif dominant Tétouan, villages berbères traditionnels et panoramas exceptionnels.',contact:'+212 661-456-789'},
+      {type:'Artisanat',name:'Cours de poterie & zelliges',desc:'Atelier chez les artisans de la médina pour apprendre le tournage et la peinture de la céramique traditionnelle.',contact:'+212 539-700-120'},
+      {type:'Sport',name:'Kitesurf Tamuda Bay',desc:'La baie de Tamuda offre des conditions parfaites pour le kitesurf, avec écoles et locations de matériel.',contact:'+212 661-987-654'},
+      {type:'Culturel',name:'Visite guidée médina UNESCO',desc:'Guide officiel bilingue pour découvrir les coins cachés de la médina, les fondouks et l\'histoire andalouse.',contact:'+212 539-960-500'},
+    ]
+  },
+
+  chefchaouen:{
+    name:'Chefchaouen',eyebrow:'Nord du Maroc',subtitle:'Rif — La Ville Bleue · Fondée en 1471',
+    gradient:'linear-gradient(160deg,#0d1e3d,#1a3a7a)',
+    histoire:{
+      texte:`Fondée en 1471 par Moulay Ali ibn Rachid pour protéger les musulmans et les Juifs chassés d'Espagne après la Reconquista, Chefchaouen est célèbre dans le monde entier pour ses bâtiments teints en nuances infinies de bleu et de blanc. Cette tradition de peinture en bleu aurait été introduite par les réfugiés juifs séfarades au XVe siècle, qui considèrent cette couleur comme sacrée.\n\nNichée dans les montagnes du Rif à 600 m d'altitude, la "Ville Bleue" reste l'une des destinations les plus photographiées au monde, mêlant architecture hispano-marocaine et ambiance mystique unique.`,
+      timeline:[
+        {yr:'1471',tx:'Fondation par Moulay Ali ibn Rachid comme forteresse défensive'},
+        {yr:'1492',tx:'Arrivée des réfugiés juifs séfarades fuyant l\'Inquisition espagnole'},
+        {yr:'XVIIe s.',tx:'Généralisation de la peinture bleue sur les façades et les ruelles'},
+        {yr:'1920',tx:'Prise par les Espagnols lors de la Guerre du Rif'},
+        {yr:'1956',tx:'Intégration au Maroc indépendant'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#0d1e3d,#1a3a7a)',label:'Ruelles bleues'},
+        {bg:'linear-gradient(160deg,#0a1530,#152a60)',label:'Place Uta el-Hammam'},
+        {bg:'linear-gradient(160deg,#080e25,#101e50)',label:'Fontaine bleue'},
+        {bg:'linear-gradient(160deg,#060a1e,#0c1540)',label:'Kasbah'},
+      ]
+    },
+    sites:[
+      {type:'Place',name:'Place Uta el-Hammam',desc:'Cœur battant de la vieille ville entourée de cafés, restaurants et de la Grande Mosquée du XVe siècle. Idéale au coucher du soleil.'},
+      {type:'Musée',name:'Kasbah & Musée ethnographique',desc:'Forteresse du XVe siècle restaurée, avec jardin andalou et musée d\'art populaire rifain : costumes, armes et instruments de musique.'},
+      {type:'Nature',name:'Cascade Ras el Ma',desc:'Source naturelle d\'eau fraîche à l\'entrée de la ville, point de départ de randonnées vers le Jbel el Kelaa (1 616 m).'},
+      {type:'Médina',name:'Quartier bleu labyrinthique',desc:'Des dizaines de ruelles bleues et blanches, chacune différente, avec portes sculptées, pots de fleurs et passages secrets.'},
+      {type:'Artisanat',name:'Coopérative des tisserands',desc:'Ateliers de tissage de tapis berbères et de djellabas, avec possibilité d\'observer les artisans au travail et d\'acheter directement.'},
+      {type:'Panorama',name:'Mosquée espagnole',desc:'Ancienne mosquée construite à l\'époque du protectorat, vue panoramique unique sur Chefchaouen et ses toits bleus.'},
+    ],
+    hotels:[
+      {name:'Riad Dar Echchaouen',stars:'★ ★ ★ ★',desc:'Riad au cœur de la médina bleue, terrasse panoramique, décor artisanal chefchaouni, cuisine marocaine maison.',price:'650 MAD',gradient:'linear-gradient(160deg,#0d1e3d,#1a3a7a)',link:'https://www.booking.com'},
+      {name:'Hotel Parador',stars:'★ ★ ★ ★',desc:'Vue imprenable sur la ville bleue depuis la piscine, jardins andalous, restaurant renommé et spa traditionnel.',price:'800 MAD',gradient:'linear-gradient(160deg,#0a1530,#152a60)',link:'https://www.booking.com'},
+      {name:'Casa Perleta',stars:'★ ★ ★',desc:'Maison d\'hôtes dans la médina, chambres aux carreaux de zellige bleus, petit-déjeuner berbère sur la terrasse.',price:'400 MAD',gradient:'linear-gradient(160deg,#080e25,#101e50)',link:'https://www.airbnb.com'},
+    ],
+    restaurants:[
+      {name:'Restaurant Tissemlal',stars:'★★★★',cuisine:'Marocain traditionnel',desc:'Toit-terrasse avec vue sur les montagnes du Rif. Spécialité de chèvre grillé local et couscous berbère aux 7 légumes.',phone:'+212 539-986-153',insta:'tissemlal_chef'},
+      {name:'Chez Hicham',stars:'★★★',cuisine:'Tajine & Couscous',desc:'Table familiale authentique au bord de la source Ras el Ma. Tajine de chèvre montagnard et harira maison.',phone:'+212 539-987-020',insta:'chezhicham_chaouen'},
+      {name:'Aladdin Restaurant',stars:'★★★',cuisine:'Méditerranéen',desc:'Terrasse fleurie avec vue sur les remparts. Grillades, salades fraîches et cuisine végétarienne inspirée du Rif.',phone:'+212 539-986-092',insta:'aladdin_chaouen'},
+      {name:'Café Clock Chefchaouen',stars:'★★★',cuisine:'Fusion créative',desc:'Antenne du célèbre Café Clock de Fès. Camel burger, smoothies aux épices du Rif et concerts de musique live.',phone:'+212 539-870-200',insta:'cafeclock_chaouen'},
+    ],
+    activites:[
+      {type:'Randonnée',name:'Ascension Jbel el Kelaa',desc:'Sommet à 1 616 m, panorama à 360° sur Chefchaouen, la mer Méditerranée et les montagnes du Rif. 3h aller-retour.',contact:'+212 661-567-890'},
+      {type:'Artisanat',name:'Atelier tapis berbères',desc:'Apprenez le tissage traditionnel dans les coopératives de femmes de la médina, et repartez avec votre création.',contact:'+212 539-985-100'},
+      {type:'Culturel',name:'Visite guidée nocturne',desc:'La médina bleue prend une dimension magique la nuit, avec ses ruelles illuminées et ses jardins parfumés.',contact:'+212 661-234-567'},
+      {type:'Nature',name:'Cascade Akchour',desc:'À 28 km de Chefchaouen, cascades spectaculaires dans les gorges du Rif, baignade possible en été.',contact:'+212 661-345-678'},
+    ]
+  },
+
+  houceima:{
+    name:'Al Hoceima',eyebrow:'Nord du Maroc',subtitle:'Méditerranée — Baie de lumière · Fondée en 1925',
+    gradient:'linear-gradient(160deg,#051a30,#0d3a5e)',
+    histoire:{
+      texte:`Al Hoceima, anciennement Villa Sanjurjo sous le protectorat espagnol, est une ville côtière fondée en 1925 au bord de la Méditerranée dans la région du Rif. Sa baie en croissant aux eaux turquoise est considérée comme l'une des plus belles de toute la Méditerranée.\n\nLa ville est au cœur de la résistance rifaine : Abd el-Krim el-Khattabi, "l'émir du Rif", y mena la Guerre du Rif (1921-1926), infligeant une défaite historique à l'Espagne à la bataille d'Anoual. Cette épopée est aujourd'hui un symbole de fierté nationale pour les Marocains.`,
+      timeline:[
+        {yr:'1921',tx:'Bataille d\'Anoual : victoire d\'Abd el-Krim contre l\'armée espagnole'},
+        {yr:'1925',tx:'Fondation de Villa Sanjurjo par le protectorat espagnol'},
+        {yr:'1926',tx:'Capitulation d\'Abd el-Krim après l\'intervention française'},
+        {yr:'1956',tx:'Intégration au Maroc indépendant, renommée Al Hoceima'},
+        {yr:'2004',tx:'Tremblement de terre : reconstruction et développement touristique'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#051a30,#0d3a5e)',label:'Baie d\'Al Hoceima'},
+        {bg:'linear-gradient(160deg,#030f1e,#0a2840)',label:'Plage Quemado'},
+        {bg:'linear-gradient(160deg,#020a18,#081e30)',label:'Parc national marin'},
+        {bg:'linear-gradient(160deg,#010609,#051520)',label:'Falaises du Rif'},
+      ]
+    },
+    sites:[
+      {type:'Parc national',name:'Parc National d\'Al Hoceima',desc:'Premier parc national marin du Maroc, créé en 2004 : falaises vertigineuses, criques secrètes et fonds sous-marins parmi les plus préservés de Méditerranée.'},
+      {type:'Plage',name:'Plage Quemado',desc:'Plage en forme de fer à cheval au pied de la ville, eaux cristallines turquoise, idéale pour la baignade et la plongée.'},
+      {type:'Site historique',name:'Mémorial Abd el-Krim',desc:'Monument dédié au héros rifain, symbole de la résistance marocaine contre le colonialisme espagnol en 1921.'},
+      {type:'Nature',name:'Criques de Torres de Alcalá',desc:'Criques sauvages accessibles en bateau ou à pied, eaux transparentes et snorkeling extraordinaire.'},
+      {type:'Site historique',name:'Îlot Peñón de Alhucemas',desc:'Enclave espagnole visible depuis la baie, lieu de la célèbre invasion amphibie de 1925, chargé d\'histoire.'},
+      {type:'Plage',name:'Plage Cala Iris',desc:'Plage isolée à 35 km d\'Al Hoceima, village de pêcheurs authentique avec poissons grillés frais sur la plage.'},
+    ],
+    hotels:[
+      {name:'Hôtel Quemado Resort',stars:'★ ★ ★ ★',desc:'Resort sur la baie avec accès direct à la plage Quemado, piscine, terrasse panoramique et restaurant de fruits de mer.',price:'750 MAD',gradient:'linear-gradient(160deg,#051a30,#0d3a5e)',link:'https://www.booking.com'},
+      {name:'Mohammed V Hotel',stars:'★ ★ ★',desc:'Hôtel historique du centre-ville, vue sur la baie, restaurant marocain et ambiance familiale authentique.',price:'380 MAD',gradient:'linear-gradient(160deg,#030f1e,#0a2840)',link:'https://www.booking.com'},
+      {name:'Riad Baie de Lumière',stars:'★ ★ ★',desc:'Petite maison d\'hôtes avec terrasse vue mer, décor berbère, petit-déjeuner avec produits du Rif.',price:'290 MAD',gradient:'linear-gradient(160deg,#020a18,#081e30)',link:'https://www.airbnb.com'},
+    ],
+    restaurants:[
+      {name:'Club Nautique',stars:'★★★★',cuisine:'Fruits de mer',desc:'Sur le port de pêche, poissons et fruits de mer ultra-frais débarqués le matin même. Vue directe sur la baie.',phone:'+212 539-982-100',insta:'clubnautique_hoceima'},
+      {name:'Restaurant Méditerranée',stars:'★★★',cuisine:'Poissons grillés',desc:'Spécialité de dorade et loup de mer grillés au feu de bois, servis avec chermoula maison et citron confit.',phone:'+212 539-981-020',insta:'mediterranee_hoceima'},
+      {name:'Café du Port',stars:'★★',cuisine:'Snack marocain',desc:'Terrasse directement sur la promenade du port, sandwichs au poisson frit, mlawi et jus d\'orange frais.',phone:'+212 539-981-500',insta:'cafe_port_hoceima'},
+      {name:'Riad Zitoun',stars:'★★★',cuisine:'Marocain traditionnel',desc:'Cuisine rifaine authentique dans un cadre traditionnel : mechui d\'agneau, msemen et pastilla au lait.',phone:'+212 661-456-789',insta:'riadzitoun_hoceima'},
+    ],
+    activites:[
+      {type:'Plongée',name:'Plongée sous-marine',desc:'Le parc national offre des spots de plongée parmi les 10 meilleurs de Méditerranée : posidonies, mérous et épaves.',contact:'+212 661-789-456'},
+      {type:'Randonnée',name:'Sentier des falaises',desc:'Randonnée côtière entre Torres de Alcalá et Cala Iris, vues à couper le souffle sur la Méditerranée.',contact:'+212 539-840-100'},
+      {type:'Sport nautique',name:'Kayak de mer',desc:'Location et excursions guidées en kayak pour explorer les criques secrètes du parc national marin.',contact:'+212 661-123-456'},
+      {type:'Excursion',name:'Massif du Rif',desc:'Circuit en 4x4 dans les villages berbères des montagnes du Rif, rencontre des artisans et paysages sauvages.', contact:'+212 661-789-123'},
+    ]
+  },
+
+  fes:{
+    name:'Fès',eyebrow:'Centre-Nord du Maroc',subtitle:'Capitale spirituelle · Fondée en 789',
+    gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',
+    histoire:{
+      texte:`Fès est la première des villes impériales du Maroc, fondée en 789 par Idriss Ier, fondateur de la première dynastie arabe du Maroc. Elle atteignit son apogée sous les Mérinides (XIIIe-XIVe siècles) qui y bâtirent de splendides médersas. La ville abrite la plus vieille université du monde encore en activité : la Mosquée-Université Al Quaraouiyine, fondée en 859 par Fatima al-Fihri.\n\nSa médina, Fès el-Bali, classée au patrimoine mondial de l'UNESCO depuis 1981, est la plus grande zone piétonne médiévale du monde avec plus de 9 400 ruelles. C'est le centre spirituel, culturel et artisanal incontesté du Maroc.`,
+      timeline:[
+        {yr:'789',tx:'Fondation par Moulay Idriss Ier sur la rive droite du Fez'},
+        {yr:'809',tx:'Fondation de la rive gauche par Idriss II, unification de la ville'},
+        {yr:'859',tx:'Création de l\'université Al Quaraouiyine par Fatima al-Fihri'},
+        {yr:'XIIIe–XIVe s.',tx:'Apogée mérinide : médersas, fondouks et palais monumentaux'},
+        {yr:'1981',tx:'Médina Fès el-Bali classée Patrimoine mondial UNESCO'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#2d1500,#7b3f00)',label:'Tanneries Chouara'},
+        {bg:'linear-gradient(160deg,#1a0c00,#4a2500)',label:'Médersa Bou Inania'},
+        {bg:'linear-gradient(160deg,#100800,#2d1800)',label:'Al Quaraouiyine'},
+        {bg:'linear-gradient(160deg,#0a0500,#200e00)',label:'Médina el-Bali'},
+      ]
+    },
+    sites:[
+      {type:'Médina UNESCO',name:'Fès el-Bali',desc:'Plus grande médina médiévale du monde, 9 400 ruelles piétonnes, classée UNESCO en 1981. Un labyrinthe vivant hors du temps.'},
+      {type:'Université',name:'Al Quaraouiyine',desc:'Plus ancienne université du monde encore en activité, fondée en 859 par Fatima al-Fihri. Ouverte aux visiteurs non-musulmans (extérieur).'},
+      {type:'Artisanat',name:'Tanneries Chouara',desc:'Célèbres tanneries médiévales où le cuir est traité dans des cuves de teinture selon des méthodes millénaires. Vue depuis les terrasses des maroquineries.'},
+      {type:'Monument',name:'Médersa Bou Inania',desc:'Chef-d\'œuvre de l\'architecture mérinide (1351), avec ses zelliges multicolores, ses boiseries sculptées et son minaret élancé.'},
+      {type:'Musée',name:'Musée Batha',desc:'Arts décoratifs marocains dans un palais andalou du XIXe siècle : zellige, broderies, poteries bleues de Fès et instruments de musique.'},
+      {type:'Monument',name:'Borj Nord — Musée des Armes',desc:'Forteresse du XVIe siècle dominant la médina, musée avec 8 000 pièces d\'armement de la poudre à canon au XXe siècle.'},
+    ],
+    hotels:[
+      {name:'Palais Faraj Suites & Spa',stars:'★ ★ ★ ★ ★',desc:'Palace dominant la médina, suites décorées d\'artisanat fassi exceptionnel, spa hammam, terrasse avec vue unique sur les toits.',price:'2 800 MAD',gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',link:'https://www.palaisfaraj.com'},
+      {name:'Riad Fès Relais & Châteaux',stars:'★ ★ ★ ★ ★',desc:'Le plus luxueux riad de Fès, hammam privé, piscine chauffée, restaurant gastronomique et service personnalisé d\'exception.',price:'2 200 MAD',gradient:'linear-gradient(160deg,#1a0c00,#4a2500)',link:'https://www.riadfes.com'},
+      {name:'Hôtel Mérinides',stars:'★ ★ ★ ★',desc:'Vue panoramique inégalée sur l\'ensemble de la médina depuis les chambres et la piscine, idéal pour les couchers de soleil.',price:'900 MAD',gradient:'linear-gradient(160deg,#100800,#2d1800)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Riad Rcif',stars:'★★★★★',cuisine:'Haute cuisine marocaine',desc:'Dîner dans un riad du XVIIe siècle, menu dégustation de cuisine fassi raffinée : pastilla royale, tagine M\'rouzia, cornes de gazelle.',phone:'+212 535-638-820',insta:'riadrcif_fes'},
+      {name:'The Ruined Garden',stars:'★★★★',cuisine:'Marocain & international',desc:'Restaurant dans les ruines d\'un palais mérinide, jardin luxuriant, carte créative mêlant influences marocaines et méditerranéennes.',phone:'+212 535-741-521',insta:'ruinedgarden_fes'},
+      {name:'Café Clock',stars:'★★★',cuisine:'Fusion créative',desc:'Institution culturelle autant que restaurant : camel burger, concerts de musique andalouse, cours de cuisine et projections de films.',phone:'+212 535-637-855',insta:'cafeclock'},
+      {name:'Restaurant Nur',stars:'★★★★★',cuisine:'Gastronomie marocaine revisitée',desc:'Chef primé, menu dégustation en 7 services, réinterprétation créative de la cuisine fassi traditionnelle. Réservation obligatoire.',phone:'+212 535-640-069',insta:'nur_fes'},
+    ],
+    activites:[
+      {type:'Culturel',name:'Visite guidée médina',desc:'Guide officiel agréé (indispensable dans Fès el-Bali). Parcours thématiques : architecture mérinide, artisanat, histoire des dynasties.',contact:'+212 535-623-460'},
+      {type:'Gastronomie',name:'Cours de cuisine fassi',desc:'Apprenez à préparer pastilla au pigeon, tagine M\'hammar et corne de gazelle dans le riad d\'un chef fassi traditionnel.',contact:'+212 535-637-860'},
+      {type:'Culturel',name:'Festival de Musique Sacrée',desc:'Festival international de musique sacrée du monde (juin), 30 ans d\'histoire, artistes de 40 pays, concerts gratuits en médina.',contact:'https://www.fesfestival.com'},
+      {type:'Bien-être',name:'Hammam traditionnel fassi',desc:'Rituel de bain marocain authentique dans un hammam du XVe siècle de la médina, massage au savon beldi et kessa.',contact:'+212 535-634-000'},
+    ]
+  },
+
+  ifrane:{
+    name:'Ifrane',eyebrow:'Moyen Atlas',subtitle:'Petite Suisse du Maroc · Fondée en 1929',
+    gradient:'linear-gradient(160deg,#0a1a0a,#1a3a2a)',
+    histoire:{
+      texte:`Surnommée la "Petite Suisse du Maroc" ou "La Ville Propre", Ifrane fut fondée en 1929 par le Protectorat français à 1 650 m d'altitude dans le cœur du Moyen Atlas. La ville est totalement unique au Maroc par son architecture européenne : chalets aux toits pointus couverts de tuiles rouges, rues bordées de sapins et de cèdres, parcs impeccablement entretenus.\n\nElle est le siège de l'Université Al Akhawayn, université anglophone fondée en 1993 avec l'aide des États-Unis, qui accueille des étudiants du monde entier. En hiver, les chutes de neige abondantes transforment Ifrane en station de ski et en décor féerique.`,
+      timeline:[
+        {yr:'1929',tx:'Fondation par le Protectorat français comme ville de villégiature d\'altitude'},
+        {yr:'1939–1945',tx:'Camp de prisonniers puis d\'internement juifs pendant la Seconde Guerre mondiale'},
+        {yr:'1993',tx:'Création de l\'Université Al Akhawayn par Mohammed VI'},
+        {yr:'2005',tx:'Classement de la forêt de cèdres d\'Azrou en parc naturel protégé'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#0a1a0a,#1a3a2a)',label:'Ville sous la neige'},
+        {bg:'linear-gradient(160deg,#061006,#102a18)',label:'Lion de pierre'},
+        {bg:'linear-gradient(160deg,#040a04,#0a1e10)',label:'Lac Dayet Aoua'},
+        {bg:'linear-gradient(160deg,#020602,#060e08)',label:'Cédraie d\'Azrou'},
+      ]
+    },
+    sites:[
+      {type:'Parc naturel',name:'Parc National d\'Ifrane',desc:'125 000 ha de forêts de cèdres millénaires, épicéas et chênes-lièges. Patrie du macaque de Barbarie (singe de Barbarie), espèce menacée.'},
+      {type:'Lac',name:'Lac Dayet Aoua',desc:'Lac naturel de montagne à 1 660 m, refuge d\'oiseaux migrateurs (hérons, canards, ibis), pêche à la truite et pique-nique.'},
+      {type:'Station de ski',name:'Station de ski Michlifen',desc:'Station de ski la plus accessible du Maroc (1 900 m), 4 pistes, télésiège, location de matériel. Saison décembre à mars.'},
+      {type:'Monument',name:'Lion de pierre d\'Ifrane',desc:'Sculpture en pierre d\'un lion couché, symbole de la ville, taillée par un prisonnier allemand pendant la Seconde Guerre mondiale.'},
+      {type:'Nature',name:'Source Vittel d\'Ifrane',desc:'Sources d\'eau pure au pied des montagnes, alimentant la célèbre eau minérale marocaine. Visite de l\'usine d\'embouteillage possible.'},
+      {type:'Village',name:'Village d\'Azrou',desc:'Bourgade berbère à 17 km, marché du mardi animé, coopérative d\'artisanat du Moyen Atlas et accès à la cédraie aux singes.'},
+    ],
+    hotels:[
+      {name:'Hôtel Michlifen Ifrane Resort & Spa',stars:'★ ★ ★ ★ ★',desc:'Resort de luxe avec vue sur les pistes de ski, spa de 2 000 m², piscine chauffée, gastronomie marocaine et internationale.',price:'3 500 MAD',gradient:'linear-gradient(160deg,#0a1a0a,#1a3a2a)',link:'https://www.michlifen.ma'},
+      {name:'Hôtel Perce Neige',stars:'★ ★ ★',desc:'Chalet traditionnel en pierre et bois, ambiance montagnarde authentique, cheminées dans les chambres, restaurant de fondues.',price:'450 MAD',gradient:'linear-gradient(160deg,#061006,#102a18)',link:'https://www.booking.com'},
+      {name:'Riad Meknes Ifrane',stars:'★ ★ ★',desc:'Maison de campagne dans les pins, jardins fleuris, chambres décorées d\'artisanat berbère, idéal pour familles.',price:'380 MAD',gradient:'linear-gradient(160deg,#040a04,#0a1e10)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Restaurant La Paix',stars:'★★★★',cuisine:'Français & Marocain',desc:'Institution d\'Ifrane depuis 50 ans, spécialité de truite du Moyen Atlas, fondue savoyarde et tajine aux pruneaux.',phone:'+212 535-566-075',insta:'lapaix_ifrane'},
+      {name:'Chamonix',stars:'★★★',cuisine:'Montagnard & Raclette',desc:'Décor de chalet alpin, fondue bourguignonne, raclette et charcuteries importées. Idéal après une journée de ski.',phone:'+212 535-566-091',insta:'chamonix_ifrane'},
+      {name:'Café de la Paix',stars:'★★',cuisine:'Snack & café',desc:'Terrasse sous les sapins, petit-déjeuner continental, crêpes maison et chocolat chaud pour se réchauffer.',phone:'+212 535-566-030',insta:'cafedelapaix_ifrane'},
+      {name:'Restaurant Al Alya',stars:'★★★',cuisine:'Marocain traditionnel',desc:'Tajine d\'agneau aux légumes du Moyen Atlas, harira de montagne et msemen grillé. Spécialités berbères de la région.',phone:'+212 535-566-200',insta:'alalya_ifrane'},
+    ],
+    activites:[
+      {type:'Ski',name:'Ski & snowboard Michlifen',desc:'Pistes de ski pour tous niveaux, moniteurs certifiés, location de matériel complet. Saison décembre à mars selon enneigement.',contact:'+212 535-566-000'},
+      {type:'Nature',name:'Observation des macaques',desc:'Randonnée dans la cédraie d\'Azrou pour observer les singes de Barbarie en liberté dans leur habitat naturel.',contact:'+212 535-566-200'},
+      {type:'Randonnée',name:'Tour du Moyen Atlas',desc:'Circuit pédestre autour d\'Ifrane à travers les forêts de cèdres, villages berbères et sources naturelles. Guides locaux disponibles.',contact:'+212 661-456-789'},
+      {type:'Pêche',name:'Pêche à la truite',desc:'Pêche sportive à la truite dans les rivières du Moyen Atlas, très réputée auprès des pêcheurs européens. Permis disponible.',contact:'+212 535-566-300'},
+    ]
+  },
+
+  rabat:{
+    name:'Rabat',eyebrow:'Capitale du Maroc',subtitle:'Atlantique — Cité royale · Fondée au XIIe siècle',
+    gradient:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',
+    histoire:{
+      texte:`Rabat est la capitale administrative du Royaume du Maroc depuis 1912. Fondée au XIIe siècle par le sultan Almohade Yacoub el-Mansour qui y érige la Tour Hassan — minaret inachevé d'une mosquée qui aurait été la plus grande du monde. La Kasbah des Oudaias, dominant l'Atlantique, date du XIIe siècle.\n\nL'ensemble historique de Rabat — incluant la ville nouvelle coloniale et la médina historique — est inscrit au patrimoine mondial de l'UNESCO depuis 2012. En face, sur l'autre rive du Bouregreg, se trouve Salé, l'ancienne ville des corsaires.`,
+      timeline:[
+        {yr:'1150',tx:'Fondation de la Kasbah des Oudaias par les Almohades'},
+        {yr:'1195',tx:'Yacoub el-Mansour lance la Tour Hassan et la grande mosquée'},
+        {yr:'XVIIe s.',tx:'Développement de la Médina par les Morisques expulsés d\'Espagne'},
+        {yr:'1912',tx:'Le Protectorat français choisit Rabat comme capitale administrative'},
+        {yr:'2012',tx:'Ensemble historique classé Patrimoine mondial UNESCO'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',label:'Tour Hassan'},
+        {bg:'linear-gradient(160deg,#100606,#2a1010)',label:'Mausolée Mohammed V'},
+        {bg:'linear-gradient(160deg,#0a0404,#1a0808)',label:'Kasbah des Oudaias'},
+        {bg:'linear-gradient(160deg,#060202,#100505)',label:'Chellah'},
+      ]
+    },
+    sites:[
+      {type:'Monument',name:'Tour Hassan & Mausolée Mohammed V',desc:'Minaret inachevé du XIIe siècle face au somptueux mausolée de Mohammed V (1971), symbole de la réconciliation entre tradition et modernité.'},
+      {type:'Kasbah',name:'Kasbah des Oudaias',desc:'Citadelle fondée au XIIe siècle surplombant la confluence Bouregreg-Atlantique. Jardin andalou du XVIIe siècle, musée des arts marocains.'},
+      {type:'Site historique',name:'Nécropole de Chellah',desc:'Site unique : ruines romaines de Sala Colonia imbriquées dans une nécropole mérinide du XIVe siècle, habitées par des familles de cigognes.'},
+      {type:'Musée',name:'Musée National de l\'Archéologie',desc:'Bronzes romains de Volubilis parmi les plus beaux du monde antique, bustes de Juba II et de Caton d\'Utique en argent.'},
+      {type:'Médina',name:'Médina de Rabat',desc:'Médina du XVIIe siècle aux influences andalouses, moins touristique que Fès ou Marrakech mais très authentique : souks textiles et épiciers.'},
+      {type:'Nature',name:'Parc du Bouregreg',desc:'Promenade sur les deux rives de l\'estuaire du Bouregreg reliant Rabat et Salé, nouveau quartier Bab Al Bahr et marina de prestige.'},
+    ],
+    hotels:[
+      {name:'Sofitel Rabat Jardin des Roses',stars:'★ ★ ★ ★ ★',desc:'Palace dans les jardins de l\'Agdal, 5 ha de roses et d\'orangers, spa, 4 restaurants gastronomiques, piscine olympique.',price:'2 600 MAD',gradient:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',link:'https://www.sofitel.com'},
+      {name:'Hôtel Balima',stars:'★ ★ ★ ★',desc:'Hôtel historique Art Déco de 1932 sur l\'avenue Mohammed V, brasserie mythique, terrasse sur l\'avenue principale.',price:'650 MAD',gradient:'linear-gradient(160deg,#100606,#2a1010)',link:'https://www.booking.com'},
+      {name:'Riad Kalaa',stars:'★ ★ ★ ★',desc:'Riad en pleine médina de Rabat, patio traditionnel, hammam privatif, décor de zellige et stuc, cuisine marocaine maison.',price:'900 MAD',gradient:'linear-gradient(160deg,#0a0404,#1a0808)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Dar Zitoun',stars:'★★★★★',cuisine:'Marocain gastronomique',desc:'Palace du XIXe siècle, cuisine marocaine raffinée, spectacle de musique andalouse, jardins d\'orangers illuminés.',phone:'+212 537-731-777',insta:'darzitoun_rabat'},
+      {name:'Le Dhow',stars:'★★★★★',cuisine:'Sur le Bouregreg',desc:'Restaurant flottant unique sur le fleuve Bouregreg, vue sur les deux villes, poissons frais et cuisine marocaine créative.',phone:'+212 537-702-722',insta:'ledhow_rabat'},
+      {name:'Ty Potes',stars:'★★★',cuisine:'Méditerranéen',desc:'Brasserie moderne du quartier Hassan, carte creative franco-marocaine, vins sélectionnés et terrasse animée.',phone:'+212 537-260-095',insta:'typotes_rabat'},
+      {name:'La Khaïma du Méchoui',stars:'★★★',cuisine:'Méchoui berbère',desc:'Tente berbère en bord du Bouregreg, spécialité de méchoui et couscous berbère aux 7 légumes. Musique gnaoua le soir.',phone:'+212 537-655-200',insta:'khaimarabat'},
+    ],
+    activites:[
+      {type:'Culturel',name:'Visite de Salé corsaire',desc:'Traversée en barque du Bouregreg vers Salé, ancienne cité des corsaires barbaresques, médina authentique et mausolée de Sidi Ahmed.',contact:'+212 537-882-100'},
+      {type:'Culturel',name:'Festival Mawazine',desc:'Rythmes du Monde — l\'un des plus grands festivals de musique d\'Afrique (mai/juin), artistes internationaux, entrée gratuite pour la plupart des concerts.',contact:'https://www.festival-mawazine.ma'},
+      {type:'Nature',name:'Forêt de Mamora',desc:'Forêt de chênes-lièges à 30 km de Rabat, pique-nique, vélo et observation des oiseaux dans la plus grande forêt de chênes-lièges au monde.',contact:'+212 537-741-000'},
+      {type:'Culturel',name:'Musées royaux',desc:'Visite du Musée de l\'Histoire et des Civilisations (nouveau musée national inauguré en 2014), des arts islamiques à travers 5 000 ans d\'histoire.',contact:'+212 537-701-919'},
+    ]
+  },
+
+  casa:{
+    name:'Casablanca',eyebrow:'Métropole atlantique',subtitle:'Casa — Capitale économique · Fondée au XVe siècle',
+    gradient:'linear-gradient(160deg,#050f1e,#0d2a4a)',
+    histoire:{
+      texte:`Casablanca est la capitale économique du Maroc et la plus grande ville du pays avec plus de 4,5 millions d'habitants. Fondée au XVe siècle sous le nom d'Anfa par une tribu berbère, elle est détruite par les Portugais en 1468 puis reconstruite. Le Protectorat français (1912-1956) la transforme d'un village de 20 000 habitants en une métropole moderne selon le plan visionnaire de l'urbaniste Henri Prost.\n\nLa Mosquée Hassan II (1993), avec son minaret de 210 m — le deuxième plus haut au monde — est la deuxième plus grande mosquée du monde et la seule à être construite partiellement sur l'océan Atlantique.`,
+      timeline:[
+        {yr:'XVe s.',tx:'Fondation de la cité Anfa par la tribu berbère des Barghwata'},
+        {yr:'1468',tx:'Destruction par les Portugais et reconstruction sous le nom Casa Branca'},
+        {yr:'1907',tx:'Début de la construction du port moderne de Casablanca'},
+        {yr:'1912',tx:'Le Protectorat français lance la modernisation urbaine de masse'},
+        {yr:'1993',tx:'Inauguration de la Mosquée Hassan II par Hassan II'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#050f1e,#0d2a4a)',label:'Mosquée Hassan II'},
+        {bg:'linear-gradient(160deg,#030a18,#0a2040)',label:'Art Déco centre-ville'},
+        {bg:'linear-gradient(160deg,#020614,#081530)',label:'Corniche Ain Diab'},
+        {bg:'linear-gradient(160deg,#010408,#051020)',label:'Port de Casa'},
+      ]
+    },
+    sites:[
+      {type:'Monument',name:'Mosquée Hassan II',desc:'2e plus grande mosquée du monde (180 000 fidèles), minaret de 210 m, plancher en verre sur l\'Atlantique, visites guidées pour non-musulmans.'},
+      {type:'Médina',name:'Médina de Casablanca',desc:'Ancienne médina du XIXe siècle, moins touristique mais très authentique : marché de fruits, artisans traditionnels et cafés populaires.'},
+      {type:'Patrimoine',name:'Quartier Art Déco',desc:'Plus grande concentration d\'architecture Art Déco d\'Afrique, construite dans les années 1920-1930 : villa Zevaco, immeuble Rialto, cinéma Royal.'},
+      {type:'Plage',name:'Corniche & Ain Diab',desc:'Front de mer de 10 km avec plages privées, clubs de plage branchés, hôtels de luxe et restaurants avec vue sur l\'Atlantique.'},
+      {type:'Musée',name:'Musée de la Fondation ONA',desc:'Art contemporain marocain et africain dans un bâtiment néo-mauresque modernisé, collections permanentes et expositions temporaires.'},
+      {type:'Shopping',name:'Morocco Mall',desc:'Plus grand centre commercial d\'Afrique (250 000 m²), aquarium de 1,5 million de litres, 400 boutiques et 80 restaurants.'},
+    ],
+    hotels:[
+      {name:'Four Seasons Casablanca',stars:'★ ★ ★ ★ ★',desc:'Face à l\'Atlantique, suites avec vue océan, spa de 2 800 m², 3 piscines, 4 restaurants dont un sur la plage privée.',price:'4 500 MAD',gradient:'linear-gradient(160deg,#050f1e,#0d2a4a)',link:'https://www.fourseasons.com'},
+      {name:'Hyatt Regency Casablanca',stars:'★ ★ ★ ★ ★',desc:'Palace sur la place Mohammed V, vue sur la mosquée Hassan II, spa, piscine chauffée et 5 restaurants gastronomiques.',price:'2 800 MAD',gradient:'linear-gradient(160deg,#030a18,#0a2040)',link:'https://www.hyatt.com'},
+      {name:'Hôtel Novotel Casa City Center',stars:'★ ★ ★ ★',desc:'Hôtel d\'affaires moderne en plein centre, piscine extérieure, restaurant panoramique, accès facile à la médina et à la gare.',price:'950 MAD',gradient:'linear-gradient(160deg,#020614,#081530)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'La Sqala',stars:'★★★★',cuisine:'Marocain traditionnel',desc:'Dans les fortifications portugaises du XVIIIe siècle, jardin d\'orangers, pastilla de pigeon et tagine au four de bois.',phone:'+212 522-260-960',insta:'lasqala_casa'},
+      {name:"Rick's Café",stars:'★★★★★',cuisine:'Américain & Marocain',desc:'Reproduction fidèle du café du film Casablanca de 1942, piano bar, cocktails d\'époque et cuisine maroco-américaine.',phone:'+212 522-274-207',insta:'rickscafe_casablanca'},
+      {name:'Le Cabestan',stars:'★★★★',cuisine:'Fruits de mer & poissons',desc:'La meilleure table de poissons de Casa, sur la Corniche avec vue sur l\'Atlantique, homards vivants et sole meunière.',phone:'+212 522-394-102',insta:'lecabestan_casa'},
+      {name:'Bô-Zin',stars:'★★★★',cuisine:'Fusion asio-marocaine',desc:'Restaurant tendance sur la Corniche, cuisine fusion maroco-asiatique créative, bar lounge et DJ le week-end.',phone:'+212 522-369-797',insta:'bozin_casa'},
+    ],
+    activites:[
+      {type:'Culturel',name:'Circuit Art Déco guidé',desc:'Tour à pied ou en rickshaw des chefs-d\'œuvre architecturaux Art Déco du centre-ville avec architecte guide. 2h environ.',contact:'+212 522-618-000'},
+      {type:'Shopping',name:'Morocco Mall & Twin Center',desc:'Shopping dans les deux plus grands centres commerciaux du Maroc, aquarium géant au Morocco Mall inclus dans le ticket.',contact:'+212 522-979-797'},
+      {type:'Culturel',name:'Visite Mosquée Hassan II',desc:'Visites guidées intérieures en français, anglais et espagnol de la 2e plus grande mosquée du monde (sauf vendredi matin).',contact:'+212 522-202-285'},
+      {type:'Sport',name:'Surf Ain Diab',desc:'École de surf sur la Corniche pour débutants et intermédiaires, cours collectifs et individuels, planches à louer.',contact:'+212 661-234-567'},
+    ]
+  },
+
+  marrakech:{
+    name:'Marrakech',eyebrow:'Sud-Ouest du Maroc',subtitle:'La Ville Rouge · Fondée en 1062',
+    gradient:'linear-gradient(160deg,#2d0d0d,#8b1a1a)',
+    histoire:{
+      texte:`Marrakech, la "Perle du Sud" ou "La Ville Rouge", fut fondée en 1062 par Abou Bakr ibn Umar, chef de la tribu almoravide. Capitale de deux dynasties (Almoravides et Almohades), elle a donné son nom au Maroc dans de nombreuses langues européennes (Morocco, Marruecos, Marokko).\n\nLa place Djemaa el-Fna, classée chef-d'œuvre du patrimoine oral et immatériel de l'UNESCO en 2001, est le cœur palpitant de la ville. Marrakech est aujourd'hui la destination touristique la plus visitée du Maroc avec plus de 3 millions de visiteurs par an.`,
+      timeline:[
+        {yr:'1062',tx:'Fondation par Abou Bakr ibn Umar, capitaine almoravide'},
+        {yr:'1147',tx:'Prise par les Almohades, construction de la Koutoubia (minaret 70 m)'},
+        {yr:'1672',tx:'Capitale sous Moulay Ismail, essor des jardins et des palais'},
+        {yr:'1985',tx:'Médina de Marrakech classée Patrimoine mondial UNESCO'},
+        {yr:'2001',tx:'Djemaa el-Fna classée Patrimoine immatériel UNESCO'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#2d0d0d,#8b1a1a)',label:'Djemaa el-Fna'},
+        {bg:'linear-gradient(160deg,#0a1e0a,#1a4a1a)',label:'Jardins Majorelle'},
+        {bg:'linear-gradient(160deg,#1e1a00,#5a4800)',label:'Palais Bahia'},
+        {bg:'linear-gradient(160deg,#15080a,#3a1518)',label:'Médersa Ben Youssef'},
+      ]
+    },
+    sites:[
+      {type:'Place UNESCO',name:'Place Djemaa el-Fna',desc:'La place la plus célèbre d\'Afrique : conteurs, musiciens gnaoua, charmeurs de serpents, lanceurs de couteaux et halqa. Magique à la tombée de la nuit.'},
+      {type:'Jardin & Musée',name:'Jardin Majorelle & Musée YSL',desc:'Jardin exotique bleu cobalt de Jacques Majorelle (1924), racheté par Yves Saint Laurent, musée Berbère unique et mémorial YSL.'},
+      {type:'Monument',name:'Médersa Ben Youssef',desc:'Plus grande école coranique du Maghreb médiéval (1565), chef-d\'œuvre de zelliges, boiseries sculptées et stuc ciselé à la main.'},
+      {type:'Palais',name:'Palais Bahia',desc:'Palais du XIXe siècle (8 ha), 160 pièces aux décors de marbre de Carrare, cèdre gravé et zellige multicolore. "Bahia" signifie "brillance".'},
+      {type:'Site historique',name:'Tombeaux Saadiens',desc:'Nécropole royale du XVIe siècle redécouverte en 1917, décorée de dorures, marbre de Carrare et colonnes de verd antique.'},
+      {type:'Monument',name:'Koutoubia',desc:'Minaret du XIIe siècle, modèle de la Giralda de Séville et de la Tour Hassan de Rabat. Le plus haut édifice de Marrakech (70 m).'},
+    ],
+    hotels:[
+      {name:'La Mamounia',stars:'★ ★ ★ ★ ★',desc:'Palace légendaire depuis 1923, favori de Winston Churchill et des stars internationales. Jardins de 8 ha, spa de 2 500 m², 3 piscines.',price:'8 500 MAD',gradient:'linear-gradient(160deg,#2d0d0d,#8b1a1a)',link:'https://www.mamounia.com'},
+      {name:'Royal Mansour',stars:'★ ★ ★ ★ ★',desc:'Palais privé de Mohammed VI, 53 riads individuels avec piscine privée, 3 restaurants étoilés Michelin, spa de référence mondiale.',price:'12 000 MAD',gradient:'linear-gradient(160deg,#1a0808,#5a1010)',link:'https://www.royalmansour.ma'},
+      {name:'Riad El Fenn',stars:'★ ★ ★ ★ ★',desc:'Riad de 28 chambres uniques décoré d\'art contemporain, 4 piscines, bibliothèque, hammam et restaurant de cuisine créative.',price:'3 800 MAD',gradient:'linear-gradient(160deg,#100505,#380c0c)',link:'https://www.riadelfenn.com'},
+    ],
+    restaurants:[
+      {name:'Dar Yacout',stars:'★★★★★',cuisine:'Marocain royal',desc:'Dîner de prestige dans un palais du XVIIIe siècle, 6 salles décorées de zellige, musique gnaoua en live, menu unique de spécialités royales.',phone:'+212 524-382-929',insta:'daryacout'},
+      {name:'Nomad',stars:'★★★★',cuisine:'Marocain contemporain',desc:'Rooftop tendance avec vue sur les souks, cuisine marocaine revisitée créativement, carte de cocktails sans alcool originaux.',phone:'+212 524-381-609',insta:'nomadmarrakech'},
+      {name:'Le Jardin',stars:'★★★★',cuisine:'Méditerranéen',desc:'Jardin intérieur luxuriant au cœur de la médina, cuisine végétarienne et méditerranéenne fraîche, brunch du dimanche réputé.',phone:'+212 524-378-295',insta:'lejardin_marrakech'},
+      {name:'Café des Épices',stars:'★★★',cuisine:'Terrasse vue souks',desc:'Terrasse sur 3 étages dominant le marché des épices de la place Rahba Kedima, jus frais et snacking marocain.',phone:'+212 524-391-770',insta:'cafedesepices'},
+    ],
+    activites:[
+      {type:'Bien-être',name:'Hammam traditionnel',desc:'Rituel complet au célèbre hammam Dar el-Bacha (XIXe s.) : savon beldi artisanal, gommage kessa, massage à l\'huile d\'argan.',contact:'+212 524-441-628'},
+      {type:'Aventure',name:'Montgolfière au lever du soleil',desc:'Vol en ballon au-dessus de Marrakech, palmeraie et montagnes Atlas, champagne à l\'atterrissage dans une palmeraie berbère.',contact:'+212 524-432-843'},
+      {type:'Aventure',name:'Quad & buggy dans la palmeraie',desc:'Circuit en quad ou en buggy dans la palmeraie de Marrakech (3 millions de palmiers), guides locaux, 1h ou 2h de parcours.',contact:'+212 524-329-505'},
+      {type:'Culturel',name:'Cours de cuisine marocaine',desc:'Visite du souk des épices avec un chef, puis atelier de 3h pour préparer pastilla, tagine et corne de gazelle.',contact:'+212 524-441-600'},
+    ]
+  },
+
+  essaouira:{
+    name:'Essaouira',eyebrow:'Atlantique — Marrakech-Safi',subtitle:'Cité des Alizés · Fondée en 1765',
+    gradient:'linear-gradient(160deg,#0a1a2a,#1a3a5c)',
+    histoire:{
+      texte:`Essaouira, l'ancienne Mogador, est une ville portuaire fortifiée fondée en 1765 par le sultan Sidi Mohammed ben Abdallah sur l'emplacement d'un ancien comptoir phénicien. Sa médina, dessinée par l'architecte français Théodore Cornut dans un style néo-classique unique au Maroc, est classée au patrimoine mondial de l'UNESCO depuis 2001.\n\nCarrefour historique entre l'Afrique subsaharienne et l'Europe, Essaouira est célèbre pour ses remparts en pierre ocre, ses ébénistes spécialistes du bois de thuya, et ses vents constants (Force 4-6 en été) qui en font la capitale mondiale du windsurf.`,
+      timeline:[
+        {yr:'~600 av. J.-C.',tx:'Comptoir phénicien de Mogador, premier établissement connu'},
+        {yr:'1506',tx:'Occupation portugaise et construction d\'un fortin sur l\'île'},
+        {yr:'1765',tx:'Fondation de la ville actuelle par le sultan Sidi Mohammed ben Abdallah'},
+        {yr:'1912–1956',tx:'Port actif sous le Protectorat français, exportation de produits sahéliens'},
+        {yr:'2001',tx:'Médina classée Patrimoine mondial UNESCO'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#0a1a2a,#1a3a5c)',label:'Remparts & Skala'},
+        {bg:'linear-gradient(160deg,#061015,#0f2538)',label:'Port de pêche'},
+        {bg:'linear-gradient(160deg,#040a0e,#0a1a28)',label:'Plage & alizés'},
+        {bg:'linear-gradient(160deg,#020508,#060e18)',label:'Médina bleue'},
+      ]
+    },
+    sites:[
+      {type:'Médina UNESCO',name:'Médina & Skala de la Ville',desc:'Remparts du XVIIIe siècle avec canons portugais en bronze, vue sur l\'Atlantique et les îles Purpuraires. Ruelles commerçantes aux boutiques de thuya.'},
+      {type:'Site',name:'Port de pêche',desc:'Port coloré où des centaines de barques bleues et orangées rentrent chaque matin. Criée aux poissons à 8h, atmosphère unique.'},
+      {type:'Plage',name:'Plage d\'Essaouira',desc:'12 km de plage de sable fin ventée idéale pour windsurf, kitesurf et balade à cheval en bord de mer.'},
+      {type:'Nature',name:'Îles Purpuraires',desc:'Archipel visible depuis les remparts, réserve naturelle avec colonie de goélands d\'Audouin. Excursion en bateau possible.'},
+      {type:'Artisanat',name:'Ateliers de thuya',desc:'Le thuya est un bois précieux odorant propre à la région d\'Essaouira. Les ébénistes fabriquent des objets d\'art uniques en marqueterie.'},
+      {type:'Musée',name:'Musée Sidi Mohammed ben Abdallah',desc:'Arts populaires et traditions musicales d\'Essaouira, instruments de musique gnaoua et costumes traditionnels de la région.'},
+    ],
+    hotels:[
+      {name:"Hôtel L'Heure Bleue Palais",stars:'★ ★ ★ ★ ★',desc:'L\'unique 5 étoiles d\'Essaouira, dans un palais du XIXe siècle, piscine chauffée, spa, restaurant gastronomique et vue sur les remparts.',price:'2 100 MAD',gradient:'linear-gradient(160deg,#0a1a2a,#1a3a5c)',link:'https://www.lheure-bleue.com'},
+      {name:'Riad Mimouna',stars:'★ ★ ★ ★',desc:'Riad authentique dans la médina, cour intérieure fleurie, terrasse vue mer, hammam privé et table d\'hôtes réputée.',price:'850 MAD',gradient:'linear-gradient(160deg,#061015,#0f2538)',link:'https://www.booking.com'},
+      {name:'Villa Maroc',stars:'★ ★ ★',desc:'Cinq maisons d\'artisans reliées, vue sur la mer et les remparts, ambiance intimiste, petits-déjeuners copieux et décor d\'art contemporain.',price:'600 MAD',gradient:'linear-gradient(160deg,#040a0e,#0a1a28)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Chez Sam',stars:'★★★★',cuisine:'Fruits de mer frais',desc:'Dans le port, poissons et fruits de mer grillés servis en terrasse face aux bateaux. La meilleure table de poissons d\'Essaouira depuis 1969.',phone:'+212 524-476-238',insta:'chezsamessaouira'},
+      {name:'Taros Café',stars:'★★★★',cuisine:'Fusion marocain-européen',desc:'Terrasse sur les remparts au coucher du soleil, cuisine créative, vins marocains, musique gnaoua live le jeudi soir.',phone:'+212 524-476-407',insta:'taroscafe'},
+      {name:'Côté Plage',stars:'★★★',cuisine:'Méditerranéen',desc:'Sur la plage, poissons grillés et salades fraîches les pieds dans le sable, idéal après une session de windsurf.',phone:'+212 524-783-500',insta:'coteplage_essaouira'},
+      {name:'Lalla Mira',stars:'★★★',cuisine:'Végétarien & Bio',desc:'Restaurant bio végétarien dans une maison historique, produits locaux d\'agriculture raisonnée, jus frais et tisanes du Rif.',phone:'+212 524-475-046',insta:'lallamira_essaouira'},
+    ],
+    activites:[
+      {type:'Sport nautique',name:'Windsurf & Kitesurf',desc:'École de windsurf pour tous niveaux, vent garanti Force 4-6 en été, matériel de qualité et moniteurs certifiés FFS.',contact:'+212 661-987-654'},
+      {type:'Culturel',name:'Festival Gnaoua',desc:'Festival international de musique gnaoua et musiques du monde (juin), 30e édition, concerts gratuits en médina et sur la plage.',contact:'https://www.festival-gnaoua.net'},
+      {type:'Nature',name:'Randonnée à cheval',desc:'Balade à cheval sur la plage d\'Essaouira au coucher du soleil, jusqu\'au village de Diabat et les ruines de la forteresse portugaise.',contact:'+212 661-456-789'},
+      {type:'Artisanat',name:'Atelier thuya',desc:'Initiation à la marqueterie en bois de thuya avec un maître ébéniste de la coopérative d\'artisans d\'Essaouira.',contact:'+212 524-476-100'},
+    ]
+  },
+
+  agadir:{
+    name:'Agadir',eyebrow:'Souss-Massa',subtitle:'Souss atlantique · Reconstruite en 1960',
+    gradient:'linear-gradient(160deg,#1a1200,#4a3500)',
+    histoire:{
+      texte:`Agadir est la principale station balnéaire du Maroc, avec 300 jours de soleil par an. La ville ancienne fut presque entièrement détruite par un violent séisme le 29 février 1960 à 23h47, qui fit plus de 15 000 victimes en 15 secondes — la plus grande catastrophe naturelle de l'histoire moderne du Maroc.\n\nReconstruite selon un plan d'urbanisme moderne et fonctionnel, Agadir est devenue une station internationale avec des infrastructures modernes. Sur la colline dominant la baie, les ruines de la kasbah rappellent en lettres d'argile : "Si tu perles ma mémoire, tu perds ta valeur. Si tu perles ma mémoire, je nais encore."`,
+      timeline:[
+        {yr:'1505',tx:'Fondation du comptoir portugais d\'agadir ("la colline fortifiée")'},
+        {yr:'1760',tx:'Sidi Mohammed ben Abdallah interdit Agadir au profit d\'Essaouira'},
+        {yr:'1911',tx:'Crise d\'Agadir : incident diplomatique franco-allemand majeur'},
+        {yr:'1960',tx:'Séisme du 29 février : 15 000 morts, ville rasée en 15 secondes'},
+        {yr:'1960–1970',tx:'Reconstruction totale selon un plan d\'urbanisme moderne'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#1a1200,#4a3500)',label:'Baie d\'Agadir'},
+        {bg:'linear-gradient(160deg,#0e0c00,#2d2000)',label:'Kasbah sur la colline'},
+        {bg:'linear-gradient(160deg,#080600,#1a1400)',label:'Plage 9 km'},
+        {bg:'linear-gradient(160deg,#040300,#0e0900)',label:'Marina d\'Agadir'},
+      ]
+    },
+    sites:[
+      {type:'Plage',name:'Plage d\'Agadir',desc:'9 km de plage de sable fin doré, la plus longue plage balnéaire équipée du Maroc. Eau chaude (20-23°C) toute l\'année, promenade animée.'},
+      {type:'Site historique',name:'Kasbah Agadir Oufella',desc:'Ruines de l\'ancienne citadelle sur la colline dominant la baie, inscription en lettres d\'argile en souvenir du séisme, panorama à 360°.'},
+      {type:'Marché',name:'Souk El Had',desc:'Le plus grand marché couvert du Maroc avec 6 000 boutiques sur 8 ha : épices, cuir, artisanat berbère, fruits et légumes du Souss.'},
+      {type:'Musée',name:'Musée du Patrimoine Amazigh',desc:'Unique musée au Maroc consacré exclusivement à la culture amazighe : bijoux en argent, tapis berbères, poteries et costumes traditionnels du Souss.'},
+      {type:'Parc',name:'Parc de la Vallée',desc:'20 ha de jardins paysagers en plein centre-ville, idéal en famille : zoo animalier, aire de jeux, lac artificiel et cafés en plein air.'},
+      {type:'Nature',name:'Parc National Souss-Massa',desc:'Réserve naturelle à 30 km au sud, flamants roses, ibis chauves (espèce menacée), gazelles dorcas et observation d\'oiseaux migrateurs.'},
+    ],
+    hotels:[
+      {name:'Sofitel Agadir Royal Bay Resort',stars:'★ ★ ★ ★ ★',desc:'Resort de luxe en bord de plage, 5 restaurants dont un gastronomique, spa de 3 000 m², piscines à débordement sur l\'Atlantique.',price:'3 200 MAD',gradient:'linear-gradient(160deg,#1a1200,#4a3500)',link:'https://www.sofitel.com'},
+      {name:'RIU Palace Tikida Agadir',stars:'★ ★ ★ ★ ★',desc:'Resort tout inclus directement sur la plage, 7 piscines, 9 restaurants et bars, animation et sports aquatiques sans supplément.',price:'2 500 MAD',gradient:'linear-gradient(160deg,#0e0c00,#2d2000)',link:'https://www.riu.com'},
+      {name:'Atlantic Palace Agadir Golf Thalasso & Casino Resort',stars:'★ ★ ★ ★',desc:'Golf 18 trous, thalassothérapie, casino, 5 restaurants et navette plage. Idéal pour les séjours sportifs et bien-être.',price:'1 200 MAD',gradient:'linear-gradient(160deg,#080600,#1a1400)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'La Tour de Paris',stars:'★★★★',cuisine:'Français & Marocain',desc:'Institution d\'Agadir depuis 40 ans, cuisine franco-marocaine de qualité, homards vivants, poissons du jour et bons vins.',phone:'+212 528-840-011',insta:'ladelaisagadir'},
+      {name:'Pure Passion by Yannick',stars:'★★★★',cuisine:'Méditerranéen créatif',desc:'Chef français étoilé installé à Agadir, cuisine méditerranéenne créative, produits locaux du Souss magnifiés.',phone:'+212 528-823-277',insta:'purepassion_agadir'},
+      {name:'La Scala',stars:'★★★',cuisine:'Fruits de mer',desc:'Terrasse sur la marina, spécialité de fruits de mer du Souss : sardines grillées, crevettes géantes et sushi marocain.',phone:'+212 528-846-773',insta:'lascala_agadir'},
+      {name:'Mezzo Mezzo',stars:'★★★',cuisine:'Italien & Pizzeria',desc:'La meilleure pizza d\'Agadir selon les habitants, pâtes fraîches, tiramisu maison et terrasse animée sur le front de mer.',phone:'+212 528-841-777',insta:'mezzomezzo_agadir'},
+    ],
+    activites:[
+      {type:'Surf',name:'Surf à Taghazout',desc:'À 20 km au nord, le spot de surf le plus célèbre du Maroc. Écoles pour tous niveaux, planches à louer, instructeurs certifiés.',contact:'+212 661-234-890'},
+      {type:'Nature',name:'Excursion Souss-Massa',desc:'Safari ornithologique dans le parc national, observation des ibis chauves et flamants roses, guide naturaliste accompagnateur.',contact:'+212 528-337-737'},
+      {type:'Aventure',name:'Excursion Sahara Draa',desc:'Circuit de 2 jours vers Tiznit, Tafraoute et l\'Anti-Atlas, villages amzighs perchés et paysages de granit rose.',contact:'+212 528-840-200'},
+      {type:'Bien-être',name:'Thalassothérapie',desc:'Cures de thalasso avec eau de mer atlantique chauffée, soins aux algues et massages aux huiles d\'argan du Souss.',contact:'+212 528-839-000'},
+    ]
+  },
+
+  taghazout:{
+    name:'Taghazout',eyebrow:'Souss-Massa',subtitle:'Village de surfeurs · Vagues légendaires',
+    gradient:'linear-gradient(160deg,#1a1000,#4a2800)',
+    histoire:{
+      texte:`Taghazout est un petit village de pêcheurs amazigh situé à 18 km au nord d'Agadir. Longtemps connu des seuls pêcheurs locaux, il est "découvert" par des surfeurs hippies américains et australiens dans les années 1970 qui s'y installent pour les vagues exceptionnelles de l'Anchor Point.\n\nLa vague d'Anchor Point — une droite longue pouvant atteindre 400 mètres — est classée parmi les 10 meilleures vagues droites du monde. Aujourd'hui, Taghazout est devenu une destination surf internationale, tout en préservant son atmosphère de village authentique et bohème.`,
+      timeline:[
+        {yr:'1970s',tx:'Découverte par les surfeurs hippies américains de la vague d\'Anchor Point'},
+        {yr:'1985',tx:'Taghazout apparaît dans les magazines de surf internationaux'},
+        {yr:'2000s',tx:'Développement des premières camps et écoles de surf'},
+        {yr:'2018',tx:'Inauguration de Taghazout Bay, resort touristique haut de gamme'},
+        {yr:'2020s',tx:'Destination surf et wellness de référence internationale'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#1a1000,#4a2800)',label:'Anchor Point'},
+        {bg:'linear-gradient(160deg,#0e0a00,#2d1a00)',label:'Village de pêcheurs'},
+        {bg:'linear-gradient(160deg,#080600,#1a1000)',label:'Coucher de soleil'},
+        {bg:'linear-gradient(160deg,#040300,#0e0800)',label:'Hash Point'},
+      ]
+    },
+    sites:[
+      {type:'Surf',name:'Anchor Point',desc:'Droite légendaire de 400 m, fonctionne avec houle d\'O-NO, meilleure période octobre à mars. Niveau intermédiaire à expert recommandé.'},
+      {type:'Surf',name:'Hash Point & Panoramas',desc:'Spots plus accessibles aux débutants et intermédiaires, reef break régulier, idéal pour progresser avec des moniteurs.'},
+      {type:'Village',name:'Village de Taghazout',desc:'Ruelles colorées, cafés bohèmes, boutiques de surf vintage, marché de poissons au lever du soleil et couchers de soleil spectaculaires.'},
+      {type:'Village',name:'Village de Tamraght',desc:'Village voisin à 3 km au sud, ambiance encore plus authentique, quelques spots de surf moins fréquentés et souk hebdomadaire.'},
+      {type:'Nature',name:'Réserve de Biosphère',desc:'Les côtes autour de Taghazout font partie de la réserve de biosphère d\'Arganeraie, protection des arganiers et de l\'écosystème côtier.'},
+      {type:'Panorama',name:'Cap Ghir',desc:'Cap rocheux à 15 km au nord, falaises à pic sur l\'Atlantique, phare historique et spots de pêche très appréciés.'},
+    ],
+    hotels:[
+      {name:'Paradis Plage Surf & Yoga Resort',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles de surf et yoga directement sur la plage, piscine à débordement, restaurant bio, cours quotidiens de surf et yoga.',price:'2 800 MAD',gradient:'linear-gradient(160deg,#1a1000,#4a2800)',link:'https://www.paradisplage.com'},
+      {name:'Taghazout Bay Hotel',stars:'★ ★ ★ ★',desc:'Resort moderne dans la nouvelle marina de Taghazout Bay, vue sur l\'Atlantique, piscine, spa et accès direct à la plage.',price:'1 200 MAD',gradient:'linear-gradient(160deg,#0e0a00,#2d1a00)',link:'https://www.booking.com'},
+      {name:'Surf Maroc Camp',stars:'★ ★ ★',desc:'Camp de surf historique de Taghazout, forfaits semaine tout inclus (hébergement + cours + repas), ambiance communautaire internationale.',price:'600 MAD',gradient:'linear-gradient(160deg,#080600,#1a1000)',link:'https://www.surfmaroc.com'},
+    ],
+    restaurants:[
+      {name:'Surf Berbère Café',stars:'★★★',cuisine:'Marocain & International',desc:'Terrasse sur les vagues, petit-déjeuner smoothie bowl, déjeuner tagine, dîner pizza. Table incontournable du village.',phone:'+212 661-456-123',insta:'surfberberecafe'},
+      {name:"Jo's Café",stars:'★★★',cuisine:'Healthy food & Bowl',desc:'Cuisine saine et végétarienne, açaï bowls, salades de quinoa, jus verts et snacks énergisants pour les surfeurs.',phone:'+212 661-789-234',insta:'joscafe_taghazout'},
+      {name:'Chez Youssef',stars:'★★',cuisine:'Poissons grillés locaux',desc:'Pêcheur devenu cuisinier, sardines et dorades grillées au feu de bois servies avec chermoula, prix doux.',phone:'+212 661-345-678',insta:'chezyoussef_taghazout'},
+      {name:'Amouage Restaurant',stars:'★★★★',cuisine:'Gastronomie marocaine',desc:'La plus belle terrasse de Taghazout Bay, cuisine marocaine raffinée, vue panoramique sur l\'Atlantique et l\'Anchor Point.',phone:'+212 528-200-200',insta:'amouage_taghazout'},
+    ],
+    activites:[
+      {type:'Surf',name:'École de surf certifiée',desc:'Cours de surf pour tous niveaux (débutant à expert), petits groupes de 4, moniteurs certifiés FFSurf, matériel complet fourni.',contact:'+212 661-567-890'},
+      {type:'Bien-être',name:'Retraite yoga & méditation',desc:'Retraites de 5 à 14 jours de yoga Vinyasa ou Hatha face à l\'Atlantique, double ou triple professeurs, pensée complète.',contact:'https://www.instagram.com/yoga_taghazout'},
+      {type:'Aventure',name:'Trek côtier',desc:'Randonnée sur le sentier côtier de Taghazout à Cap Ghir, 15 km de falaises spectaculaires sur l\'Atlantique. Guide local inclus.',contact:'+212 661-234-567'},
+      {type:'Nature',name:'Plongée & snorkeling',desc:'Fonds marins riches en mérous, pieuvres et poissons colorés autour des rochers d\'Anchor Point. Sorties en bateau disponibles.',contact:'+212 661-890-123'},
+    ]
+  },
+
+  merzouga:{
+    name:'Merzouga',eyebrow:'Drâa-Tafilalet — Sahara',subtitle:'Porte du Sahara · Erg Chebbi',
+    gradient:'linear-gradient(160deg,#2a1500,#6b3500)',
+    histoire:{
+      texte:`Merzouga est une oasis désertique aux portes de l'Erg Chebbi, le plus beau massif de dunes de sable du Maroc, atteignant 150 m de hauteur et 22 km de longueur. Situé dans la province d'Errachidia à la frontière algérienne, ce village berbère était autrefois un simple point d'eau sur les routes caravanières transsahariennes.\n\nLes dunes de l'Erg Chebbi sont composées de sable fin apporté par le vent depuis le Sahara algérien. Leurs teintes changent dramatiquement au fil de la journée : roses à l'aube, dorées en journée, orangées au crépuscule, rouge sang au couchant. La région est aussi le carrefour des cultures touareg, berbère et gnaoue.`,
+      timeline:[
+        {yr:'Antiquité',tx:'Route caravanière transsaharienne passant par l\'oasis de Merzouga'},
+        {yr:'XIXe s.',tx:'Développement des ksour et des oasis sur la vallée du Draa et du Ziz'},
+        {yr:'1950s',tx:'Premières photographies européennes de l\'Erg Chebbi diffusées mondialement'},
+        {yr:'1980s',tx:'Premiers touristes occidentaux en chameau dans les dunes'},
+        {yr:'2000s',tx:'Merzouga devient la 1ère destination désertique du Maroc'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#2a1500,#6b3500)',label:'Dunes de l\'Erg Chebbi'},
+        {bg:'linear-gradient(160deg,#1a0e00,#401e00)',label:'Bivouac berbère'},
+        {bg:'linear-gradient(160deg,#0e0700,#261200)',label:'Coucher de soleil Sahara'},
+        {bg:'linear-gradient(160deg,#070400,#150a00)',label:'Trek en chameau'},
+      ]
+    },
+    sites:[
+      {type:'Désert',name:'Erg Chebbi',desc:'Mer de dunes de sable fin sur 22 km de long et 5 km de large, les plus hautes dunes du Maroc (150 m). Spectaculaire au lever et au coucher du soleil.'},
+      {type:'Nature',name:'Lac de Merzouga',desc:'Lac temporaire formé après les pluies d\'automne, attirant des flamants roses et des dizaines d\'espèces d\'oiseaux migrateurs.'},
+      {type:'Culture',name:'Village gnaoue de Khamlia',desc:'Village à 7 km de Merzouga, descendants d\'esclaves sub-sahariens, concerts de musique gnaoue quotidiens dans des maisons en pisé.'},
+      {type:'Ksar',name:'Ksar de Rissani',desc:'Ancienne capitale de la région, ksar médiéval, tombeau de Moulay Ali Chérif (ancêtre de la famille royale alaouite), marché du jeudi.'},
+      {type:'Nature',name:'Gorges du Ziz',desc:'À 80 km au nord, gorges spectaculaires creusées par le fleuve Ziz dans le calcaire, palmeraies suspendues et villages de montagne.'},
+      {type:'Ksar',name:'Ksar d\'Aït Benhaddou (route)',desc:'En route vers Merzouga via Ouarzazate, le ksar UNESCO d\'Aït Ben Haddou, décor de Lawrence d\'Arabie et Game of Thrones.'},
+    ],
+    hotels:[
+      {name:'Luxury Desert Camp Erg Chebbi',stars:'★ ★ ★ ★ ★',desc:'Camp de tentes de luxe climatisées au pied des grandes dunes, dîner gastronomique, musique gnaoue, ciel étoilé exceptionnel.',price:'3 500 MAD',gradient:'linear-gradient(160deg,#2a1500,#6b3500)',link:'https://www.booking.com'},
+      {name:'Kasbah Derkaoua',stars:'★ ★ ★ ★',desc:'Kasbah en pisé face aux dunes, piscine extérieure chauffée, restaurant avec produits du terroir, excursions en chameau organisées.',price:'900 MAD',gradient:'linear-gradient(160deg,#1a0e00,#401e00)',link:'https://www.booking.com'},
+      {name:'Riad Nezha Merzouga',stars:'★ ★ ★',desc:'Riad familial avec vue directe sur les dunes, terrasse pour observer le lever du soleil depuis son lit, cuisine berbère authentique.',price:'450 MAD',gradient:'linear-gradient(160deg,#0e0700,#261200)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Restaurant Berbère des Dunes',stars:'★★★',cuisine:'Tagine & Méchoui',desc:'Tables basses dans une tente berbère, tagine d\'agneau aux dattes et abricots, couscous aux 7 légumes, thé cérémoniel.',phone:'+212 535-577-145',insta:'berbere_merzouga'},
+      {name:'Auberge du Soleil',stars:'★★',cuisine:'Cuisine saharienne',desc:'Terrasse avec vue sur les dunes, méchoui entier cuit au four de terre, harira aux légumes du désert et crêpes msemen.',phone:'+212 535-577-200',insta:'aube_soleil_merzouga'},
+      {name:'Camp Dîner sous les Étoiles',stars:'★★★★',cuisine:'Dîner nomade en plein désert',desc:'Repas servi dans les dunes à la lueur des bougies, musique touareg live, menu complet avec produits frais transportés le jour même.',phone:'+212 661-789-012',insta:'desert_dinner_merzouga'},
+      {name:'Café Yasmina',stars:'★★',cuisine:'Snack & thé berbère',desc:'Le café historique de Merzouga, point de rendez-vous des chameliers, thé à la menthe-gingembre et crêpes msemen du matin.',phone:'+212 535-577-100',insta:'cafeyasmina_merzouga'},
+    ],
+    activites:[
+      {type:'Aventure',name:'Trek chameau au coucher du soleil',desc:'2h de balade à dos de chameau jusqu\'au sommet des grandes dunes, nuit en bivouac berbère, thé et musique gnaoue sous les étoiles.',contact:'+212 661-789-012'},
+      {type:'Sport',name:'Sandboard sur l\'Erg Chebbi',desc:'Descente en sandboard sur les pentes de sable des grandes dunes, planches fournies, sans expérience préalable nécessaire.',contact:'+212 535-577-200'},
+      {type:'Aventure',name:'Circuit 4x4 Grand Sud',desc:'Circuit de 2 jours en 4x4 : gorges du Ziz, Erfoud, Rissani, lac Iriki — le cœur géologique et culturel du Sahara marocain.',contact:'+212 535-577-300'},
+      {type:'Culturel',name:'Soirée gnaoue à Khamlia',desc:'Concert privé de musique gnaoue dans la maison d\'un musicien du village, suivi d\'un dîner couscous en famille.',contact:'+212 661-234-567'},
+    ]
+  },
+
+  ouarzazate:{
+    name:'Ouarzazate',eyebrow:'Drâa-Tafilalet — Sud',subtitle:'Porte du Désert · Hollywood du Maroc',
+    gradient:'linear-gradient(160deg,#2a1800,#7a4000)',
+    histoire:{
+      texte:`Ouarzazate, surnommée la "Porte du Désert" et "Hollywood du Maroc", est une ville carrefour entre le Haut Atlas et le Sahara. Fondée par le Protectorat français en 1928 comme poste militaire, elle contrôle les routes caravanières vers le Sahara.\n\nElle est mondialement connue pour ses studios de cinéma CLA qui ont accueilli plus de 200 productions depuis 1983, dont Lawrence d'Arabie (Lean, 1962), Gladiator (Scott, 2000), Game of Thrones et Babel (Iñárritu, 2006). Le ksar fortifié d'Aït-Ben-Haddou, à 30 km, est classé au patrimoine mondial de l'UNESCO depuis 1987.`,
+      timeline:[
+        {yr:'1928',tx:'Fondation du poste militaire français de Ouarzazate'},
+        {yr:'1962',tx:'Tournage de Lawrence d\'Arabie, premier film majeur dans la région'},
+        {yr:'1983',tx:'Ouverture des studios CLA, premiers studios professionnels d\'Afrique'},
+        {yr:'1987',tx:'Ksar d\'Aït-Ben-Haddou classé Patrimoine mondial UNESCO'},
+        {yr:'2000',tx:'Gladiator de Ridley Scott, consécration internationale des studios'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#2a1800,#7a4000)',label:'Aït-Ben-Haddou'},
+        {bg:'linear-gradient(160deg,#1a1000,#4a2800)',label:'Kasbah Taourirt'},
+        {bg:'linear-gradient(160deg,#0e0800,#2d1a00)',label:'Studios de cinéma'},
+        {bg:'linear-gradient(160deg,#070400,#1a0e00)',label:'Gorges du Dadès'},
+      ]
+    },
+    sites:[
+      {type:'Site UNESCO',name:'Ksar d\'Aït-Ben-Haddou',desc:'Village fortifié en pisé ocre du XVIIe siècle, classé UNESCO en 1987. Décor de 20 films majeurs dont Lawrence d\'Arabie, Gladiator et Game of Thrones.'},
+      {type:'Monument',name:'Kasbah Taourirt',desc:'Résidence des Glaoui (caïds royaux), kasbah en pisé restaurée avec le soutien de l\'UNESCO en plein centre de Ouarzazate.'},
+      {type:'Cinéma',name:'Studios de cinéma CLA',desc:'Visites guidées des plateaux de tournage avec les décors des productions passées. 2e plus grands studios au monde après Hollywood.'},
+      {type:'Musée',name:'Musée du Cinéma',desc:'Costumes, accessoires et photos des tournages emblématiques, histoire des 40 ans de cinéma marocain à Ouarzazate.'},
+      {type:'Nature',name:'Lac Barrage el-Mansour Eddahbi',desc:'Lac artificiel à 10 km, paradis ornithologique avec flamants roses, aigrettes et canards. Excursions en barque et pique-nique.'},
+      {type:'Nature',name:'Gorges du Dadès',desc:'Paysages spectaculaires à 2h30, route en lacets vertigineuse entre des parois de roches rouges, villages de potiers berbères.'},
+    ],
+    hotels:[
+      {name:'Le Berbère Palace',stars:'★ ★ ★ ★ ★',desc:'Palace aux portes du désert, décor de kasbah luxueuse, piscines olympiques et d\'agrément, restaurant gastronomique, spa.',price:'1 800 MAD',gradient:'linear-gradient(160deg,#2a1800,#7a4000)',link:'https://www.berberepalace.com'},
+      {name:'Dar Ahlam',stars:'★ ★ ★ ★ ★',desc:'Kasbah de 10 suites uniques au monde selon le magazine Travel & Leisure, tables dans le désert, expériences sur mesure.',price:'5 500 MAD',gradient:'linear-gradient(160deg,#1a1000,#4a2800)',link:'https://www.darahlam.com'},
+      {name:'Riad Ouarzazate',stars:'★ ★ ★',desc:'Riad en pisé traditionnel au centre-ville, terrasse vue sur la kasbah Taourirt, cuisine berbère et excursions organisées.',price:'450 MAD',gradient:'linear-gradient(160deg,#0e0800,#2d1a00)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Chez Dimitri',stars:'★★★★',cuisine:'Marocain & Méditerranéen',desc:'Institution de Ouarzazate depuis 1928, la table historique des équipes de tournage Hollywood, cuisine greco-marocaine unique.',phone:'+212 524-887-346',insta:'chezdimitri_ouarzazate'},
+      {name:'Restaurant 3 Thés',stars:'★★★',cuisine:'Cuisine du terroir',desc:'Spécialité du méchoui au four de terre, couscous aux légumes du Draa et agneau aux épices du Sahara. Terrasse panoramique.',phone:'+212 524-882-444',insta:'3thes_ouarzazate'},
+      {name:'La Kasbah des Sables',stars:'★★★',cuisine:'Berbère traditionnel',desc:'Dans une kasbah en pisé avec vue sur les montagnes, tagine de chèvre montagnard et pain msemen cuit dans un four berbère.',phone:'+212 524-887-500',insta:'kasbahdessables'},
+      {name:'Douyria Restaurant',stars:'★★★',cuisine:'Régional Draa-Tafilalet',desc:'Cuisine typique de la région des ksour, pastilla au poulet des palmeraies, couscous au mouton et salades locales.',phone:'+212 524-887-733',insta:'douyria_ouarzazate'},
+    ],
+    activites:[
+      {type:'Circuit',name:'Route des Kasbahs & Gorges Dadès',desc:'2 jours de route vers Boumalne Dadès et Tinghir, gorges spectaculaires, villages de potiers et paysages à couper le souffle.',contact:'+212 524-887-600'},
+      {type:'Culturel',name:'Visite Studios CLA',desc:'Visite guidée des décors de Lawrence d\'Arabie, Gladiator et Game of Thrones, avec photos dans les costumes de tournage.',contact:'+212 524-882-223'},
+      {type:'Circuit',name:'Gorges du Todra',desc:'À 3h, fissure de 300 m de hauteur pour 10 m de largeur — l\'un des plus beaux canyons du monde. Escalade et randonnée.',contact:'+212 524-895-000'},
+      {type:'Culturel',name:'Soirée à Aït-Ben-Haddou',desc:'Visite nocturne du ksar illuminé, spectacle de musique gnaoue dans une maison centenaire en pisé, dîner berbère en terrasse.',contact:'+212 524-880-100'},
+    ]
+  },
+
+  dakhla:{
+    name:'Dakhla',eyebrow:'Sahara Atlantique',subtitle:'Oued Ed-Dahab · Capitale du kitesurf mondial',
+    gradient:'linear-gradient(160deg,#051525,#0d3555)',
+    histoire:{
+      texte:`Dakhla, ancienne Villa Cisneros du nom du cardinal espagnol, est une péninsule spectaculaire dans le Sahara Atlantique, à 1 700 km au sud de Casablanca. Sous protectorat espagnol de 1884 à 1975, la ville est intégrée au Maroc lors de la Marche Verte organisée par Hassan II le 6 novembre 1975.\n\nAvec sa lagune de 40 km de long aux eaux turquoise chaudes toute l'année (température constante de 22°C), et son vent régulier force 4-6 (el-Alisio), Dakhla est devenue la capitale mondiale du kitesurf et du windsurf, accueillant les championnats du monde dans ces disciplines.`,
+      timeline:[
+        {yr:'1884',tx:'Établissement du protectorat espagnol, fondation de Villa Cisneros'},
+        {yr:'1975',tx:'Marche Verte : intégration au Maroc, renommée Dakhla'},
+        {yr:'1985',tx:'Premiers kitesurfeurs découvrent la lagune de Dakhla'},
+        {yr:'2000',tx:'Ouverture des premiers camps de kitesurf professionnels'},
+        {yr:'2009',tx:'Championnat du monde de kitesurf à Dakhla, consécration internationale'},
+      ],
+      photos:[
+        {bg:'linear-gradient(160deg,#051525,#0d3555)',label:'Lagune de Dakhla'},
+        {bg:'linear-gradient(160deg,#030d18,#082540)',label:'Kitesurf'},
+        {bg:'linear-gradient(160deg,#020810,#051a2e)',label:'Dune blanche'},
+        {bg:'linear-gradient(160deg,#010408,#030f1e)',label:'Île aux flamants'},
+      ]
+    },
+    sites:[
+      {type:'Nature',name:'Lagune de Dakhla',desc:'Lagune de 40 km de long, eaux turquoise à 22°C toute l\'année, vent force 4-5 régulier. Paradis mondial du kitesurf et windsurf depuis 40 ans.'},
+      {type:'Nature',name:'Île aux flamants roses',desc:'Colonie de plusieurs milliers de flamants roses visibles en pirogue dans la lagune, protégés dans la réserve naturelle de la baie.'},
+      {type:'Nature',name:'Dune Blanche de Dakhla',desc:'Grande dune de sable blanc en bordure de lagune accessible en 4x4, point de vue unique sur les deux rives de la péninsule.'},
+      {type:'Site',name:'Ancien Fort espagnol',desc:'Ruines du fort Villa Cisneros datant de 1884, vestiges du passé colonial espagnol dans la vieille ville de Dakhla.'},
+      {type:'Pêche',name:'Port de pêche de Dakhla',desc:'L\'un des ports de pêche les plus productifs du Maroc : poulpes, crabes dormeurs, crevettes et sardines en abondance.'},
+      {type:'Culture',name:'Culture sahraouie',desc:'Artisanat hassani : bijoux en argent, tentes sahraouies, dromadaires et thé à trois versets — tradition saharienne d\'hospitalité.'},
+    ],
+    hotels:[
+      {name:'Dakhla Attitude',stars:'★ ★ ★ ★',desc:'Le camp de kitesurf de référence mondiale, directement sur la lagune, forfaits tout inclus, spots privatifs, école certifiée IKO.',price:'1 800 MAD',gradient:'linear-gradient(160deg,#051525,#0d3555)',link:'https://www.dakhlaattitude.com'},
+      {name:'Robinson Club Dakhla',stars:'★ ★ ★ ★',desc:'Resort tout inclus sur la lagune, club de kitesurf et windsurf, sports nautiques illimités, animation et restaurants variés.',price:'2 200 MAD',gradient:'linear-gradient(160deg,#030d18,#082540)',link:'https://www.robinson.com'},
+      {name:'Calma Dakhla',stars:'★ ★ ★',desc:'Écolodge boutique sur la lagune, 12 chambres décorées en artisanat sahraoui, restaurant de poissons frais et piscine naturelle.',price:'750 MAD',gradient:'linear-gradient(160deg,#020810,#051a2e)',link:'https://www.booking.com'},
+    ],
+    restaurants:[
+      {name:'Ocean Vagabond',stars:'★★★★',cuisine:'Fruits de mer & poissons',desc:'La table incontournable de Dakhla, poissons et fruits de mer ultra-frais de la lagune, terrasse sur l\'eau, sunset garanti.',phone:'+212 528-935-100',insta:'oceanvagabond_dakhla'},
+      {name:'Chez Younes',stars:'★★★',cuisine:'Marocain & Hassani',desc:'Cuisine sahraouie traditionnelle : méchoui de chameau, couscous au poisson et thé à la menthe servi sous la tente.',phone:'+212 661-234-890',insta:'chezyounes_dakhla'},
+      {name:'Le Nomade',stars:'★★★',cuisine:'Fusion atlantique',desc:'Terrasse sur la dune avec vue panoramique sur la lagune, cuisine créative mêlant influences saharienne et atlantique.',phone:'+212 528-935-200',insta:'lenomade_dakhla'},
+      {name:'Restaurant du Port',stars:'★★',cuisine:'Poissons grillés',desc:'Simple et délicieux : poissons sortant de la pêche grillés au charbon, prix modestes, ambiance de port authentique.',phone:'+212 528-894-100',insta:'resto_port_dakhla'},
+    ],
+    activites:[
+      {type:'Sport nautique',name:'Kitesurf & Windsurf',desc:'Lagune plate et vent force 4-5 régulier 300 jours/an. École certifiée IKO et VDWS, cours débutants à experts, matériel Cabrinha et North.',contact:'+212 528-935-050'},
+      {type:'Pêche',name:'Pêche sportive en mer',desc:'Sorties en mer pour thon rouge, marlin, dorade et courbine dans les eaux riches du Sahara atlantique. Guide expérimenté.',contact:'+212 528-894-100'},
+      {type:'Aventure',name:'Quad & buggy dans les dunes',desc:'Circuit en quad ou buggy dans les dunes sahariennes blanches de la péninsule, avec baignade dans la lagune incluse.',contact:'+212 661-789-345'},
+      {type:'Culture',name:'Rencontre sahraouie',desc:'Visite d\'une famille sahraouie nomade, cérémonie du thé à trois versets, initiation à la culture hassanie et musique des griots.',contact:'+212 661-456-123'},
+    ]
+  },
+};
+
+/* ──────────────────────────────────────────────
+   LOGIQUE D'OUVERTURE / FERMETURE DE L'OVERLAY
+────────────────────────────────────────────── */
+let currentCity = null;
+
+function openCity(key) {
+  const c = CITIES[key];
+  if (!c) return;
+  currentCity = key;
+
+  // Mise à jour de l'en-tête
+  document.getElementById('ov-eyebrow').textContent = c.eyebrow;
+  document.getElementById('ov-title').textContent    = c.name;
+  document.getElementById('ov-subtitle').textContent = c.subtitle;
+  document.getElementById('ov-header').style.background =
+    `linear-gradient(to top,rgba(10,8,5,.97) 0%,rgba(10,8,5,.3) 60%,rgba(10,8,5,.1) 100%), ${c.gradient}`;
+
+  // Remplissage des onglets
+  document.getElementById('tab-histoire').innerHTML    = buildHistoire(c);
+  document.getElementById('tab-sites').innerHTML       = buildSites(c);
+  document.getElementById('tab-hotels').innerHTML      = buildHotels(c);
+  document.getElementById('tab-restaurants').innerHTML = buildRestaurants(c);
+  document.getElementById('tab-activites').innerHTML   = buildActivites(c);
+
+  // Activation du 1er onglet
+  showTab('histoire');
+
+  // Affichage de l'overlay
+  const ov = document.getElementById('city-overlay');
+  ov.style.display = 'block';
+  ov.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCity() {
+  document.getElementById('city-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+  currentCity = null;
+}
+
+// Fermeture avec Échap
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCity(); });
+
+/* ──────────────────────────────────────────────
+   GESTION DES ONGLETS
+────────────────────────────────────────────── */
+function showTab(name) {
+  // Désactiver tous les onglets et corps
+  document.querySelectorAll('.ov-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.ov-body').forEach(b => b.classList.remove('active'));
+
+  // Activer l'onglet cliqué
+  const tabs = ['histoire','sites','hotels','restaurants','activites'];
+  const idx  = tabs.indexOf(name);
+  document.querySelectorAll('.ov-tab')[idx].classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+/* ──────────────────────────────────────────────
+   BUILDERS HTML PAR SECTION
+────────────────────────────────────────────── */
+function buildHistoire(c) {
+  const h = c.histoire;
+  const paras = h.texte.split('\n\n').map(p => `<p>${p}</p>`).join('');
+  const tl = h.timeline.map(t => `
+    <div class="tl-item">
+      <div class="tl-yr">${t.yr}</div>
+      <div class="tl-tx">${t.tx}</div>
+    </div>`).join('');
+  const photos = h.photos.map(p => `
+    <div class="gal-ph" style="background:${p.bg}">
+      <span class="gal-label">${p.label}</span>
+    </div>`).join('');
+
+  return `
+    <div class="histoire-grid">
+      <div>
+        <div class="hist-text">${paras}</div>
+        <div class="gallery-2x2">${photos}</div>
+      </div>
+      <div>
+        <div class="timeline">${tl}</div>
+      </div>
+    </div>`;
+}
+
+function buildSites(c) {
+  const cards = c.sites.map(s => `
+    <div class="site-card">
+      <div class="site-type">${s.type}</div>
+      <div class="site-name">${s.name}</div>
+      <div class="site-desc">${s.desc}</div>
+    </div>`).join('');
+  return `<div class="sites-grid">${cards}</div>`;
+}
+
+function buildHotels(c) {
+  const cards = c.hotels.map(h => `
+    <div class="hotel-ov">
+      <div class="hotel-ov-img" style="background:${h.gradient}">
+        <span style="font-size:9px;color:#e0c888;letter-spacing:.1em">${h.stars}</span>
+        <span style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#c9a05a;border:1px solid #c9a05a44;padding:2px 7px">${c.name}</span>
+      </div>
+      <div class="hotel-ov-body">
+        <div class="hotel-ov-name">${h.name}</div>
+        <div class="hotel-ov-desc">${h.desc}</div>
+        <div class="hotel-ov-price">À partir de <span>${h.price} MAD</span> / nuit</div>
+        <a href="${h.link}" target="_blank" class="btn-reserve">Réserver en ligne</a>
+      </div>
+    </div>`).join('');
+  return `<div class="hotels-ov-grid">${cards}</div>`;
+}
+
+function buildRestaurants(c) {
+  const cards = c.restaurants.map(r => `
+    <div class="resto-ov">
+      <div class="resto-ov-top">
+        <div class="resto-ov-name">${r.name}</div>
+        <div class="resto-ov-stars">${r.stars}</div>
+      </div>
+      <div class="resto-ov-cuisine">${r.cuisine}</div>
+      <div class="resto-ov-desc">${r.desc}</div>
+      <div class="resto-ov-contact">
+        <div class="resto-ov-info">
+          <i class="ti ti-phone"></i>
+          <a href="tel:${r.phone}">${r.phone}</a>
+        </div>
+        <div class="resto-ov-info">
+          <i class="ti ti-brand-instagram"></i>
+          <a href="https://instagram.com/${r.insta}" target="_blank">@${r.insta}</a>
+        </div>
+      </div>
+    </div>`).join('');
+  return `<div class="restos-ov-grid">${cards}</div>`;
+}
+
+function buildActivites(c) {
+  const cards = c.activites.map(a => `
+    <div class="act-card">
+      <div class="act-type">${a.type}</div>
+      <div class="act-name">${a.name}</div>
+      <div class="act-desc">${a.desc}</div>
+      <div class="act-contact">
+        <i class="ti ti-${a.contact.startsWith('http') ? 'world' : 'phone'}"></i>
+        <a href="${a.contact.startsWith('http') ? a.contact : 'tel:' + a.contact}"
+           target="${a.contact.startsWith('http') ? '_blank' : '_self'}">
+          ${a.contact}
+        </a>
+      </div>
+    </div>`).join('');
+  return `<div class="acts-grid">${cards}</div>`;
+}
+
+/* ──────────────────────────────────────────────
+   NAVBAR SCROLL EFFECT
+────────────────────────────────────────────── */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(12,10,8,.99)';
+    nav.style.boxShadow  = '0 1px 24px rgba(0,0,0,.6)';
+  } else {
+    nav.style.background = 'rgba(12,10,8,.95)';
+    nav.style.boxShadow  = 'none';
+  }
+}, { passive: true });
+</script>
+
+<!-- Bootstrap JS pour les interactions si besoin -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
