@@ -233,12 +233,13 @@ body{
 .g-fes{background:linear-gradient(160deg,#2d1500,#7b3f00)}
 .g-ifrane{background:linear-gradient(160deg,#0a1a0a,#1a3a2a)}
 .g-casa{background:linear-gradient(to bottom,rgba(5,15,30,.45),rgba(5,15,30,.7)),url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover}
-.g-rabat{background:linear-gradient(160deg,#1a0a0a,#4a1a1a)}
+.g-rabat{background:linear-gradient(to bottom,rgba(26,10,10,.45),rgba(74,26,26,.7)),url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover}
 .g-marrakech{background:linear-gradient(to bottom,rgba(45,13,13,.4),rgba(139,26,26,.75)),url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover}
 .g-essaouira{background:linear-gradient(to bottom,rgba(10,26,42,.4),rgba(26,58,92,.75)),url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover}
-.g-taghazout{background:linear-gradient(160deg,#1a1000,#4a2800)}
-.g-merzouga{background:linear-gradient(160deg,#2a1500,#6b3500)}
-.g-ouarzazate{background:linear-gradient(160deg,#2a1800,#7a4000)}
+.g-agadir{background:linear-gradient(to bottom,rgba(26,18,0,.45),rgba(74,53,0,.7)),url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover}
+.g-taghazout{background:linear-gradient(to bottom,rgba(26,16,0,.45),rgba(74,40,0,.7)),url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover}
+.g-merzouga{background:linear-gradient(to bottom,rgba(42,21,0,.45),rgba(107,53,0,.7)),url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover}
+.g-ouarzazate{background:linear-gradient(to bottom,rgba(42,24,0,.45),rgba(122,64,0,.7)),url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover}
 .g-dakhla{background:linear-gradient(160deg,#051525,#0d3555)}
 
 /* ============================================================
@@ -1190,7 +1191,8 @@ const CITIES = {
 
   rabat:{
     name:'Rabat',eyebrow:'Capitale du Maroc',subtitle:'Atlantique — Cité royale · Fondée au XIIe siècle',
-    gradient:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',
+    gradient:'linear-gradient(160deg,#1a0a0a,#4a1a1a)', headerImg:'https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3',
+    headerPos:'40%',
     histoire:{
       texte:`Rabat est la capitale administrative du Royaume du Maroc depuis 1912. Fondée au XIIe siècle par le sultan Almohade Yacoub el-Mansour qui y érige la Tour Hassan — minaret inachevé d'une mosquée qui aurait été la plus grande du monde. La Kasbah des Oudaias, dominant l'Atlantique, date du XIIe siècle.\n\nL'ensemble historique de Rabat — incluant la ville nouvelle coloniale et la médina historique — est inscrit au patrimoine mondial de l'UNESCO depuis 2012. En face, sur l'autre rive du Bouregreg, se trouve Salé, l'ancienne ville des corsaires.`,
       timeline:[
@@ -1201,14 +1203,14 @@ const CITIES = {
         {yr:'2012',tx:'Ensemble historique classé Patrimoine mondial UNESCO'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',label:'Tour Hassan'},
-        {bg:'linear-gradient(160deg,#100606,#2a1010)',label:'Mausolée Mohammed V'},
-        {bg:'linear-gradient(160deg,#0a0404,#1a0808)',label:'Kasbah des Oudaias'},
-        {bg:'linear-gradient(160deg,#060202,#100505)',label:'Chellah'},
-      ]
+        {bg:"url('https://3.bp.blogspot.com/-USQBw5HbFlg/UJllfmbJZ-I/AAAAAAAAX8U/9Zqs-84uIAs/s1600/unesco-heritage-site-Rabat-Morocco.jpg') center/cover",label:'Tour Hassan'},
+        {bg:"url('https://www.laradiodelamer.com/wp-content/uploads/2024/08/la-kasbah-des-oudayas-a-rabat-un-joyau-historique-et-culturel-1.jpg') center/cover",label:'Kasbah Oudaias'},
+        {bg:"url('https://thumbs.dreamstime.com/b/ruins-medieval-fortified-muslim-necropolis-chellah-rabat-morocco-rabat-morocco-december-ruins-medieval-248546502.jpg') center/cover",label:'Chellah'},
+        {bg:"url('https://thumbs.dreamstime.com/b/old-medina-rabat-capital-city-morocco-country-s-seventh-largest-248023914.jpg') center/cover",label:'Médina'},
+]
     },
     sites:[
-      {type:'Monument',name:'Tour Hassan & Mausolée Mohammed V',desc:'Minaret inachevé du XIIe siècle face au somptueux mausolée de Mohammed V (1971), symbole de la réconciliation entre tradition et modernité.'},
+      {type:'Monument',namejpg:'Tour Hassan & Mausolée Mohammed V',desc:'Minaret inachevé du XIIe siècle face au somptueux mausolée de Mohammed V (1971), symbole de la réconciliation entre tradition et modernité.'},
       {type:'Kasbah',name:'Kasbah des Oudaias',desc:'Citadelle fondée au XIIe siècle surplombant la confluence Bouregreg-Atlantique. Jardin andalou du XVIIe siècle, musée des arts marocains.'},
       {type:'Site historique',name:'Nécropole de Chellah',desc:'Site unique : ruines romaines de Sala Colonia imbriquées dans une nécropole mérinide du XIVe siècle, habitées par des familles de cigognes.'},
       {type:'Musée',name:'Musée National de l\'Archéologie',desc:'Bronzes romains de Volubilis parmi les plus beaux du monde antique, bustes de Juba II et de Caton d\'Utique en argent.'},
@@ -1216,10 +1218,10 @@ const CITIES = {
       {type:'Nature',name:'Parc du Bouregreg',desc:'Promenade sur les deux rives de l\'estuaire du Bouregreg reliant Rabat et Salé, nouveau quartier Bab Al Bahr et marina de prestige.'},
     ],
     hotels:[
-      {name:'Sofitel Rabat Jardin des Roses',stars:'★ ★ ★ ★ ★',desc:'Palace dans les jardins de l\'Agdal, 5 ha de roses et d\'orangers, spa, 4 restaurants gastronomiques, piscine olympique.',price:'2 600 MAD',gradient:'linear-gradient(160deg,#1a0a0a,#4a1a1a)',link:'https://www.sofitel.com'},
-      {name:'Hôtel Balima',stars:'★ ★ ★ ★',desc:'Hôtel historique Art Déco de 1932 sur l\'avenue Mohammed V, brasserie mythique, terrasse sur l\'avenue principale.',price:'650 MAD',gradient:'linear-gradient(160deg,#100606,#2a1010)',link:'https://www.booking.com'},
-      {name:'Riad Kalaa',stars:'★ ★ ★ ★',desc:'Riad en pleine médina de Rabat, patio traditionnel, hammam privatif, décor de zellige et stuc, cuisine marocaine maison.',price:'900 MAD',gradient:'linear-gradient(160deg,#0a0404,#1a0808)',link:'https://www.booking.com'},
-    ],
+  {name:'Sofitel Rabat Jardin des Roses',stars:'★ ★ ★ ★ ★',gradient:"url('https://www.ahstatic.com/photos/6813_ho_00_p_1024x768.jpg') center/cover",desc:'Palace dans les jardins de l\'Agdal, 5 ha de roses et d\'orangers, spa, 4 restaurants gastronomiques.',price:'2 600 MAD',link:'https://www.sofitel.com'},
+  {name:'Hôtel Balima',stars:'★ ★ ★ ★',gradient:"url('https://ledesk.ma/wp-content/uploads/2016/03/Hotel-Balima-Flickr-e1457096585417.jpg') center/cover",desc:'Hôtel historique Art Déco de 1932, brasserie mythique, terrasse sur l\'avenue principale.',price:'650 MAD',link:'https://www.booking.com'},
+  {name:'Riad Kalaa',stars:'★ ★ ★ ★',gradient:"url('https://i.pinimg.com/originals/83/7f/0e/837f0e38f1293d4e8bab0594790bb620.jpg') center/cover",desc:'Riad en pleine médina, patio traditionnel, hammam privatif, décor de zellige et stuc.',price:'900 MAD',link:'https://www.booking.com'},
+],
     restaurants:[
       {name:'Dar Zitoun',stars:'★★★★★',cuisine:'Marocain gastronomique',desc:'Palace du XIXe siècle, cuisine marocaine raffinée, spectacle de musique andalouse, jardins d\'orangers illuminés.',phone:'+212 537-731-777',insta:'darzitoun_rabat'},
       {name:'Le Dhow',stars:'★★★★★',cuisine:'Sur le Bouregreg',desc:'Restaurant flottant unique sur le fleuve Bouregreg, vue sur les deux villes, poissons frais et cuisine marocaine créative.',phone:'+212 537-702-722',insta:'ledhow_rabat'},
@@ -1374,7 +1376,8 @@ const CITIES = {
 
   agadir:{
     name:'Agadir',eyebrow:'Souss-Massa',subtitle:'Souss atlantique · Reconstruite en 1960',
-    gradient:'linear-gradient(160deg,#1a1200,#4a3500)',
+    gradient:'linear-gradient(160deg,#1a1200,#4a3500)',headerImg:'https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg',
+    headerPos:'50%',
     histoire:{
       texte:`Agadir est la principale station balnéaire du Maroc, avec 300 jours de soleil par an. La ville ancienne fut presque entièrement détruite par un violent séisme le 29 février 1960 à 23h47, qui fit plus de 15 000 victimes en 15 secondes — la plus grande catastrophe naturelle de l'histoire moderne du Maroc.\n\nReconstruite selon un plan d'urbanisme moderne et fonctionnel, Agadir est devenue une station internationale avec des infrastructures modernes. Sur la colline dominant la baie, les ruines de la kasbah rappellent en lettres d'argile : "Si tu perles ma mémoire, tu perds ta valeur. Si tu perles ma mémoire, je nais encore."`,
       timeline:[
@@ -1385,11 +1388,11 @@ const CITIES = {
         {yr:'1960–1970',tx:'Reconstruction totale selon un plan d\'urbanisme moderne'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#1a1200,#4a3500)',label:'Baie d\'Agadir'},
-        {bg:'linear-gradient(160deg,#0e0c00,#2d2000)',label:'Kasbah sur la colline'},
-        {bg:'linear-gradient(160deg,#080600,#1a1400)',label:'Plage 9 km'},
-        {bg:'linear-gradient(160deg,#040300,#0e0900)',label:'Marina d\'Agadir'},
-      ]
+        {bg:"url('https://a.cdn-hotels.com/gdcs/production4/d1016/72c0b16d-7835-4930-add1-0ebcbedc43c5.jpg') center/cover",label:'Plage d\'Agadir'},
+        {bg:"url('https://sunnyexcursion.com/wp-content/uploads/2020/09/agadir-scaled.jpg') center/cover",label:'Baie d\'Agadir'},
+        {bg:"url('https://res.cloudinary.com/ddjuftfy2/image/upload/f_webp,c_fill,q_auto,w_1300/memphis/xlarge/788381187_Agadir-Kasabah-Cover.png') center/cover",label:'Kasbah'},
+        {bg:"url('https://thumbs.dreamstime.com/b/agadir-city-morocco-boats-marina-harbour-agadir-agadir-major-city-morocco-located-shore-atlantic-114069591.jpg') center/cover",label:'Marina'},
+]
     },
     sites:[
       {type:'Plage',name:'Plage d\'Agadir',desc:'9 km de plage de sable fin doré, la plus longue plage balnéaire équipée du Maroc. Eau chaude (20-23°C) toute l\'année, promenade animée.'},
@@ -1400,9 +1403,9 @@ const CITIES = {
       {type:'Nature',name:'Parc National Souss-Massa',desc:'Réserve naturelle à 30 km au sud, flamants roses, ibis chauves (espèce menacée), gazelles dorcas et observation d\'oiseaux migrateurs.'},
     ],
     hotels:[
-      {name:'Sofitel Agadir Royal Bay Resort',stars:'★ ★ ★ ★ ★',desc:'Resort de luxe en bord de plage, 5 restaurants dont un gastronomique, spa de 3 000 m², piscines à débordement sur l\'Atlantique.',price:'3 200 MAD',gradient:'linear-gradient(160deg,#1a1200,#4a3500)',link:'https://www.sofitel.com'},
-      {name:'RIU Palace Tikida Agadir',stars:'★ ★ ★ ★ ★',desc:'Resort tout inclus directement sur la plage, 7 piscines, 9 restaurants et bars, animation et sports aquatiques sans supplément.',price:'2 500 MAD',gradient:'linear-gradient(160deg,#0e0c00,#2d2000)',link:'https://www.riu.com'},
-      {name:'Atlantic Palace Agadir Golf Thalasso & Casino Resort',stars:'★ ★ ★ ★',desc:'Golf 18 trous, thalassothérapie, casino, 5 restaurants et navette plage. Idéal pour les séjours sportifs et bien-être.',price:'1 200 MAD',gradient:'linear-gradient(160deg,#080600,#1a1400)',link:'https://www.booking.com'},
+      {name:'Sofitel Agadir Royal Bay Resort',stars:'★ ★ ★ ★ ★',desc:'Resort de luxe en bord de plage, 5 restaurants dont un gastronomique, spa de 3 000 m², piscines à débordement sur l\'Atlantique.',price:'3 200 MAD',gradient:"url('https://www.avenuedesvoyages.fr/wp-content/uploads/2020/07/Sofitel-Agadir-Royal-Bay-Resort-1.jpg') center/cover",link:'https://www.sofitel.com'},
+      {name:'RIU Palace Tikida Agadir',stars:'★ ★ ★ ★ ★',desc:'Resort tout inclus directement sur la plage, 7 piscines, 9 restaurants et bars, animation et sports aquatiques sans supplément.',price:'2 500 MAD',gradient:"url('https://www.fascinations-maroc.ch/wp-content/uploads/2020/06/17_Riu_Palace_Tikida_Agadir_Fascinations_Maroc-scaled.jpg') center/cover",link:'https://www.riu.com'},
+      {name:'Atlantic Palace Agadir Golf Thalasso & Casino Resort',stars:'★ ★ ★ ★',desc:'Golf 18 trous, thalassothérapie, casino, 5 restaurants et navette plage. Idéal pour les séjours sportifs et bien-être.',price:'1 200 MAD',gradient:"url('https://360travel.by/images/gallery/hotels/1461/22983187.jpg') center/cover",link:'https://www.booking.com'},
     ],
     restaurants:[
       {name:'La Tour de Paris',stars:'★★★★',cuisine:'Français & Marocain',desc:'Institution d\'Agadir depuis 40 ans, cuisine franco-marocaine de qualité, homards vivants, poissons du jour et bons vins.',phone:'+212 528-840-011',insta:'ladelaisagadir'},
@@ -1420,7 +1423,8 @@ const CITIES = {
 
   taghazout:{
     name:'Taghazout',eyebrow:'Souss-Massa',subtitle:'Village de surfeurs · Vagues légendaires',
-    gradient:'linear-gradient(160deg,#1a1000,#4a2800)',
+    gradient:'linear-gradient(160deg,#1a1000,#4a2800)',headerImg:'https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg',
+    headerPos:'45%',
     histoire:{
       texte:`Taghazout est un petit village de pêcheurs amazigh situé à 18 km au nord d'Agadir. Longtemps connu des seuls pêcheurs locaux, il est "découvert" par des surfeurs hippies américains et australiens dans les années 1970 qui s'y installent pour les vagues exceptionnelles de l'Anchor Point.\n\nLa vague d'Anchor Point — une droite longue pouvant atteindre 400 mètres — est classée parmi les 10 meilleures vagues droites du monde. Aujourd'hui, Taghazout est devenu une destination surf internationale, tout en préservant son atmosphère de village authentique et bohème.`,
       timeline:[
@@ -1431,11 +1435,11 @@ const CITIES = {
         {yr:'2020s',tx:'Destination surf et wellness de référence internationale'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#1a1000,#4a2800)',label:'Anchor Point'},
-        {bg:'linear-gradient(160deg,#0e0a00,#2d1a00)',label:'Village de pêcheurs'},
-        {bg:'linear-gradient(160deg,#080600,#1a1000)',label:'Coucher de soleil'},
-        {bg:'linear-gradient(160deg,#040300,#0e0800)',label:'Hash Point'},
-      ]
+        {bg:"url('https://a.storyblok.com/f/64613/1440x1080/8909ddea18/anchor-point-taghazout-surf.jpg') center/cover",label:'Anchor Point'},
+        {bg:"url('https://i.pinimg.com/originals/44/43/4f/44434febf74d32693ad0db92e16f62bf.jpg') center/cover",label:'Village'},
+        {bg:"url('https://www.stokedtotravel.com/wp-content/uploads/2018/05/DSC_0188-1440x960.jpg') center/cover",label:'Coucher de soleil'},
+        {bg:"url('https://images.squarespace-cdn.com/content/v1/529cc11ae4b0d8737039d39e/1644323845793-DIV0NOPN130QV624K9U7/IMG_2426-2.jpg?format=750w') center/cover",label:'Hash Point'},
+]
     },
     sites:[
       {type:'Surf',name:'Anchor Point',desc:'Droite légendaire de 400 m, fonctionne avec houle d\'O-NO, meilleure période octobre à mars. Niveau intermédiaire à expert recommandé.'},
@@ -1446,9 +1450,9 @@ const CITIES = {
       {type:'Panorama',name:'Cap Ghir',desc:'Cap rocheux à 15 km au nord, falaises à pic sur l\'Atlantique, phare historique et spots de pêche très appréciés.'},
     ],
     hotels:[
-      {name:'Paradis Plage Surf & Yoga Resort',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles de surf et yoga directement sur la plage, piscine à débordement, restaurant bio, cours quotidiens de surf et yoga.',price:'2 800 MAD',gradient:'linear-gradient(160deg,#1a1000,#4a2800)',link:'https://www.paradisplage.com'},
-      {name:'Taghazout Bay Hotel',stars:'★ ★ ★ ★',desc:'Resort moderne dans la nouvelle marina de Taghazout Bay, vue sur l\'Atlantique, piscine, spa et accès direct à la plage.',price:'1 200 MAD',gradient:'linear-gradient(160deg,#0e0a00,#2d1a00)',link:'https://www.booking.com'},
-      {name:'Surf Maroc Camp',stars:'★ ★ ★',desc:'Camp de surf historique de Taghazout, forfaits semaine tout inclus (hébergement + cours + repas), ambiance communautaire internationale.',price:'600 MAD',gradient:'linear-gradient(160deg,#080600,#1a1000)',link:'https://www.surfmaroc.com'},
+      {name:'Paradis Plage Surf & Yoga Resort',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles de surf et yoga directement sur la plage, piscine à débordement, restaurant bio, cours quotidiens de surf et yoga.',price:'2 800 MAD',gradient:"url('https://pics.tui.com/pics/pics1600x1200/tui/i/il188664.jpg') center/cover",link:'https://www.paradisplage.com'},
+      {name:'Taghazout Bay Hotel',stars:'★ ★ ★ ★',desc:'Resort moderne dans la nouvelle marina de Taghazout Bay, vue sur l\'Atlantique, piscine, spa et accès direct à la plage.',price:'1 200 MAD',gradient:"url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/82/8b/06/fairmont-taghazout-bay.jpg?w=1400&h=-1&s=1') center/cover",link:'https://www.booking.com'},
+      {name:'Surf Maroc Camp',stars:'★ ★ ★',desc:'Camp de surf historique de Taghazout, forfaits semaine tout inclus (hébergement + cours + repas), ambiance communautaire internationale.',price:'600 MAD',gradient:"url('https://oceanadventure.surf/wp-content/uploads/2022/11/937a2899.webp') center/cover",link:'https://www.surfmaroc.com'},
     ],
     restaurants:[
       {name:'Surf Berbère Café',stars:'★★★',cuisine:'Marocain & International',desc:'Terrasse sur les vagues, petit-déjeuner smoothie bowl, déjeuner tagine, dîner pizza. Table incontournable du village.',phone:'+212 661-456-123',insta:'surfberberecafe'},
@@ -1466,7 +1470,8 @@ const CITIES = {
 
   merzouga:{
     name:'Merzouga',eyebrow:'Drâa-Tafilalet — Sahara',subtitle:'Porte du Sahara · Erg Chebbi',
-    gradient:'linear-gradient(160deg,#2a1500,#6b3500)',
+    gradient:'linear-gradient(160deg,#2a1500,#6b3500)',headerImg:'https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg',
+    headerPos:'50%',
     histoire:{
       texte:`Merzouga est une oasis désertique aux portes de l'Erg Chebbi, le plus beau massif de dunes de sable du Maroc, atteignant 150 m de hauteur et 22 km de longueur. Situé dans la province d'Errachidia à la frontière algérienne, ce village berbère était autrefois un simple point d'eau sur les routes caravanières transsahariennes.\n\nLes dunes de l'Erg Chebbi sont composées de sable fin apporté par le vent depuis le Sahara algérien. Leurs teintes changent dramatiquement au fil de la journée : roses à l'aube, dorées en journée, orangées au crépuscule, rouge sang au couchant. La région est aussi le carrefour des cultures touareg, berbère et gnaoue.`,
       timeline:[
@@ -1476,12 +1481,12 @@ const CITIES = {
         {yr:'1980s',tx:'Premiers touristes occidentaux en chameau dans les dunes'},
         {yr:'2000s',tx:'Merzouga devient la 1ère destination désertique du Maroc'},
       ],
-      photos:[
-        {bg:'linear-gradient(160deg,#2a1500,#6b3500)',label:'Dunes de l\'Erg Chebbi'},
-        {bg:'linear-gradient(160deg,#1a0e00,#401e00)',label:'Bivouac berbère'},
-        {bg:'linear-gradient(160deg,#0e0700,#261200)',label:'Coucher de soleil Sahara'},
-        {bg:'linear-gradient(160deg,#070400,#150a00)',label:'Trek en chameau'},
-      ]
+     photos:[
+        {bg:"url('https://img.locationscout.net/images/2019-08/merzouga-desert-morocco_l.jpeg') center/cover",label:'Dunes Erg Chebbi'},
+        {bg:"url('https://www.vacances-desert.com/upload/photo_prestation_2929.jpg') center/cover",label:'Bivouac berbère'},
+        {bg:"url('https://media.routard.com/image/45/5/photo.1525455.jpeg') center/cover",label:'Coucher de soleil'},
+        {bg:"url('https://www.marocexpeditiontravel.com/images/guide/erg-chebbi-sand-dunes.jpg') center/cover",label:'Trek chameau'},
+]
     },
     sites:[
       {type:'Désert',name:'Erg Chebbi',desc:'Mer de dunes de sable fin sur 22 km de long et 5 km de large, les plus hautes dunes du Maroc (150 m). Spectaculaire au lever et au coucher du soleil.'},
@@ -1492,9 +1497,9 @@ const CITIES = {
       {type:'Ksar',name:'Ksar d\'Aït Benhaddou (route)',desc:'En route vers Merzouga via Ouarzazate, le ksar UNESCO d\'Aït Ben Haddou, décor de Lawrence d\'Arabie et Game of Thrones.'},
     ],
     hotels:[
-      {name:'Luxury Desert Camp Erg Chebbi',stars:'★ ★ ★ ★ ★',desc:'Camp de tentes de luxe climatisées au pied des grandes dunes, dîner gastronomique, musique gnaoue, ciel étoilé exceptionnel.',price:'3 500 MAD',gradient:'linear-gradient(160deg,#2a1500,#6b3500)',link:'https://www.booking.com'},
-      {name:'Kasbah Derkaoua',stars:'★ ★ ★ ★',desc:'Kasbah en pisé face aux dunes, piscine extérieure chauffée, restaurant avec produits du terroir, excursions en chameau organisées.',price:'900 MAD',gradient:'linear-gradient(160deg,#1a0e00,#401e00)',link:'https://www.booking.com'},
-      {name:'Riad Nezha Merzouga',stars:'★ ★ ★',desc:'Riad familial avec vue directe sur les dunes, terrasse pour observer le lever du soleil depuis son lit, cuisine berbère authentique.',price:'450 MAD',gradient:'linear-gradient(160deg,#0e0700,#261200)',link:'https://www.booking.com'},
+      {name:'Luxury Desert Camp Erg Chebbi',stars:'★ ★ ★ ★ ★',desc:'Camp de tentes de luxe climatisées au pied des grandes dunes, dîner gastronomique, musique gnaoue, ciel étoilé exceptionnel.',price:'3 500 MAD',gradient:"url('https://th.bing.com/th/id/R.407f2318e84406e1658171e034387ef6?rik=dvlu6ORc2i308A&pid=ImgRaw&r=0') center/cover",link:'https://www.booking.com'},
+      {name:'Kasbah Derkaoua',stars:'★ ★ ★ ★',desc:'Kasbah en pisé face aux dunes, piscine extérieure chauffée, restaurant avec produits du terroir, excursions en chameau organisées.',price:'900 MAD',gradient:"url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/92/de/8b/kasbah-ksar-merzouga.jpg?w=900&h=-1&s=1') center/cover",link:'https://www.booking.com'},
+      {name:'Riad Nezha Merzouga',stars:'★ ★ ★',desc:'Riad familial avec vue directe sur les dunes, terrasse pour observer le lever du soleil depuis son lit, cuisine berbère authentique.',price:'450 MAD',gradient:"url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/59/63/8a/riad-nezha.jpg?w=700&h=-1&s=1') center/cover",link:'https://www.booking.com'},
     ],
     restaurants:[
       {name:'Restaurant Berbère des Dunes',stars:'★★★',cuisine:'Tagine & Méchoui',desc:'Tables basses dans une tente berbère, tagine d\'agneau aux dattes et abricots, couscous aux 7 légumes, thé cérémoniel.',phone:'+212 535-577-145',insta:'berbere_merzouga'},
@@ -1512,7 +1517,8 @@ const CITIES = {
 
   ouarzazate:{
     name:'Ouarzazate',eyebrow:'Drâa-Tafilalet — Sud',subtitle:'Porte du Désert · Hollywood du Maroc',
-    gradient:'linear-gradient(160deg,#2a1800,#7a4000)',
+    gradient:'linear-gradient(160deg,#2a1800,#7a4000)', headerImg:'https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg',
+    headerPos:'40%',
     histoire:{
       texte:`Ouarzazate, surnommée la "Porte du Désert" et "Hollywood du Maroc", est une ville carrefour entre le Haut Atlas et le Sahara. Fondée par le Protectorat français en 1928 comme poste militaire, elle contrôle les routes caravanières vers le Sahara.\n\nElle est mondialement connue pour ses studios de cinéma CLA qui ont accueilli plus de 200 productions depuis 1983, dont Lawrence d'Arabie (Lean, 1962), Gladiator (Scott, 2000), Game of Thrones et Babel (Iñárritu, 2006). Le ksar fortifié d'Aït-Ben-Haddou, à 30 km, est classé au patrimoine mondial de l'UNESCO depuis 1987.`,
       timeline:[
@@ -1523,11 +1529,11 @@ const CITIES = {
         {yr:'2000',tx:'Gladiator de Ridley Scott, consécration internationale des studios'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#2a1800,#7a4000)',label:'Aït-Ben-Haddou'},
-        {bg:'linear-gradient(160deg,#1a1000,#4a2800)',label:'Kasbah Taourirt'},
-        {bg:'linear-gradient(160deg,#0e0800,#2d1a00)',label:'Studios de cinéma'},
-        {bg:'linear-gradient(160deg,#070400,#1a0e00)',label:'Gorges du Dadès'},
-      ]
+        {bg:"url('https://tse1.mm.bing.net/th/id/OIP.EdrCK3HyVj-gI0nWDrr7YAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover",label:'Aït-Ben-Haddou'},
+        {bg:"url('https://upload.wikimedia.org/wikipedia/commons/0/0f/Kasbah_Taourirt_in_Ouarzazate_2011.jpg') center/cover",label:'Kasbah Taourirt'},
+        {bg:"url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/34/cb/d6/caption.jpg?w=1200&h=-1&s=1') center/cover",label:'Studios cinéma'},
+        {bg:"url('https://photo620x400.mnstatic.com/d62224bd960add4c5e88752c90d3b3f7/gorges-du-dades.jpg') center/cover",label:'Gorges Dadès'},
+]
     },
     sites:[
       {type:'Site UNESCO',name:'Ksar d\'Aït-Ben-Haddou',desc:'Village fortifié en pisé ocre du XVIIe siècle, classé UNESCO en 1987. Décor de 20 films majeurs dont Lawrence d\'Arabie, Gladiator et Game of Thrones.'},
@@ -1538,9 +1544,9 @@ const CITIES = {
       {type:'Nature',name:'Gorges du Dadès',desc:'Paysages spectaculaires à 2h30, route en lacets vertigineuse entre des parois de roches rouges, villages de potiers berbères.'},
     ],
     hotels:[
-      {name:'Le Berbère Palace',stars:'★ ★ ★ ★ ★',desc:'Palace aux portes du désert, décor de kasbah luxueuse, piscines olympiques et d\'agrément, restaurant gastronomique, spa.',price:'1 800 MAD',gradient:'linear-gradient(160deg,#2a1800,#7a4000)',link:'https://www.berberepalace.com'},
-      {name:'Dar Ahlam',stars:'★ ★ ★ ★ ★',desc:'Kasbah de 10 suites uniques au monde selon le magazine Travel & Leisure, tables dans le désert, expériences sur mesure.',price:'5 500 MAD',gradient:'linear-gradient(160deg,#1a1000,#4a2800)',link:'https://www.darahlam.com'},
-      {name:'Riad Ouarzazate',stars:'★ ★ ★',desc:'Riad en pisé traditionnel au centre-ville, terrasse vue sur la kasbah Taourirt, cuisine berbère et excursions organisées.',price:'450 MAD',gradient:'linear-gradient(160deg,#0e0800,#2d1a00)',link:'https://www.booking.com'},
+      {name:'Le Berbère Palace',stars:'★ ★ ★ ★ ★',desc:'Palace aux portes du désert, décor de kasbah luxueuse, piscines olympiques et d\'agrément, restaurant gastronomique, spa.',price:'1 800 MAD', gradient:"url('https://images.trvl-media.com/lodging/1000000/190000/189700/189632/d0a2baa8.jpg?impolicy=resizecrop&rw=598&ra=fit') center/cover",link:'https://www.berberepalace.com'},
+      {name:'Dar Ahlam',stars:'★ ★ ★ ★ ★',desc:'Kasbah de 10 suites uniques au monde selon le magazine Travel & Leisure, tables dans le désert, expériences sur mesure.',price:'5 500 MAD', gradient:"url('https://d1x2jsuj9gaph.cloudfront.net/imageRepo/3/0/74/200/866/Pool_DSC_3675_P.jpg') center/cover",link:'https://www.darahlam.com'},
+      {name:'Riad Ouarzazate',stars:'★ ★ ★',desc:'Riad en pisé traditionnel au centre-ville, terrasse vue sur la kasbah Taourirt, cuisine berbère et excursions organisées.',price:'450 MAD', gradient:"url('https://www.riad-ouarzazate.com/wp-content/uploads/2018/10/NBL3176-5-min-min.jpg') center/cover",link:'https://www.booking.com'},
     ],
     restaurants:[
       {name:'Chez Dimitri',stars:'★★★★',cuisine:'Marocain & Méditerranéen',desc:'Institution de Ouarzazate depuis 1928, la table historique des équipes de tournage Hollywood, cuisine greco-marocaine unique.',phone:'+212 524-887-346',insta:'chezdimitri_ouarzazate'},
@@ -1569,10 +1575,10 @@ const CITIES = {
         {yr:'2009',tx:'Championnat du monde de kitesurf à Dakhla, consécration internationale'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#051525,#0d3555)',label:'Lagune de Dakhla'},
-        {bg:'linear-gradient(160deg,#030d18,#082540)',label:'Kitesurf'},
-        {bg:'linear-gradient(160deg,#020810,#051a2e)',label:'Dune blanche'},
-        {bg:'linear-gradient(160deg,#010408,#030f1e)',label:'Île aux flamants'},
+        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Lagune de Dakhla'},
+        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Kitesurf'},
+        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Dune blanche'},
+        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Île aux flamants'},
       ]
     },
     sites:[
@@ -1584,9 +1590,9 @@ const CITIES = {
       {type:'Culture',name:'Culture sahraouie',desc:'Artisanat hassani : bijoux en argent, tentes sahraouies, dromadaires et thé à trois versets — tradition saharienne d\'hospitalité.'},
     ],
     hotels:[
-      {name:'Dakhla Attitude',stars:'★ ★ ★ ★',desc:'Le camp de kitesurf de référence mondiale, directement sur la lagune, forfaits tout inclus, spots privatifs, école certifiée IKO.',price:'1 800 MAD',gradient:'linear-gradient(160deg,#051525,#0d3555)',link:'https://www.dakhlaattitude.com'},
-      {name:'Robinson Club Dakhla',stars:'★ ★ ★ ★',desc:'Resort tout inclus sur la lagune, club de kitesurf et windsurf, sports nautiques illimités, animation et restaurants variés.',price:'2 200 MAD',gradient:'linear-gradient(160deg,#030d18,#082540)',link:'https://www.robinson.com'},
-      {name:'Calma Dakhla',stars:'★ ★ ★',desc:'Écolodge boutique sur la lagune, 12 chambres décorées en artisanat sahraoui, restaurant de poissons frais et piscine naturelle.',price:'750 MAD',gradient:'linear-gradient(160deg,#020810,#051a2e)',link:'https://www.booking.com'},
+      {name:'Dakhla Attitude',stars:'★ ★ ★ ★',desc:'Le camp de kitesurf de référence mondiale, directement sur la lagune, forfaits tout inclus, spots privatifs, école certifiée IKO.',price:'1 800 MAD',gradient:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",link:'https://www.dakhlaattitude.com'},
+      {name:'Robinson Club Dakhla',stars:'★ ★ ★ ★',desc:'Resort tout inclus sur la lagune, club de kitesurf et windsurf, sports nautiques illimités, animation et restaurants variés.',price:'2 200 MAD',gradient:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",link:'https://www.robinson.com'},
+      {name:'Calma Dakhla',stars:'★ ★ ★',desc:'Écolodge boutique sur la lagune, 12 chambres décorées en artisanat sahraoui, restaurant de poissons frais et piscine naturelle.',price:'750 MAD',gradient:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",link:'https://www.booking.com'},
     ],
     restaurants:[
       {name:'Ocean Vagabond',stars:'★★★★',cuisine:'Fruits de mer & poissons',desc:'La table incontournable de Dakhla, poissons et fruits de mer ultra-frais de la lagune, terrasse sur l\'eau, sunset garanti.',phone:'+212 528-935-100',insta:'oceanvagabond_dakhla'},
