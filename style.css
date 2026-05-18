@@ -1,0 +1,1137 @@
+/* ============================================================
+   RESET & BASE (complément à Bootstrap)
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #0c0a08;
+  color: #e8e0d0;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   NAVBAR (surcharge Bootstrap)
+   ============================================================ */
+.navbar {
+  background: rgba(12, 10, 8, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #2a2218;
+  padding: 12px 48px !important;
+  transition: background 0.4s;
+}
+.navbar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #e8d5a0;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.navbar-brand span {
+  color: #b8935a;
+  font-style: italic;
+  font-weight: 400;
+}
+.nav-link {
+  font-size: 10px !important;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a09070 !important;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: #c9a05a !important;
+}
+.navbar-nav .nav-link.active {
+  color: #c9a05a !important;
+}
+.btn-outline-nav {
+  border: 1px solid #b8935a;
+  color: #b8935a;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  transition: all 0.3s;
+  background: transparent;
+  border-radius: 0;
+}
+.btn-outline-nav:hover {
+  background: #b8935a;
+  color: #0c0a08;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#home {
+  padding-top: 60px;
+}
+.hero-img {
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  background: linear-gradient(to bottom, rgba(12, 10, 8, 0.25) 0%, rgba(12, 10, 8, 0.2) 40%, rgba(12, 10, 8, 0.85) 85%, #0c0a08 100%),
+    url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1400&auto=format&fit=crop&q=90') center 30% / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 48px 60px;
+  position: relative;
+}
+.hero-ornament {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b8935a44, transparent);
+}
+.hero-ornament::before,
+.hero-ornament::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #b8935a66;
+  border-radius: 50%;
+}
+.hero-ornament::before {
+  left: 0;
+}
+.hero-ornament::after {
+  right: 0;
+}
+.hero-text {
+  animation: fadeUp 0.9s ease both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #b8935a;
+  font-weight: 400;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #b8935a;
+}
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.08;
+  color: #f0e8d8;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: #e8c878;
+  font-weight: 300;
+}
+.hero-body {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #b0a080;
+  max-width: 380px;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.btn-primary-custom {
+  background: #b8935a;
+  color: #0c0a08;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+.btn-primary-custom:hover {
+  background: #d4a86a;
+  color: #0c0a08;
+}
+.btn-ghost-custom {
+  border: 1px solid #4a3a28;
+  color: #a09070;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: transparent;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+.btn-ghost-custom:hover {
+  border-color: #c9a05a;
+  color: #c9a05a;
+}
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 40px;
+  border-left: 1px solid #2a2218;
+}
+.hs-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #e8c878;
+}
+.hs-label {
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a6848;
+  font-weight: 400;
+}
+
+/* ============================================================
+   STRIP
+   ============================================================ */
+.divider {
+  display: flex;
+  align-items: center;
+  padding: 18px 48px;
+  background: #0c0a08;
+  border-top: 1px solid #1a1510;
+  border-bottom: 1px solid #1a1510;
+  flex-wrap: wrap;
+}
+.div-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8a7860;
+  padding: 0 20px;
+  border-right: 1px solid #2a2218;
+}
+.div-item:first-child {
+  padding-left: 0;
+}
+.div-item:last-child {
+  border-right: none;
+}
+.div-icon {
+  color: #c9a05a;
+  font-size: 14px;
+}
+
+/* ============================================================
+   SECTIONS COMMUNS
+   ============================================================ */
+.sec-eyebrow {
+  font-size: 8.5px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c9a05a;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-eyebrow::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #c9a05a;
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #f0e8d8;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.sec-sub {
+  font-size: 11px;
+  font-weight: 300;
+  color: #8a7860;
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+}
+
+/* ============================================================
+   CARTES VILLES (avec Bootstrap cards)
+   ============================================================ */
+.city-card {
+  cursor: pointer;
+  transition: filter 0.4s;
+  overflow: hidden;
+  position: relative;
+  height: 180px;
+  margin-bottom: 2px;
+}
+.city-card:hover {
+  filter: brightness(1.12);
+}
+.city-card-img {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  position: relative;
+}
+.city-card:hover .city-card-img {
+  transform: scale(1.05);
+}
+.city-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 8, 5, 0.9) 0%, rgba(10, 8, 5, 0.15) 60%, transparent 100%);
+  transition: background 0.4s;
+}
+.city-card:hover .city-card-img::after {
+  background: linear-gradient(to top, rgba(10, 8, 5, 0.75) 0%, rgba(184, 147, 90, 0.08) 60%, transparent 100%);
+}
+.city-card-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 14px 12px;
+  z-index: 1;
+}
+.city-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #f0e8d8;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 2px;
+}
+.city-region {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b8935a;
+  font-weight: 400;
+}
+.city-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #b8935a, #e8c878);
+  transition: width 0.5s ease;
+}
+.city-card:hover .city-hover-line {
+  width: 100%;
+}
+/* Gradients/Images */
+.g-tanger {
+  background: url('https://trendeviajes.com/wp-content/uploads/2025/11/panoramica-de-tanger.webp?w=1024') center/cover;
+}
+.g-tetouan {
+  background: url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover;
+}
+.g-chefchaouen {
+  background: url('https://puertaazulchaouen.com/wp-content/uploads/2025/12/Things-to-do-in-Chefchaouen-18-1.jpg') center/cover;
+}
+.g-houceima {
+  background: url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover;
+}
+.g-fes {
+  background: url('https://img-4.linternaute.com/s5tz5DEpq-nAqqk54okS4ePhClU=/660x366/smart/e0b057f33de6453f981a7215ffbea132/ccmcms-linternaute/14804748.jpg') center/cover;
+}
+.g-ifrane {
+  background: url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover;
+}
+.g-casa {
+  background: url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover;
+}
+.g-rabat {
+  background: url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover;
+}
+.g-marrakech {
+  background: url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover;
+}
+.g-essaouira {
+  background: url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover;
+}
+.g-agadir {
+  background: url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover;
+}
+.g-taghazout {
+  background: url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover;
+}
+.g-merzouga {
+  background: url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover;
+}
+.g-ouarzazate {
+  background: url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover;
+}
+.g-dakhla {
+  background: url('https://travedis.com/assets/dakhla-1-DGEqa_Xw.jpg') center/cover;
+}
+
+/* ============================================================
+   EXPÉRIENCES
+   ============================================================ */
+.exp-card {
+  background: #0c0a08;
+  padding: 28px 22px;
+  height: 100%;
+}
+.exp-icon {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #2a2218;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b8935a;
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+.exp-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #e8dfc8;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.exp-desc {
+  font-size: 10px;
+  font-weight: 300;
+  color: #9a8a6a;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   HÔTELS VEDETTE
+   ============================================================ */
+.hotel-card {
+  background: #0c0a08;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hotel-img-h {
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-size: cover;
+  background-position: center;
+}
+.h-stars {
+  font-size: 10px;
+  color: #c8a870;
+  letter-spacing: 0.1em;
+}
+.h-city {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b8935a;
+  border: 1px solid #b8935a44;
+  padding: 3px 8px;
+}
+.hotel-body-c {
+  padding: 16px 14px 18px;
+  flex: 1;
+}
+.hotel-name-c {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: #eeddc8;
+  margin-bottom: 5px;
+  letter-spacing: 0.04em;
+}
+.hotel-desc-c {
+  font-size: 10px;
+  font-weight: 300;
+  color: #8a7860;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+.hotel-price-c {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #9a8870;
+  margin-bottom: 12px;
+}
+.hotel-price-c span {
+  color: #c9a05a;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+.btn-book {
+  display: block;
+  text-align: center;
+  border: 1px solid #3a3020;
+  color: #a09070;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 9px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: transparent;
+  border-radius: 0;
+}
+.btn-book:hover {
+  border-color: #c9a05a;
+  color: #c9a05a;
+}
+
+/* ============================================================
+   GASTRONOMIE
+   ============================================================ */
+.plats-list {
+  display: flex;
+  flex-direction: column;
+}
+.plat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #1a1510;
+}
+.plat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #3a3020;
+  width: 30px;
+  flex-shrink: 0;
+}
+.plat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #e0d0a8;
+  letter-spacing: 0.06em;
+}
+.plat-d {
+  font-size: 9.5px;
+  font-weight: 300;
+  color: #8a7860;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+.resto-item-g {
+  background: #0c0a08;
+  padding: 18px;
+  height: 100%;
+}
+.resto-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+.resto-name-g {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #e0d0a8;
+  letter-spacing: 0.04em;
+}
+.resto-stars-g {
+  font-size: 9px;
+  color: #c9a05a;
+  letter-spacing: 0.1em;
+}
+.resto-ville-g {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7a6848;
+  margin-bottom: 6px;
+}
+.resto-desc-g {
+  font-size: 9.5px;
+  font-weight: 300;
+  color: #8a7860;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   OVERLAY
+   ============================================================ */
+#city-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #0a0806;
+  overflow-y: auto;
+  display: none;
+  animation: overlayIn 0.35s ease both;
+}
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.ov-header {
+  position: relative;
+  height: 460px;
+  background-size: cover;
+  background-position: center 30%;
+  display: flex;
+  align-items: flex-end;
+  padding: 36px 52px;
+  overflow: hidden;
+}
+.ov-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #b8935a;
+  margin-bottom: 6px;
+}
+.ov-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 300;
+  color: #f0e8d8;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.ov-subtitle {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: #7a6040;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+.ov-close {
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #b8935a;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #b8935a;
+  transition: all 0.3s ease;
+}
+.ov-close:hover {
+  background: #b8935a;
+  color: #0c0a08;
+}
+.ov-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.0001) 5%, transparent 70%);
+  z-index: 1;
+}
+
+/* Donner au contenu de l'en-tête un z-index supérieur */
+.ov-header-content {
+  position: relative;
+  z-index: 5;
+}
+.ov-tabs {
+  display: flex;
+  border-bottom: 1px solid #1e1a14;
+  padding: 0 52px;
+  background: #0c0a08;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.ov-tab {
+  padding: 14px 18px;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6a5a40;
+  font-weight: 400;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+.ov-tab:hover {
+  color: #a09070;
+}
+.ov-tab.active {
+  color: #c9a05a;
+  border-bottom-color: #c9a05a;
+}
+.ov-body {
+  padding: 44px 52px;
+  display: none;
+}
+.ov-body.active {
+  display: block;
+}
+.histoire-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.hist-text {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #9a8a70;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.timeline {
+  border-left: 1px solid #2a2218;
+  padding-left: 18px;
+}
+.tl-item {
+  margin-bottom: 14px;
+}
+.tl-yr {
+  font-size: 8.5px;
+  letter-spacing: 0.15em;
+  color: #c9a05a;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.tl-tx {
+  font-size: 10px;
+  color: #8a7860;
+  font-weight: 300;
+  line-height: 1.55;
+  margin-top: 2px;
+}
+.gallery-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-top: 20px;
+}
+.gal-ph {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 10px;
+}
+.gal-ph::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 3, 2, 0.88), transparent 60%);
+}
+.gal-label {
+  font-size: 8px;
+  color: #c8a870;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #1a1510;
+}
+.site-card {
+  background: #0e0c09;
+  padding: 22px;
+}
+.site-type {
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9a05a;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.site-type::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: #c9a05a55;
+}
+.site-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #eeddc8;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.site-desc {
+  font-size: 10px;
+  font-weight: 300;
+  color: #9a8a70;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.hotels-ov-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: #1a1510;
+}
+.hotel-ov {
+  background: #0e0c09;
+  overflow: hidden;
+}
+.hotel-ov-img {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-size: cover;
+  background-position: center;
+}
+.hotel-ov-body {
+  padding: 14px 14px 16px;
+}
+.hotel-ov-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #eeddc8;
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+.hotel-ov-desc {
+  font-size: 9.5px;
+  font-weight: 300;
+  color: #9a8a70;
+  line-height: 1.55;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+.hotel-ov-price {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #9a8870;
+  margin-bottom: 10px;
+}
+.hotel-ov-price span {
+  color: #c9a05a;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+}
+.btn-reserve {
+  display: block;
+  text-align: center;
+  border: 1px solid #3a3020;
+  color: #a09070;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: transparent;
+  text-decoration: none;
+}
+.btn-reserve:hover {
+  border-color: #c9a05a;
+  color: #c9a05a;
+}
+.restos-ov-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #1a1510;
+}
+.resto-ov {
+  background: #0e0c09;
+  padding: 20px;
+}
+.resto-ov-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+.resto-ov-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: #e8d8b0;
+  letter-spacing: 0.04em;
+}
+.resto-ov-stars {
+  font-size: 10px;
+  color: #c9a05a;
+  letter-spacing: 0.1em;
+}
+.resto-ov-cuisine {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7a6848;
+  margin-bottom: 8px;
+}
+.resto-ov-desc {
+  font-size: 10px;
+  font-weight: 300;
+  color: #9a8a70;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+.resto-ov-contact {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid #1a1510;
+}
+.resto-ov-info {
+  font-size: 9px;
+  color: #8a7860;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.acts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #1a1510;
+}
+.act-card {
+  background: #0e0c09;
+  padding: 22px;
+}
+.act-type {
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9a05a;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.act-type::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: #c9a05a55;
+}
+.act-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #eeddc8;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.act-desc {
+  font-size: 10px;
+  font-weight: 300;
+  color: #9a8a70;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+.act-contact {
+  font-size: 9px;
+  color: #8a7860;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: #060503;
+  border-top: 1px solid #1a1510;
+  padding: 48px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+.f-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #e8d5a0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.f-brand span {
+  color: #b8935a;
+  font-style: italic;
+}
+.f-desc {
+  font-size: 10px;
+  font-weight: 300;
+  color: #7a6848;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  max-width: 240px;
+}
+.f-head {
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9a05a;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.f-link {
+  display: block;
+  font-size: 10px;
+  font-weight: 300;
+  color: #7a6848;
+  letter-spacing: 0.06em;
+  margin-bottom: 7px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.f-link:hover {
+  color: #c9a05a;
+}
+.footer-bot {
+  border-top: 1px solid #1a1510;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-copy {
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  color: #4a3a22;
+}
+
+/* ============================================================
+   RESPONSIVE (complément)
+   ============================================================ */
+@media (max-width: 768px) {
+  .divider {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .div-item {
+    border-right: none;
+    border-bottom: 1px solid #2a2218;
+    padding: 8px 0;
+  }
+  .hero-img {
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 0 24px 40px;
+  }
+  .hero-stats {
+    flex-direction: row;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #2a2218;
+    padding-top: 14px;
+  }
+  .ov-header {
+    height: 220px;
+    padding: 24px;
+  }
+  .ov-tabs {
+    padding: 0 20px;
+  }
+  .ov-body {
+    padding: 28px 20px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .histoire-grid,
+  .sites-grid,
+  .hotels-ov-grid,
+  .restos-ov-grid,
+  .acts-grid {
+    grid-template-columns: 1fr;
+  }
+}
