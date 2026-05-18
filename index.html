@@ -225,22 +225,23 @@ body{
 }
 .city-card:hover .city-hover-line{width:100%}
 
+
 /* Gradients couleur par ville */
-.g-tanger{background:linear-gradient(160deg,#0d1f35,#1a4a6e)}
-.g-tetouan{background:linear-gradient(160deg,#0d2535,#14506e)}
-.g-chefchaouen{background:linear-gradient(160deg,#0d1e3d,#1a3a7a)}
-.g-houceima{background:linear-gradient(160deg,#051a30,#0d3a5e)}
-.g-fes{background:linear-gradient(160deg,#2d1500,#7b3f00)}
-.g-ifrane{background:linear-gradient(160deg,#0a1a0a,#1a3a2a)}
-.g-casa{background:linear-gradient(to bottom,rgba(5,15,30,.45),rgba(5,15,30,.7)),url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover}
-.g-rabat{background:linear-gradient(to bottom,rgba(26,10,10,.45),rgba(74,26,26,.7)),url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover}
-.g-marrakech{background:linear-gradient(to bottom,rgba(45,13,13,.4),rgba(139,26,26,.75)),url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover}
-.g-essaouira{background:linear-gradient(to bottom,rgba(10,26,42,.4),rgba(26,58,92,.75)),url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover}
-.g-agadir{background:linear-gradient(to bottom,rgba(26,18,0,.45),rgba(74,53,0,.7)),url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover}
-.g-taghazout{background:linear-gradient(to bottom,rgba(26,16,0,.45),rgba(74,40,0,.7)),url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover}
-.g-merzouga{background:linear-gradient(to bottom,rgba(42,21,0,.45),rgba(107,53,0,.7)),url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover}
-.g-ouarzazate{background:linear-gradient(to bottom,rgba(42,24,0,.45),rgba(122,64,0,.7)),url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover}
-.g-dakhla{background:linear-gradient(160deg,#051525,#0d3555)}
+.g-tanger{background:url('https://www.lodj.ma/photo/art/grande/87621498-62135060.jpg?v=1743594480') center/cover no-repeat; }
+.g-tetouan { background: url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover no-repeat; }
+.g-chefchaouen{background:url('https://puertaazulchaouen.com/wp-content/uploads/2025/12/Things-to-do-in-Chefchaouen-18-1.jpg') center/cover no-repeat; }
+.g-houceima{background:url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover no-repeat; }
+.g-fes{background:url('https://img-4.linternaute.com/s5tz5DEpq-nAqqk54okS4ePhClU=/660x366/smart/e0b057f33de6453f981a7215ffbea132/ccmcms-linternaute/14804748.jpg')center/cover no-repeat; }
+.g-ifrane{background:url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover no-repeat; }
+.g-casa{background:url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover}
+.g-rabat{background:url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover}
+.g-marrakech{background:url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover}
+.g-essaouira{background:url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover}
+.g-agadir{background:url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover}
+.g-taghazout{background:url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover}
+.g-merzouga{background:url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover}
+.g-ouarzazate{background:url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover}
+.g-dakhla{background:url('https://travedis.com/assets/dakhla-1-DGEqa_Xw.jpg') center/cover no-repeat; }
 
 /* ============================================================
    EXPÉRIENCES
@@ -916,7 +917,7 @@ const CITIES = {
 
   tanger:{
     name:'Tanger',eyebrow:'Nord du Maroc',subtitle:'Détroit de Gibraltar · Fondée ~Xe s. av. J.-C.',
-    gradient:'linear-gradient(160deg,#0d1f35,#1a4a6e)',
+   gradient: "url('https://www.lodj.ma/photo/art/grande/87621498-62135060.jpg?v=1743594480') center/cover no-repeat",
     histoire:{
       texte:`Tanger est l'une des plus anciennes cités d'Afrique du Nord, fondée par les Phéniciens vers le Xe siècle avant J.-C. sous le nom d'Ingletha. Carrefour stratégique entre l'Atlantique et la Méditerranée, elle fut successivement romaine (Tingis), vandale, byzantine, arabe, portugaise, puis ville internationale de 1923 à 1956.\n\nCe cosmopolitisme unique a inspiré des génies : Matisse y peint ses nus lumineux, Delacroix y découvre l'Orient, et des écrivains de la Beat Generation — Burroughs, Kerouac, Ginsberg — y séjournent. Aujourd'hui, Tanger est en plein essor grâce au port Tanger Med, premier port d'Afrique.`,
       timeline:[
@@ -927,10 +928,10 @@ const CITIES = {
         {yr:'1956',tx:'Réunification avec le Maroc indépendant'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#0d1f35,#1a4a6e)',label:'Médina & Kasbah'},
-        {bg:'linear-gradient(160deg,#051a30,#0d3a5e)',label:'Cap Spartel'},
-        {bg:'linear-gradient(160deg,#0a1520,#123050)',label:'Détroit de Gibraltar'},
-        {bg:'linear-gradient(160deg,#080d18,#0f2040)',label:'Corniche'},
+        {bg:"url('https://i.pinimg.com/1200x/86/1f/93/861f935e42ac12e831cd8b5e94b4ad24.jpg') center/cover no-repeat",label:'Médina & Kasbah'},
+        {bg:"url('https://i.pinimg.com/736x/fa/66/7e/fa667ec3c7b022da3f815b0713eee81e.jpg') center/cover no-repeat",label:'Cap Spartel'},
+        {bg:"url('https://upload.wikimedia.org/wikipedia/commons/d/d0/Tanger_Med_Port_-_D%C3%A9troit_de_Gibraltar_Maroc_Zone_Portuaire.jpg') center/cover no-repeat",label:'Détroit de Gibraltar'},
+        {bg:"url('https://i.pinimg.com/736x/e2/99/df/e299df860ef7657552e7fec3700a7956.jpg') center/cover no-repeat",label:'Corniche'},
       ]
     },
     sites:[
@@ -962,7 +963,7 @@ const CITIES = {
 
   tetouan:{
     name:'Tétouan',eyebrow:'Nord du Maroc',subtitle:'Rif — La Colombe Blanche · Fondée IIIe s. av. J.-C.',
-    gradient:'linear-gradient(160deg,#0d2535,#14506e)',
+    gradient: "url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover no-repeat",
     histoire:{
       texte:`Tétouan fut fondée au IIIe siècle avant J.-C. par les Berbères Maurétaniens. Détruite par les Romains en 148 av. J.-C., elle est reconstruite en 1484 par les Wattassides et les réfugiés andalous chassés d'Espagne après la Reconquista, qui lui donnent son architecture hispano-mauresqe unique.\n\nSa médina, surnommée "la Blanche" ou "la Colombe", est classée au patrimoine mondial de l'UNESCO depuis 1997. Capitale du Protectorat espagnol de 1912 à 1956, elle conserve de nombreux bâtiments de style néo-mauresque de cette époque.`,
       timeline:[
@@ -973,10 +974,10 @@ const CITIES = {
         {yr:'1997',tx:'Médina classée Patrimoine mondial UNESCO'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#0d2535,#14506e)',label:'Médina UNESCO'},
-        {bg:'linear-gradient(160deg,#0a1a2a,#103550)',label:'Place Hassan II'},
-        {bg:'linear-gradient(160deg,#080f1e,#0d2a40)',label:'Artisanat'},
-        {bg:'linear-gradient(160deg,#051520,#0a2535)',label:'Architecture andalouse'},
+        {bg:"url('https://i.pinimg.com/736x/06/27/b7/0627b714ceaeee97197f87a009211607.jpg') center/cover no-repeat",label:'Médina UNESCO'},
+        {bg:"url('https://i.pinimg.com/736x/c3/02/03/c30203336be2bc5080975ced95d4a514.jpg') center/cover no-repeat",label:'Place Moulay El Mehdi'},
+        {bg:"url('https://i.pinimg.com/1200x/81/6d/4e/816d4e562ed026a0909a105029c5ea55.jpg') center/cover no-repeat",label:'Artisanat'},
+        {bg:"url('https://i.pinimg.com/736x/3a/f6/18/3af6180d398a38f69dc489202e45b7bf.jpg') center/cover no-repeat",label:'Architecture andalouse'},
       ]
     },
     sites:[
@@ -1008,7 +1009,7 @@ const CITIES = {
 
   chefchaouen:{
     name:'Chefchaouen',eyebrow:'Nord du Maroc',subtitle:'Rif — La Ville Bleue · Fondée en 1471',
-    gradient:'linear-gradient(160deg,#0d1e3d,#1a3a7a)',
+   gradient: "url('https://puertaazulchaouen.com/wp-content/uploads/2025/12/Things-to-do-in-Chefchaouen-18-1.jpg') center/cover no-repeat",
     histoire:{
       texte:`Fondée en 1471 par Moulay Ali ibn Rachid pour protéger les musulmans et les Juifs chassés d'Espagne après la Reconquista, Chefchaouen est célèbre dans le monde entier pour ses bâtiments teints en nuances infinies de bleu et de blanc. Cette tradition de peinture en bleu aurait été introduite par les réfugiés juifs séfarades au XVe siècle, qui considèrent cette couleur comme sacrée.\n\nNichée dans les montagnes du Rif à 600 m d'altitude, la "Ville Bleue" reste l'une des destinations les plus photographiées au monde, mêlant architecture hispano-marocaine et ambiance mystique unique.`,
       timeline:[
@@ -1019,10 +1020,10 @@ const CITIES = {
         {yr:'1956',tx:'Intégration au Maroc indépendant'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#0d1e3d,#1a3a7a)',label:'Ruelles bleues'},
-        {bg:'linear-gradient(160deg,#0a1530,#152a60)',label:'Place Uta el-Hammam'},
-        {bg:'linear-gradient(160deg,#080e25,#101e50)',label:'Fontaine bleue'},
-        {bg:'linear-gradient(160deg,#060a1e,#0c1540)',label:'Kasbah'},
+        {bg:"url('https://i.pinimg.com/736x/45/ff/b3/45ffb3ac450141d8c43da16798c56f73.jpg') center/cover no-repeat",label:'Ruelles bleues'},
+        {bg:"url('https://i.pinimg.com/1200x/2a/51/39/2a51391b209445208b0a0acb4604c641.jpg') center/cover no-repeat",label:'Place Uta el-Hammam'},
+        {bg:"url('https://i.pinimg.com/1200x/0b/85/0c/0b850c0c779310fd2990e0c957a1a0c3.jpg') center/cover no-repeat",label:'Fontaine bleue'},
+        {bg:"url('https://i.pinimg.com/1200x/85/26/e5/8526e5b94ba36092692f8df63ae20dae.jpg') center/cover no-repeat",label:'Kasbah'},
       ]
     },
     sites:[
@@ -1054,7 +1055,7 @@ const CITIES = {
 
   houceima:{
     name:'Al Hoceima',eyebrow:'Nord du Maroc',subtitle:'Méditerranée — Baie de lumière · Fondée en 1925',
-    gradient:'linear-gradient(160deg,#051a30,#0d3a5e)',
+    gradient: "url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover no-repeat",
     histoire:{
       texte:`Al Hoceima, anciennement Villa Sanjurjo sous le protectorat espagnol, est une ville côtière fondée en 1925 au bord de la Méditerranée dans la région du Rif. Sa baie en croissant aux eaux turquoise est considérée comme l'une des plus belles de toute la Méditerranée.\n\nLa ville est au cœur de la résistance rifaine : Abd el-Krim el-Khattabi, "l'émir du Rif", y mena la Guerre du Rif (1921-1926), infligeant une défaite historique à l'Espagne à la bataille d'Anoual. Cette épopée est aujourd'hui un symbole de fierté nationale pour les Marocains.`,
       timeline:[
@@ -1065,10 +1066,10 @@ const CITIES = {
         {yr:'2004',tx:'Tremblement de terre : reconstruction et développement touristique'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#051a30,#0d3a5e)',label:'Baie d\'Al Hoceima'},
-        {bg:'linear-gradient(160deg,#030f1e,#0a2840)',label:'Plage Quemado'},
-        {bg:'linear-gradient(160deg,#020a18,#081e30)',label:'Parc national marin'},
-        {bg:'linear-gradient(160deg,#010609,#051520)',label:'Falaises du Rif'},
+        {bg:"url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5yytj3XCvsOHQtFJB4BhunOmcQh37j37A&s') center/cover no-repeat",label:'Baie d\'Al Hoceima'},
+        {bg:"url('https://i.pinimg.com/1200x/c4/f3/25/c4f325b8211f0b6af5852ea90aaef4e1.jpg') center/cover no-repeat",label:'Plage Quemado'},
+        {bg:"url('https://i.pinimg.com/1200x/06/66/40/066640d12348e9fbd7a910bed5b04e28.jpg') center/cover no-repeat",label:'Parc national marin'},
+        {bg:"url('https://i.pinimg.com/736x/4e/1d/fe/4e1dfe5816c059ad81627b2d11a2d4ae.jpg') center/cover no-repeat",label:'Falaises du Rif'},
       ]
     },
     sites:[
@@ -1100,7 +1101,7 @@ const CITIES = {
 
   fes:{
     name:'Fès',eyebrow:'Centre-Nord du Maroc',subtitle:'Capitale spirituelle · Fondée en 789',
-    gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',
+    gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',gradient: "url('https://img-4.linternaute.com/s5tz5DEpq-nAqqk54okS4ePhClU=/660x366/smart/e0b057f33de6453f981a7215ffbea132/ccmcms-linternaute/14804748.jpg') center/cover no-repeat",
     histoire:{
       texte:`Fès est la première des villes impériales du Maroc, fondée en 789 par Idriss Ier, fondateur de la première dynastie arabe du Maroc. Elle atteignit son apogée sous les Mérinides (XIIIe-XIVe siècles) qui y bâtirent de splendides médersas. La ville abrite la plus vieille université du monde encore en activité : la Mosquée-Université Al Quaraouiyine, fondée en 859 par Fatima al-Fihri.\n\nSa médina, Fès el-Bali, classée au patrimoine mondial de l'UNESCO depuis 1981, est la plus grande zone piétonne médiévale du monde avec plus de 9 400 ruelles. C'est le centre spirituel, culturel et artisanal incontesté du Maroc.`,
       timeline:[
@@ -1111,10 +1112,10 @@ const CITIES = {
         {yr:'1981',tx:'Médina Fès el-Bali classée Patrimoine mondial UNESCO'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#2d1500,#7b3f00)',label:'Tanneries Chouara'},
-        {bg:'linear-gradient(160deg,#1a0c00,#4a2500)',label:'Médersa Bou Inania'},
-        {bg:'linear-gradient(160deg,#100800,#2d1800)',label:'Al Quaraouiyine'},
-        {bg:'linear-gradient(160deg,#0a0500,#200e00)',label:'Médina el-Bali'},
+        {bg:"url('https://i.pinimg.com/736x/76/c6/2a/76c62a18861f8912f57ae1647947cb66.jpg') center/cover no-repeat",label:'Tanneries Chouara'},
+        {bg:"url('https://i.pinimg.com/736x/e3/49/01/e34901a67a594915ef6f2c147ab614f2.jpg') center/cover no-repeat",label:'Médersa Bou Inania'},
+        {bg:"url('https://i.pinimg.com/1200x/e3/85/3f/e3853ff9815e00bc53450b04b97c35cd.jpg') center/cover no-repeat",label:'Al Quaraouiyine'},
+        {bg:"url('https://i.pinimg.com/736x/f8/17/cc/f817cc3c6d2cafaedb156f35c95ad955.jpg') center/cover no-repeat",label:'Médina el-Bali'},
       ]
     },
     sites:[
@@ -1146,7 +1147,7 @@ const CITIES = {
 
   ifrane:{
     name:'Ifrane',eyebrow:'Moyen Atlas',subtitle:'Petite Suisse du Maroc · Fondée en 1929',
-    gradient:'linear-gradient(160deg,#0a1a0a,#1a3a2a)',
+   gradient: "url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover no-repeat",
     histoire:{
       texte:`Surnommée la "Petite Suisse du Maroc" ou "La Ville Propre", Ifrane fut fondée en 1929 par le Protectorat français à 1 650 m d'altitude dans le cœur du Moyen Atlas. La ville est totalement unique au Maroc par son architecture européenne : chalets aux toits pointus couverts de tuiles rouges, rues bordées de sapins et de cèdres, parcs impeccablement entretenus.\n\nElle est le siège de l'Université Al Akhawayn, université anglophone fondée en 1993 avec l'aide des États-Unis, qui accueille des étudiants du monde entier. En hiver, les chutes de neige abondantes transforment Ifrane en station de ski et en décor féerique.`,
       timeline:[
@@ -1156,10 +1157,10 @@ const CITIES = {
         {yr:'2005',tx:'Classement de la forêt de cèdres d\'Azrou en parc naturel protégé'},
       ],
       photos:[
-        {bg:'linear-gradient(160deg,#0a1a0a,#1a3a2a)',label:'Ville sous la neige'},
-        {bg:'linear-gradient(160deg,#061006,#102a18)',label:'Lion de pierre'},
-        {bg:'linear-gradient(160deg,#040a04,#0a1e10)',label:'Lac Dayet Aoua'},
-        {bg:'linear-gradient(160deg,#020602,#060e08)',label:'Cédraie d\'Azrou'},
+        {bg:"url('https://i.pinimg.com/736x/d4/c5/00/d4c500b620c8e4b5cf54ce4ce29f0751.jpg') center/cover no-repeat",label:'Ville sous la neige'},
+        {bg:"url('https://i.pinimg.com/1200x/05/74/9d/05749d4366b684f418f787af32dbbe58.jpg') center/cover no-repeat",label:'Lion de pierre'},
+        {bg:"url('https://i.pinimg.com/736x/26/f6/b7/26f6b751ad2c691c8fd1c21d43827b57.jpg') center/cover no-repeat",label:'Lac Dayet Aoua'},
+        {bg:"url('https://i.pinimg.com/736x/50/b4/ec/50b4ecfd7f567b10c336444218015505.jpg') center/cover no-repeat",label:'Cédraie d\'Azrou'},
       ]
     },
     sites:[
@@ -1564,7 +1565,7 @@ const CITIES = {
 
   dakhla:{
     name:'Dakhla',eyebrow:'Sahara Atlantique',subtitle:'Oued Ed-Dahab · Capitale du kitesurf mondial',
-    gradient:'linear-gradient(160deg,#051525,#0d3555)',
+   gradient: "url('https://travedis.com/assets/dakhla-1-DGEqa_Xw.jpg') center/cover no-repeat",
     histoire:{
       texte:`Dakhla, ancienne Villa Cisneros du nom du cardinal espagnol, est une péninsule spectaculaire dans le Sahara Atlantique, à 1 700 km au sud de Casablanca. Sous protectorat espagnol de 1884 à 1975, la ville est intégrée au Maroc lors de la Marche Verte organisée par Hassan II le 6 novembre 1975.\n\nAvec sa lagune de 40 km de long aux eaux turquoise chaudes toute l'année (température constante de 22°C), et son vent régulier force 4-6 (el-Alisio), Dakhla est devenue la capitale mondiale du kitesurf et du windsurf, accueillant les championnats du monde dans ces disciplines.`,
       timeline:[
@@ -1575,11 +1576,10 @@ const CITIES = {
         {yr:'2009',tx:'Championnat du monde de kitesurf à Dakhla, consécration internationale'},
       ],
       photos:[
-        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Lagune de Dakhla'},
-        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Kitesurf'},
-        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Dune blanche'},
-        {bg:"url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80') center/cover",label:'Île aux flamants'},
-      ]
+        {bg:"url('https://i.pinimg.com/736x/6c/53/d0/6c53d0d42569afd732e2577897ec38f1.jpg') center/cover",label:'Lagune de Dakhla'},
+        {bg:"url('https://i.pinimg.com/736x/26/a2/11/26a211ccb5a8653989e2be96e7f2fa27.jpg') center/cover",label:'Kitesurf'},
+        {bg:"url('https://i.pinimg.com/1200x/b7/41/6e/b7416ef20fcee7c4ab0c572bf7b12d32.jpg') center/cover",label:'Dune blanche'},
+        {bg:"url('https://i.pinimg.com/1200x/1d/0d/ba/1d0dba9cd2d1bac692913989225ee171.jpg') center/cover",label:'Île aux flamants'},     ]
     },
     sites:[
       {type:'Nature',name:'Lagune de Dakhla',desc:'Lagune de 40 km de long, eaux turquoise à 22°C toute l\'année, vent force 4-5 régulier. Paradis mondial du kitesurf et windsurf depuis 40 ans.'},
