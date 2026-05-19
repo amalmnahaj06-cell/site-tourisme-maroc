@@ -52,6 +52,7 @@ const CITIES = {
     ]
   },
 
+  // Même structure de données  répétée pour chaque ville.
   tetouan:{
     name:'Tétouan',eyebrow:'Nord du Maroc',subtitle:'Rif — La Colombe Blanche · Fondée IIIe s. av. J.-C.',
     gradient: "url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover no-repeat",
@@ -192,7 +193,7 @@ const CITIES = {
 
   fes:{
     name:'Fès',eyebrow:'Centre-Nord du Maroc',subtitle:'Capitale spirituelle · Fondée en 789',
-    gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',gradient: "url('https://img-4.linternaute.com/s5tz5DEpq-nAqqk54okS4ePhClU=/660x366/smart/e0b057f33de6453f981a7215ffbea132/ccmcms-linternaute/14804748.jpg') center/cover no-repeat",
+    gradient:'linear-gradient(160deg,#2d1500,#7b3f00)',gradient: "url('https://i.pinimg.com/1200x/a4/f9/86/a4f9864de1c7046d437f52c776e39b1d.jpg') center/cover no-repeat",
     histoire:{
       texte:`Fès est la première des villes impériales du Maroc, fondée en 789 par Idriss Ier, fondateur de la première dynastie arabe du Maroc. Elle atteignit son apogée sous les Mérinides (XIIIe-XIVe siècles) qui y bâtirent de splendides médersas. La ville abrite la plus vieille université du monde encore en activité : la Mosquée-Université Al Quaraouiyine, fondée en 859 par Fatima al-Fihri.\n\nSa médina, Fès el-Bali, classée au patrimoine mondial de l'UNESCO depuis 1981, est la plus grande zone piétonne médiévale du monde avec plus de 9 400 ruelles. C'est le centre spirituel, culturel et artisanal incontesté du Maroc.`,
       timeline:[

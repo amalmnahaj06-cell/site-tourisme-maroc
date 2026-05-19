@@ -114,6 +114,7 @@ body {
 }
 .hero-text {
   animation: fadeUp 0.9s ease both;
+  
 }
 @keyframes fadeUp {
   from {
@@ -380,7 +381,7 @@ body {
   background: url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover;
 }
 .g-fes {
-  background: url('https://img-4.linternaute.com/s5tz5DEpq-nAqqk54okS4ePhClU=/660x366/smart/e0b057f33de6453f981a7215ffbea132/ccmcms-linternaute/14804748.jpg') center/cover;
+  background: url('https://i.pinimg.com/1200x/a4/f9/86/a4f9864de1c7046d437f52c776e39b1d.jpg') center/cover;
 }
 .g-ifrane {
   background: url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover;
@@ -548,11 +549,12 @@ body {
 }
 .plat-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 300;
-  color: #3a3020;
-  width: 30px;
+  font-size: 28px;        
+  font-weight: 400;       
+  color: #c9a05a;         
+  width: 50px;            
   flex-shrink: 0;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5); /
 }
 .plat-n {
   font-family: 'Cormorant Garamond', serif;
@@ -1134,4 +1136,34 @@ body {
   .acts-grid {
     grid-template-columns: 1fr;
   }
+}
+.exp-card {
+  background-size: cover;
+  background-position: center;
+  padding: 28px 22px;
+  height: 100%;
+  position: relative;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+.exp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5); /* superposition sombre pour lisibilité */
+  z-index: 0;
+}
+.exp-card > * {
+  position: relative;
+  z-index: 1;
+}
+.plat-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
 }
