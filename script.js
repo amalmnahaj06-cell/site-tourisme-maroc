@@ -1,16 +1,31 @@
+// On active le mode strict de JS pour éviter les erreurs silencieuses et sécuriser le code.
 'use strict';
 
-/* ──────────────────────────────────────────────
-   BASE DE DONNÉES DES 15 VILLES
-────────────────────────────────────────────── */
+/*---------------------- -  CITIES ---------------------------------
+   est un objet qui stocke toutes les informations
+   des destinations (histoire, sites, hôtels, restaurants, activités).
+   Chaque clé correspond à une ville, et sa valeur est un objet 
+   contenant ses données structurées.
+--------------------------------------------------------------------- */
+
+/*const : déclare une constante CITIES (réassignation impossible),
+ mais l'objet sous-jacent reste modifiable.*/
 
 const CITIES = {
 
-  tanger:{
+   tanger:{
+   // Données affichées en haut du panneau de la ville (titre, région, sous-titre)
     name:'Tanger',eyebrow:'Nord du Maroc',subtitle:'Détroit de Gibraltar · Fondée ~Xe s. av. J.-C.',
+    // gradient : image de fond de l'en-tête (propriété CSS background)
    gradient: "url('https://trendeviajes.com/wp-content/uploads/2025/11/panoramica-de-tanger.webp?w=1024') center/cover no-repeat",
+    
+    // histoire : données pour l'onglet "Histoire"
     histoire:{
-      texte:`Tanger est l'une des plus anciennes cités d'Afrique du Nord, fondée par les Phéniciens vers le Xe siècle avant J.-C. sous le nom d'Ingletha. Carrefour stratégique entre l'Atlantique et la Méditerranée, elle fut successivement romaine (Tingis), vandale, byzantine, arabe, portugaise, puis ville internationale de 1923 à 1956.\n\nCe cosmopolitisme unique a inspiré des génies : Matisse y peint ses nus lumineux, Delacroix y découvre l'Orient, et des écrivains de la Beat Generation — Burroughs, Kerouac, Ginsberg — y séjournent. Aujourd'hui, Tanger est en plein essor grâce au port Tanger Med, premier port d'Afrique.`,
+      texte:`Tanger est l'une des plus anciennes cités d'Afrique du Nord, fondée par les Phéniciens vers le Xe siècle avant J.-C. sous le nom d'Ingletha. Carrefour stratégique entre l'Atlantique et la Méditerranée, elle fut successivement romaine (Tingis), vandale, byzantine, arabe, portugaise, puis ville internationale de 1923 à 1956.\n\n
+      Ce cosmopolitisme unique a inspiré des génies : Matisse y peint ses nus lumineux, Delacroix y découvre l'Orient, et des écrivains de la Beat Generation — Burroughs, Kerouac, Ginsberg — y séjournent. Aujourd'hui, Tanger est en plein essor grâce au port Tanger Med, premier port d'Afrique.`,
+      // \n\n : saut de ligne double (séparateur de paragraphe dans la chaîne de texte)
+      
+      // timeline : tableau d'événements historiques {yr: année, tx: description}
       timeline:[
         {yr:'~950 av. J.-C.',tx:'Fondation phénicienne sous le nom d\'Ingletha'},
         {yr:'42 ap. J.-C.',tx:'Tanger devient Tingis, capitale de la Maurétanie Tingitane sous Claude'},
@@ -18,6 +33,7 @@ const CITIES = {
         {yr:'1923–1956',tx:'Zone internationale sous administration multinationale'},
         {yr:'1956',tx:'Réunification avec le Maroc indépendant'},
       ],
+      // photos : liste d'images avec leur description, chaque image a un fond CSS et un titre.
       photos:[
         {bg:"url('https://i.pinimg.com/1200x/86/1f/93/861f935e42ac12e831cd8b5e94b4ad24.jpg') center/cover no-repeat",label:'Médina & Kasbah'},
         {bg:"url('https://i.pinimg.com/736x/fa/66/7e/fa667ec3c7b022da3f815b0713eee81e.jpg') center/cover no-repeat",label:'Cap Spartel'},
@@ -25,6 +41,8 @@ const CITIES = {
         {bg:"url('https://mnarcastle.ma/wp-content/uploads/2025/09/La-corniche-de-Tanger-Maroc.jpg') center/cover no-repeat",label:'Corniche'},
       ]
     },
+
+    // sites : tableau des lieux touristiques {type, name, desc}
     sites:[
       {type:'Médina',name:'Kasbah de Tanger',desc:'Forteresse dominant le détroit, musée archéologique avec bronzes et mosaïques romaines. Vue imprenable sur Gibraltar par beau temps.'},
       {type:'Nature',name:'Cap Spartel',desc:'Pointe la plus septentrionale de l\'Afrique, là où Atlantique et Méditerranée se rencontrent. Phare du XIXe siècle et couchers de soleil spectaculaires.'},
@@ -33,17 +51,20 @@ const CITIES = {
       {type:'Marché',name:'Souk Petit Socco',desc:'Cœur historique de la médina, ancien marché de change et de contrebande, aujourd\'hui animé de cafés et d\'artisans.'},
       {type:'Plage',name:'Plage Malabata',desc:'Grande plage à l\'est de la ville avec vue sur le port Tanger Med, station balnéaire moderne avec hôtels et restaurants.'},
     ],
+    // hotels : tableau des hôtels avec prix, image et lien de réservation
     hotels:[
       {name:'Hôtel El Minzah',stars:'★ ★ ★ ★ ★',desc:'Palace historique de 1930, favori des diplomates et artistes. Jardins d\'orangers, hammam et vue sur le détroit.',price:'950 MAD',gradient:"url('https://static.verychic.com/images/48148/fr/desktop/1.jpg') center/cover",link:'https://www.booking.com'},
       {name:'Hilton Tanger City Center',stars:'★ ★ ★ ★ ★',desc:'Tour moderne au centre-ville, piscine panoramique, spa et vue à 360° sur la baie et le détroit de Gibraltar.',price:'1 200 MAD',gradient:"url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/73/7f/d6/exterior.jpg?w=700&h=-1&s=1') center/cover",link:'https://www.hilton.com'},
       {name:'Rembrandt Hotel & Spa',stars:'★ ★ ★ ★',desc:'Hôtel historique dans le quartier diplomatique, ambiance coloniale chic, terrasse panoramique sur le détroit.',price:'550 MAD',gradient:"url('https://cdn.quehoteles.com/hotel-Hotel-Rembrandt-Taacutenger-F30915_13.jpg') center/cover",link:'https://www.booking.com'},
     ],
+    // restaurants : tableau avec coordonnées et compte Instagram
     restaurants:[
       {name:'El Morocco Club',stars:'★★★★★',cuisine:'Marocain raffiné',desc:'Dîner dans un riad du XVIIe siècle. Cuisine marocaine gastronomique, cave à vins, musique andalouse en soirée.',phone:'+212 539-948-139',insta:'elmoroccoclub'},
       {name:'Saveur de Poisson',stars:'★★★★',cuisine:'Fruits de mer',desc:'Institution incontournable de Tanger. Pas de menu — le chef choisit selon la pêche du jour. File d\'attente garantie.',phone:'+212 539-936-326',insta:'saveurdepoisson_tanger'},
       {name:'Hammadi',stars:'★★★',cuisine:'Traditionnel marocain',desc:'Au cœur de la médina depuis 1955. Décor berbère authentique, tagines généreux et thé à la menthe cérémoniel.',phone:'+212 539-934-514',insta:'hammadi_tanger'},
       {name:'Le Nabab',stars:'★★★★',cuisine:'Fusion méditerranéen',desc:'Vue panoramique sur la baie, cuisine franco-marocaine créative, terrasse idéale pour le coucher de soleil.',phone:'+212 539-322-885',insta:'lenabab_tanger'},
     ],
+    // activites : tableau des activités avec contact (téléphone ou URL)
     activites:[
       {type:'Excursion',name:'Asilah & ses fresques',desc:'Village côtier aux remparts portugaises du XVe siècle, célèbre pour son festival de peintures murales (août). À 45 km au sud de Tanger.',contact:'+212 539-417-282'},
       {type:'Sport nautique',name:'Surf & kitesurf',desc:'Les plages de la Corniche offrent de bonnes conditions pour les débutants. École de surf avec matériel à louer.',contact:'+212 661-234-567'},
@@ -51,9 +72,9 @@ const CITIES = {
       {type:'Nature',name:'Randonnée Cap Malabata',desc:'Sentier côtier entre la plage Malabata et le cap, avec vue sur le détroit et les côtes espagnoles par temps clair.',contact:'+212 661-789-012'},
     ]
   },
+   // Même structure de données  répétée pour chaque ville.
 
-  // Même structure de données  répétée pour chaque ville.
-  tetouan:{
+   tetouan:{
     name:'Tétouan',eyebrow:'Nord du Maroc',subtitle:'Rif — La Colombe Blanche · Fondée IIIe s. av. J.-C.',
     gradient: "url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover no-repeat",
     histoire:{
@@ -82,7 +103,7 @@ const CITIES = {
     ],
     hotels:[
       {name:'Sofitel Tamuda Bay',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles sur la baie de Tamuda, plage privée, thalasso, 4 restaurants et accès direct à la mer.',price:'2 100 MAD',gradient:"url('https://www.ahstatic.com/photos/8216_ho_00_p_1024x768.jpg') center/cover",link:'https://www.sofitel.com'},
-      {name: 'The St. Regis La Bahia Blanca Resort',stars: '★ ★ ★ ★ ★',desc: 'Hôtel 5 étoiles en bord de mer à Fnidek, avec piscine extérieure, salle de sport, jardin et vue sur la baie de Tamuda.',price: 'Prix sur demande',gradient: "url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ab/ec/17/pool-by-night.jpg?w=500&h=500&s=1') center/cover",link: 'https://www.booking.com'},
+      {name:'Hôtel Chams',stars:'★ ★ ★ ★',desc:'Hôtel central avec piscine, vue sur le Rif, ambiance familiale et restaurant de cuisine marocaine traditionnelle.',price:'480 MAD',gradient:"url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/102105035.jpg?k=c0cd1e0ccb947dc84d548f8471fd24e2fabe5b47dbce08f40fb7bf2a4016002a&o=&hp=1') center/cover",link:'https://www.booking.com'},
       {name:'Riad Dalia',stars:'★ ★ ★',desc:'Riad en pleine médina, chambres décorées d\'artisanat local, patio fleuri, petit-déjeuner marocain traditionnel.',price:'320 MAD',gradient:"url('https://www.maghrebtourism.com/riaddalia/riad-dalia-1.jpg') center/cover",link:'https://www.airbnb.com'},
     ],
     restaurants:[
@@ -702,55 +723,147 @@ const CITIES = {
   },
 };
 
+
+//------------------------------------------------------------------------------------------------
+
+// let : variable qui stocke la ville ouverte (null = valeur initial ).
+
 let currentCity = null;
 
-function openCity(key) {
-  const c = CITIES[key];
-  if (!c) return;
-  currentCity = key;
+/* ---------------------------- FONCTION : openCity(key) -------------------------------------------------
 
+ quand l'utilisateur clique sur une ville, 
+ cette fonction se charge d'ouvrir une grande fenêtre (overlay) qui montre tous les détails de cette ville.
+ Elle reçoit un paramètre comme "tanger", va chercher les infos correspondantes (titre, image,etc ...),
+ puis les affiche dans les différents onglets du panneau.
+ Elle mémorise aussi quelle ville est ouverte, affiche l'onglet "Histoire" par défaut, 
+ et bloque le défilement de la page principale pendant que le panneau est ouvert.
+---------------------------------------------------------------- -----------------------------------------*/
+
+function openCity(key) {
+  const c = CITIES[key];       // Récupère les données de la ville depuis l'objet CITIES
+  if (!c) return;              //  arrête la fonction si la clé n'existe pas
+  currentCity = key;           // Mémorise la ville active dans la variable globale
+
+  // Met à jour les textes de l'en-tête de l'overlay via getElementById
   document.getElementById('ov-eyebrow').textContent = c.eyebrow;
   document.getElementById('ov-title').textContent = c.name;
   document.getElementById('ov-subtitle').textContent = c.subtitle;
 
+  // textContent sert a modifie le texte d'un élément HTML de manière sécurisée 
+
+  // Génère et injecte le HTML de chaque onglet en appelant les fonctions build*
   document.getElementById('tab-histoire').innerHTML = buildHistoire(c);
   document.getElementById('tab-sites').innerHTML = buildSites(c);
   document.getElementById('tab-hotels').innerHTML = buildHotels(c);
   document.getElementById('tab-restaurants').innerHTML = buildRestaurants(c);
   document.getElementById('tab-activites').innerHTML = buildActivites(c);
-  
+
+  // innerHTML : remplace le contenu HTML d'un élément par une chaîne de caractères
+
+  // Applique l'image de fond de l'en-tête selon la ville
   const header = document.getElementById('ov-header');
-  header.style.background = `linear-gradient(to top,rgba(10,8,5,.97) 0%,rgba(10,8,5,.3) 60%,rgba(10,8,5,.1) 100%), ${c.headerImg ? 'url(' + c.headerImg + ') center ' + (c.headerPos || '40%') + '/cover' : c.gradient}`;
-  
-  showTab('histoire');
+  header.style.background = `linear-gradient(to top,rgba(10,8,5,.97) 0%,rgba(10,8,5,.3) 60%,rgba(10,8,5,.1) 100%),
+   ${c.headerImg ? 'url(' + c.headerImg + ') center ' + (c.headerPos || '40%') + '/cover' : c.gradient}`;
+  // Template literal (`) : chaîne de texte avec expressions JS intégrées (${ })
+  // Opérateur ternaire (? :) : si c.headerImg existe donc utilise l'URL, sinon utilise c.gradient
+
+  showTab('histoire');         // Affiche l'onglet "Histoire" par défaut à l'ouverture
+
+  // Affiche l'overlay et bloque le défilement de la page
   const ov = document.getElementById('city-overlay');
-  ov.style.display = 'block';
-  ov.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
+  ov.style.display = 'block';       // Rend l'overlay visible
+  ov.scrollTop = 0;                 // Remonte au début du panneau
+  document.body.style.overflow = 'hidden'; // Empêche le scroll de la page en arrière-plan
+
 }
+
+
+/*------------------ FONCTION : closeCity() -------------------
+   
+ferme la fenêtre de la ville, remet le défilement de la page, 
+et vide la mémoire de la ville active.
+------------------------------------------------------------- */
 
 function closeCity() {
-  document.getElementById('city-overlay').style.display = 'none';
-  document.body.style.overflow = '';
-  currentCity = null;
-}
+  document.getElementById('city-overlay').style.display = 'none'; // Cache l'overlay
+  document.body.style.overflow = '';  // Restaure le défilement normal de la page
+  currentCity = null;                  // Réinitialise la ville active
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCity(); });
+}
+/*----------------- ÉVÉNEMENT : fermeture par la touche Escape ----------
+   
+   
+   addEventListener : écoute un événement sur un élément.
+   'keydown' : se déclenche à chaque touche pressée.
+   La fonction de rappel (callback) ferme l'overlay si Escape est pressé.
+-------------------------------------------------------------------------*/
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeCity();
+  // e.key : propriété de l'événement clavier contenant la touche pressée
+});
+
+
+/* -------------------- FONCTION : showTab(name) -----------------
+   
+   
+   Affiche l'onglet sélectionné et cache les autres.
+   Paramètre name : nom de l'onglet ('histoire', 'sites', etc.)
+----------------------------------------------------------------- */
 
 function showTab(name) {
+
+  // Retire la classe "active" de tous les onglets et contenus
   document.querySelectorAll('.ov-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.ov-body').forEach(b => b.classList.remove('active'));
+
+  // querySelectorAll : sélectionne tous les éléments correspondant 
+  // forEach : itère sur chaque élément de la liste retournée
+  // classList.remove :Pour chaque onglet trouvé, enlève-lui la classe 'active
+
+
+  // Trouve l'index de l'onglet sélectionné dans le tableau
+  
   const tabs = ['histoire','sites','hotels','restaurants','activites'];
+
+  // indexOf : retourne la position d'un élément dans un tableau (0, 1, 2...)
   const idx = tabs.indexOf(name);
+  
+  // Ajoute la classe "active" à l'onglet et au contenu correspondants
   document.querySelectorAll('.ov-tab')[idx].classList.add('active');
+
+  // classList.add : ajoute une classe CSS à l'élément
   document.getElementById('tab-' + name).classList.add('active');
+  
 }
+/* -----------FONCTION : buildHistoire(c)-----------------------
+   
+   Construit l'affichage de l'onglet "Histoire" pour une ville.
+   c = les infos de la ville (nom, histoire, photos...)
+   Retourne du code HTML à afficher dans la page.
+----------------------------------------------------------------*/
 
 function buildHistoire(c) {
   const h = c.histoire;
+
+  // 1. Découpe le texte en paragraphes
   const paras = h.texte.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+  // split('\n\n') : divise la chaîne à chaque double saut de ligne 
+  // map : entoure chaque morceau avec <p> </p>
+  // join('') : recolle tous les paragraphes en un seul bloc
+
+  // 2. Construit la frise chronologique
+  // Pour chaque événement, on crée une année (.tl-yr) et une description (.tl-tx)
   const tl = h.timeline.map(t => `<div class="tl-item"><div class="tl-yr">${t.yr}</div><div class="tl-tx">${t.tx}</div></div>`).join('');
+
+   // 3. Construit la galerie photos
+  // Pour chaque photo, on applique l'image de fond et on ajoute une légende
   const photos = h.photos.map(p => `<div class="gal-ph" style="background:${p.bg}"><span class="gal-label">${p.label}</span></div>`).join('');
+
+  // Assemble et retourne le HTML final
+  //    La structure est : texte + galerie à gauche, frise à droite
   return `<div class="histoire-grid"><div><div class="hist-text">${paras}</div><div class="gallery-2x2">${photos}</div></div><div><div class="timeline">${tl}</div></div></div>`;
 }
 
@@ -769,22 +882,57 @@ function buildRestaurants(c) {
   return `<div class="restos-ov-grid">${cards}</div>`;
 }
 
+/* -----------FONCTION : buildActivites(c)------------------------
+   
+   Construit l'affichage des activités recommandées pour une ville.
+   c = les infos de la ville (contenant la liste des activités)
+   Pour chaque activité, affiche : type, nom, description, et un lien de contact.
+   Le lien peut être un site web (http) ou un numéro de téléphone.
+----------------------------------------------------------------*/
 function buildActivites(c) {
+  // Pour chaque activité, on crée une carte :
+  // - Si le contact commence par 'http' donc c'est un site web (lien externe, s'ouvre dans un nouvel onglet)
+  // - Sinon c'est un numéro de téléphone (lien tel:)
   const cards = c.activites.map(a => `<div class="act-card"><div class="act-type">${a.type}</div><div class="act-name">${a.name}</div><div class="act-desc">${a.desc}</div><div class="act-contact"><i class="ti ti-${a.contact.startsWith('http') ? 'world' : 'phone'}"></i><a href="${a.contact.startsWith('http') ? a.contact : 'tel:' + a.contact}" target="${a.contact.startsWith('http') ? '_blank' : '_self'}">${a.contact}</a></div></div>`).join('');
+  
+  // Retourne la grille contenant toutes les cartes d'activités
   return `<div class="acts-grid">${cards}</div>`;
 }
 
+
+/* -----------FONCTION : scrollToTop()----------------------------
+   
+   Fait remonter la page tout en haut avec un effet doux (smooth).
+   window.scrollTo = déplace la fenêtre vers les coordonnées indiquées
+   top: 0 = tout en haut de la page
+   behavior: 'smooth' = défilement fluide (pas brutal)
+----------------------------------------------------------------*/
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+/* -----------ÉVÉNEMENT : scroll (défilement)---------------------
+   
+   Surveille le défilement de la page (scroll).
+   Quand on descend de plus de 50px, la barre de navigation change :
+     - Devient plus opaque (fond presque noir)
+     - Ajoute une ombre portée
+   Quand on remonte au-dessus de 50px, on revient au style d'origine.
+----------------------------------------------------------------*/
 window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.nav');
+  const nav = document.querySelector('.nav');  // Récupère la barre de navigation
+  
+  // Si on a défilé de plus de 50px depuis le haut
   if (window.scrollY > 50) {
-    nav.style.background = 'rgba(12,10,8,.99)';
-    nav.style.boxShadow = '0 1px 24px rgba(0,0,0,.6)';
+    // Fond presque noir
+    nav.style.background = 'rgba(12,10,8,.99)';    
+    // Ombre visible 
+    nav.style.boxShadow = '0 1px 24px rgba(0,0,0,.6)'; 
   } else {
-    nav.style.background = 'rgba(12,10,8,.95)';
-    nav.style.boxShadow = 'none';
+    // Sinon (en haut de la page) : style transparent
+    // Fond légèrement transparent
+    nav.style.background = 'rgba(12,10,8,.95)'; 
+    // Pas d'ombre   
+    nav.style.boxShadow = 'none';                  
   }
 });
