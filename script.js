@@ -103,7 +103,7 @@ const CITIES = {
     ],
     hotels:[
       {name:'Sofitel Tamuda Bay',stars:'★ ★ ★ ★ ★',desc:'Resort 5 étoiles sur la baie de Tamuda, plage privée, thalasso, 4 restaurants et accès direct à la mer.',price:'2 100 MAD',gradient:"url('https://www.ahstatic.com/photos/8216_ho_00_p_1024x768.jpg') center/cover",link:'https://www.sofitel.com'},
-      {name:'Hôtel Chams',stars:'★ ★ ★ ★',desc:'Hôtel central avec piscine, vue sur le Rif, ambiance familiale et restaurant de cuisine marocaine traditionnelle.',price:'480 MAD',gradient:"url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/102105035.jpg?k=c0cd1e0ccb947dc84d548f8471fd24e2fabe5b47dbce08f40fb7bf2a4016002a&o=&hp=1') center/cover",link:'https://www.booking.com'},
+      {name: 'The St. Regis La Bahia Blanca Resort - Tamuda Bay',stars: '★ ★ ★ ★ ★',desc: 'Situé en bord de mer à Fnidek, cet établissement 5 étoiles propose une piscine extérieure, une salle de sport, un jardin et un service de luxe signature St. Regis.',price: '2 800 MAD',gradient: "url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ab/ec/17/pool-by-night.jpg?w=500&h=500&s=1') center/cover",link: 'https://www.booking.com'},
       {name:'Riad Dalia',stars:'★ ★ ★',desc:'Riad en pleine médina, chambres décorées d\'artisanat local, patio fleuri, petit-déjeuner marocain traditionnel.',price:'320 MAD',gradient:"url('https://www.maghrebtourism.com/riaddalia/riad-dalia-1.jpg') center/cover",link:'https://www.airbnb.com'},
     ],
     restaurants:[
