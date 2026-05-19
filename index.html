@@ -5,23 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Maroc Éternel — Portail Touristique</title>
 
-<!-- Bootstrap CSS (intégré) -->
+<!-- On charge Bootstrap 5.3.3 depuis un CDN pour avoir le systeme de grille et les composants prets a l'emploi -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Tabler Icons -->
+<!-- Tabler Icons nous donne acces a plein d'icones qu'on utilise dans la navbar, le divider et les cartes d'experiences -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 
-<!-- Google Fonts -->
+<!-- Deux polices Google Fonts : Cormorant Garamond pour les titres elegants, Montserrat pour le texte courant -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
 
-<!-- Notre style personnalisé -->
+<!-- Notre fichier CSS personnalise ou on definit tous les styles specifiques au design du site -->
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════
-     NAVBAR (Bootstrap)
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     EN-TETE DE LA PAGE - BARRE DE NAVIGATION
+     ════════════════════════════════════════════════════════════════
+     C'est la barre qui reste toujours visible en haut de l'ecran
+     meme quand on descend la page. Elle contient le logo du site
+     a gauche et les liens de navigation a droite. Sur un ordinateur
+     on voit tous les liens cote a cote, mais sur telephone ils se
+     cachent derriere un bouton avec trois traits (menu hamburger).
+══════════════════════════════════════════════════════════════════ -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid px-0">
     <a class="navbar-brand" href="#" onclick="scrollToTop()">Maroc <span>Éternel</span></a>
@@ -40,9 +46,16 @@
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION HERO - BANNIERE PRINCIPALE D'ACCUEIL
+     ════════════════════════════════════════════════════════════════
+     C'est la premiere chose que le visiteur voit en arrivant sur
+     le site. C'est une grande image qui prend presque tout
+     l'ecran avec le titre du site par-dessus. On y trouve aussi
+     un texte d'accroche, deux boutons pour guider le visiteur,
+     et trois chiffres cles en bas qui donnent envie de decouvrir
+     le Maroc.
+══════════════════════════════════════════════════════════════════ -->
 <section id="home">
   <div class="hero-img">
     <div class="hero-ornament"></div>
@@ -63,7 +76,15 @@
   </div>
 </section>
 
-<!-- STRIP -->
+<!-- ════════════════════════════════════════════════════════════════
+     BANDEAU DIVISEUR - LES 5 ATOUTS DU MAROC
+     ════════════════════════════════════════════════════════════════
+     C'est une bande horizontale qui separe le hero du reste du
+     contenu. Elle affiche 5 arguments marketing du Maroc cote a
+     cote avec des icones : patrimoine UNESCO, soleil, gastronomie,
+     montagnes et desert, et cotes. Cela renforce visuellement les
+     atouts du pays des l'arrivee sur la page.
+══════════════════════════════════════════════════════════════════ -->
 <div class="divider">
   <div class="div-item"><i class="ti ti-building-monument div-icon"></i>Patrimoine UNESCO</div>
   <div class="div-item"><i class="ti ti-sun div-icon"></i>300 jours de soleil</div>
@@ -72,37 +93,77 @@
   <div class="div-item"><i class="ti ti-waves div-icon"></i>1 200 km de côtes</div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     DESTINATIONS – Grille Bootstrap
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION DESTINATIONS - LES 15 VILLES DU MAROC
+     ════════════════════════════════════════════════════════════════
+     C'est le coeur du site : une grille de 15 cartes representant
+     les villes touristiques du Maroc, organisees geographiquement
+     du nord au sud. Chaque carte contient une photo de la ville,
+     son nom et sa region. Quand on clique sur une carte, une
+     fenetre modale (overlay) s'ouvre avec tous les details :
+     histoire, sites a visiter, hotels, restaurants et activites.
+══════════════════════════════════════════════════════════════════ -->
 <section id="destinations" class="py-5">
   <div class="container">
     <div class="sec-eyebrow">Destinations</div>
     <div class="sec-title">Nos villes incontournables</div>
     <div class="sec-sub">Du Nord méditerranéen aux confins du Sahara</div>
 
-    <!-- Ligne 1 -->
+    <!-- ════════════════════════════════════════════════════════════════
+         LIGNE 1 : LES 4 VILLES DU NORD
+         (Tanger, Tetouan, Chefchaouen, Al Hoceima)
+         ════════════════════════════════════════════════════════════════
+         Ces villes sont situees sur la cote mediterraneenne et dans
+         le massif du Rif. C'est la region la plus proche de
+         l'Europe, avec des influences andalouses et espagnoles.
+    ══════════════════════════════════════════════════════════════════ -->
     <div class="row g-2">
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('tanger')"><div class="city-card-img g-tanger"><div class="city-card-inner"><span class="city-name">Tanger</span><span class="city-region">Détroit — Nord</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('tetouan')"><div class="city-card-img g-tetouan"><div class="city-card-inner"><span class="city-name">Tétouan</span><span class="city-region">Rif — Colombe Blanche</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('chefchaouen')"><div class="city-card-img g-chefchaouen"><div class="city-card-inner"><span class="city-name">Chefchaouen</span><span class="city-region">Rif — La Bleue</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('houceima')"><div class="city-card-img g-houceima"><div class="city-card-inner"><span class="city-name">Al Hoceima</span><span class="city-region">Méditerranée — Nord</span></div></div><div class="city-hover-line"></div></div></div>
     </div>
-    <!-- Ligne 2 -->
+    <!-- ════════════════════════════════════════════════════════════════
+         LIGNE 2 : LES 4 VILLES DU CENTRE
+         (Fes, Ifrane, Rabat, Casablanca)
+         ════════════════════════════════════════════════════════════════
+         Ces villes representent le coeur historique et administratif
+         du Maroc. Fes est la capitale spirituelle, Rabat la capitale
+         royale, Casablanca la capitale economique, et Ifrane une
+         station de ski dans le Moyen Atlas.
+    ══════════════════════════════════════════════════════════════════ -->
     <div class="row g-2 mt-2">
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('fes')"><div class="city-card-img g-fes"><div class="city-card-inner"><span class="city-name">Fès</span><span class="city-region">Capitale spirituelle</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('ifrane')"><div class="city-card-img g-ifrane"><div class="city-card-inner"><span class="city-name">Ifrane</span><span class="city-region">Moyen Atlas — Suisse du Maroc</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('rabat')"><div class="city-card-img g-rabat"><div class="city-card-inner"><span class="city-name">Rabat</span><span class="city-region">Capitale royale</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('casa')"><div class="city-card-img g-casa"><div class="city-card-inner"><span class="city-name">Casablanca</span><span class="city-region">Métropole atlantique</span></div></div><div class="city-hover-line"></div></div></div>
     </div>
-    <!-- Ligne 3 -->
+    <!-- ════════════════════════════════════════════════════════════════
+         LIGNE 3 : LES 4 VILLES DU SUD-OUEST
+         (Marrakech, Essaouira, Agadir, Taghazout)
+         ════════════════════════════════════════════════════════════════
+         C'est la region la plus touristique du Maroc avec Marrakech
+         comme capitale du Sud. On trouve ici la cote atlantique
+         avec ses spots de surf, les plaines du Souss, et l'acces
+         aux montagnes de l'Atlas et au desert.
+    ══════════════════════════════════════════════════════════════════ -->
     <div class="row g-2 mt-2">
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('marrakech')"><div class="city-card-img g-marrakech"><div class="city-card-inner"><span class="city-name">Marrakech</span><span class="city-region">Ville Rouge — Sud</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('essaouira')"><div class="city-card-img g-essaouira"><div class="city-card-inner"><span class="city-name">Essaouira</span><span class="city-region">Cité des Alizés</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('agadir')"><div class="city-card-img g-agadir"><div class="city-card-inner"><span class="city-name">Agadir</span><span class="city-region">Souss — Atlantique</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-3 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('taghazout')"><div class="city-card-img g-taghazout"><div class="city-card-inner"><span class="city-name">Taghazout</span><span class="city-region">Surf — Souss</span></div></div><div class="city-hover-line"></div></div></div>
     </div>
-    <!-- Ligne 4 -->
+    <!-- ════════════════════════════════════════════════════════════════
+         LIGNE 4 : LES 3 VILLES DU SUD-EST
+         (Merzouga, Ouarzazate, Dakhla)
+         ════════════════════════════════════════════════════════════════
+         C'est la porte d'entree vers le Sahara avec ses dunes
+         dorees, ses kasbahs en terre, et ses paysages de cinema.
+         Ouarzazate est surnommee le Hollywood du Maroc. Dakhla
+         est une presqu'ile isolee entre desert et ocean. Comme il
+         n'y a que 3 villes, on utilise col-lg-4 pour qu'elles
+         prennent chacune un tiers de la largeur.
+    ══════════════════════════════════════════════════════════════════ -->
     <div class="row g-2 mt-2">
       <div class="col-lg-4 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('merzouga')"><div class="city-card-img g-merzouga"><div class="city-card-inner"><span class="city-name">Merzouga</span><span class="city-region">Erg Chebbi — Sahara</span></div></div><div class="city-hover-line"></div></div></div>
       <div class="col-lg-4 col-md-6 col-sm-6"><div class="city-card" onclick="openCity('ouarzazate')"><div class="city-card-img g-ouarzazate"><div class="city-card-inner"><span class="city-name">Ouarzazate</span><span class="city-region">Hollywood du Maroc</span></div></div><div class="city-hover-line"></div></div></div>
@@ -111,9 +172,15 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     EXPÉRIENCES (Bootstrap grid)
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION EXPERIENCES - 4 ACTIVITES PHARES DU MAROC
+     ════════════════════════════════════════════════════════════════
+     Cette section presente les 4 experiences touristiques les plus
+     emblematiques du pays sous forme de cartes avec une photo en
+     arriere-plan et un voile sombre par-dessus pour que le texte
+     blanc reste bien lisible. Chaque carte a une icone, un titre
+     et une description qui donnent envie de vivre l'experience.
+══════════════════════════════════════════════════════════════════ -->
 <section id="experiences" class="py-5">
   <div class="container">
     <div class="sec-eyebrow">Expériences</div>
@@ -121,16 +188,29 @@
     <div class="sec-sub">Des aventures uniques, du désert à l'océan</div>
     <div class="row g-2">
       
-      <!-- Trek saharien -->
+      <!-- ════════════════════════════════════════════════════════════════
+           EXPERIENCE 1 : TREK SAHARIEN
+           ════════════════════════════════════════════════════════════════
+           L'image de fond montre des dromadaires dans le desert.
+           Le linear-gradient avec rgba(0,0,0,0.3) cree un voile
+           noir a 30% d'opacite qui assombrit l'image pour que le
+           texte blanc par-dessus soit parfaitement lisible.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-3 col-sm-6">
-        <div class="exp-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.pinimg.com/1200x/38/da/d8/38dad8c030117a58d30436eb6b1a65c6.jpg');">
+        <div class="exp-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.pinimg.com/736x/a5/02/9a/a5029a21754784022ba39f1ecdf87e29.jpg');">
           <div class="exp-icon"><i class="ti ti-horse"></i></div>
           <div class="exp-name">Trek saharien</div>
           <div class="exp-desc">Traversée des ergs en dromadaire. Nuit sous les étoiles de l'Erg Chebbi. Bivouac berbère authentique.</div>
         </div>
       </div>
 
-      <!-- Surf atlantique -->
+      <!-- ════════════════════════════════════════════════════════════════
+           EXPERIENCE 2 : SURF ATLANTIQUE
+           ════════════════════════════════════════════════════════════════
+           L'image de fond montre une vague sur la cote atlantique.
+           La meme technique de voile sombre est utilisee pour garantir
+           la lisibilite. L'icone wave-sine represente une vague.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-3 col-sm-6">
         <div class="exp-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.pinimg.com/1200x/b7/76/e1/b776e1359bee8ebc4493cbd190249af1.jpg');">
           <div class="exp-icon"><i class="ti ti-wave-sine"></i></div>
@@ -139,7 +219,13 @@
         </div>
       </div>
 
-      <!-- Ascension Toubkal -->
+      <!-- ════════════════════════════════════════════════════════════════
+           EXPERIENCE 3 : ASCENSION DU TOUBKAL
+           ════════════════════════════════════════════════════════════════
+           L'image montre les montagnes de l'Atlas. Le Toubkal culmine
+           a 4167 metres et est le toit de l'Afrique du Nord. C'est
+           une randonnee de deux jours depuis le village d'Imlil.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-3 col-sm-6">
         <div class="exp-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.pinimg.com/1200x/5a/5e/7b/5a5e7b3ad4e480dcd4bdf6cdf499e986.jpg');">
           <div class="exp-icon"><i class="ti ti-mountain"></i></div>
@@ -148,7 +234,14 @@
         </div>
       </div>
 
-      <!-- Cuisine fassi -->
+      <!-- ════════════════════════════════════════════════════════════════
+           EXPERIENCE 4 : CUISINE FASSI
+           ════════════════════════════════════════════════════════════════
+           L'image montre un plat marocain typique. Fes est reputee
+           pour sa cuisine raffinee, notamment la pastilla, le couscous
+           et les tajines. Les ateliers permettent aux touristes
+           d'apprendre les recettes traditionnelles avec des chefs locaux.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-3 col-sm-6">
         <div class="exp-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.pinimg.com/736x/b8/a2/8f/b8a28f6eaefac0647ce4ec32ca0f48bf.jpg');">
           <div class="exp-icon"><i class="ti ti-tools-kitchen-2"></i></div>
@@ -161,9 +254,15 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     HÉBERGEMENT (Bootstrap grid)
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION HEBERGEMENT - 3 HOTELS DE LUXE SELECTIONNES
+     ════════════════════════════════════════════════════════════════
+     Cette section met en avant trois etablissements d'exception
+     choisis dans trois villes differentes : Marrakech, Fes et
+     Casablanca. Chaque carte montre une photo de l'hotel, son
+     nombre d'etoiles, la ville, une description, le prix a la
+     nuit, et un bouton qui redirige vers la fiche de la ville.
+══════════════════════════════════════════════════════════════════ -->
 <section id="hebergement" class="py-5">
   <div class="container">
     <div class="sec-eyebrow">Hébergement d'exception</div>
@@ -190,9 +289,16 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     GASTRONOMIE (grille Bootstrap)
-══════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION GASTRONOMIE - PLATS ET RESTAURANTS
+     ════════════════════════════════════════════════════════════════
+     Cette section est divisee en deux parties egales :
+     A gauche, une liste des 5 plats les plus emblematiques de la
+     cuisine marocaine avec une petite photo de chaque plat.
+     A droite, une grille de 4 restaurants d'exception avec photo,
+     nom, ville, etoiles et description. Chaque restaurant est
+     presente en flexbox (image a gauche, texte a droite).
+══════════════════════════════════════════════════════════════════ -->
 <section id="gastronomie" class="py-5">
   <div class="container">
     <div class="sec-eyebrow">Art culinaire</div>
@@ -200,11 +306,20 @@
     <div class="sec-sub">Épices, traditions et saveurs de mille ans</div>
     <div class="row g-4">
       
-      <!-- Colonne GAUCHE : liste des plats -->
+      <!-- ════════════════════════════════════════════════════════════════
+           COLONNE GAUCHE : LES 5 PLATS EMBLEMATIQUES
+           ════════════════════════════════════════════════════════════════
+           Chaque plat est presente avec une miniature carree de
+           60x60 pixels, un numero de classement, le nom du plat en
+           gras et une courte description. Les images sont rognees
+           pour remplir le carre sans deformation grace a object-fit:
+           cover, et les coins sont arrondis.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-6">
         <div class="plats-list">
           
-          <!-- Tajine -->
+          <!-- Plat n°1 : Le tajine, plat national mijote dans un
+               recipient en terre cuite du meme nom -->
           <div class="plat-item">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2999kl_suW5V9_zrtNC2A-4dBY9tZqJ1qnA&s" alt="Tajine" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
             <div class="plat-num">01</div>
@@ -214,7 +329,8 @@
             </div>
           </div>
 
-          <!-- Couscous -->
+          <!-- Plat n°2 : Le couscous, plat du vendredi
+               traditionnellement servi en famille apres la priere -->
           <div class="plat-item">
             <img src="https://i.pinimg.com/736x/48/1a/52/481a52881e91d7101bf720a659c9bc5f.jpg" alt="Couscous" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
             <div class="plat-num">02</div>
@@ -224,7 +340,8 @@
             </div>
           </div>
 
-          <!-- Pastilla -->
+          <!-- Plat n°3 : La pastilla, un feuillete sucre-sale
+               au pigeon ou aux fruits de mer -->
           <div class="plat-item">
             <img src="https://i.pinimg.com/736x/81/25/14/8125146eaa796ba23a3fcb97db796ee0.jpg" alt="Pastilla" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
             <div class="plat-num">03</div>
@@ -234,7 +351,8 @@
             </div>
           </div>
 
-          <!-- Harira -->
+          <!-- Plat n°4 : La harira, soupe riche aux lentilles et
+               tomates consommee pendant le Ramadan -->
           <div class="plat-item">
             <img src="https://i.pinimg.com/1200x/7b/fc/89/7bfc89f5120808b7a7803a55139f7e74.jpg" alt="Harira" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
             <div class="plat-num">04</div>
@@ -244,7 +362,8 @@
             </div>
           </div>
 
-          <!-- Thé à la menthe -->
+          <!-- Plat n°5 : Le the a la menthe, rituel d'hospitalite
+               ou le the est verse de haut pour creer de la mousse -->
           <div class="plat-item">
             <img src="https://i.pinimg.com/1200x/47/37/73/4737734b6b7f4a45670e7ee6cd17bd8d.jpg" alt="Thé à la menthe" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
             <div class="plat-num">05</div>
@@ -257,11 +376,19 @@
         </div>
       </div>
 
-      <!-- Colonne DROITE : tous les restaurants avec sous-grille -->
+      <!-- ════════════════════════════════════════════════════════════════
+           COLONNE DROITE : LES 4 RESTAURANTS RECOMMANDES
+           ════════════════════════════════════════════════════════════════
+           Les restaurants sont presentes en grille 2x2. Chaque
+           restaurant utilise un layout flexbox : l'image miniature
+           est a gauche, et le bloc texte occupe tout l'espace
+           restant grace a flex:1.
+      ══════════════════════════════════════════════════════════════════ -->
       <div class="col-md-6">
         <div class="row g-2">
           
-          <!-- Dar Yacout -->
+          <!-- Restaurant 1 : Dar Yacout a Marrakech, palace du
+               XVIIIe siecle avec musique gnaoua en live -->
           <div class="col-md-6">
             <div class="resto-item-g" style="display: flex; align-items: flex-start; gap: 12px;">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLZIOcJx3CwEyimoPJuyD0amISTuUuhoHsng&s" alt="Dar Yacout" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -276,7 +403,8 @@
             </div>
           </div>
 
-          <!-- Rick's Café -->
+          <!-- Restaurant 2 : Rick's Cafe a Casablanca, inspire du
+               film culte de 1942 avec Humphrey Bogart -->
           <div class="col-md-6">
             <div class="resto-item-g" style="display: flex; align-items: flex-start; gap: 12px;">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLnLSqIQ1rqQynk3zkYOYYj4LVsr5_e4wtBw&s" alt="Rick's Café" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -291,7 +419,8 @@
             </div>
           </div>
 
-          <!-- Le Dhow -->
+          <!-- Restaurant 3 : Le Dhow a Rabat, restaurant flottant
+               sur le fleuve Bouregreg avec vue panoramique -->
           <div class="col-md-6">
             <div class="resto-item-g" style="display: flex; align-items: flex-start; gap: 12px;">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRk5FJ-oqU7SD7o3vi5EAHgClQYZ0PcpLlSQ&s" alt="Le Dhow" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -306,7 +435,8 @@
             </div>
           </div>
 
-          <!-- Restaurant Nur -->
+          <!-- Restaurant 4 : Restaurant Nur a Fes, cuisine marocaine
+               moderne par un chef prime -->
           <div class="col-md-6">
             <div class="resto-item-g" style="display: flex; align-items: flex-start; gap: 12px;">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl-d1trcn9utOSFgCe_jCuj692rVGc2UyMLw&s" alt="Restaurant Nur" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -328,7 +458,15 @@
   </div> <!-- fin container -->
 </section>
 
-<!-- FOOTER -->
+<!-- ════════════════════════════════════════════════════════════════
+     PIED DE PAGE - FOOTER
+     ════════════════════════════════════════════════════════════════
+     Le footer est divise en 4 colonnes : logo et description,
+     liens vers les 5 destinations populaires (cliquables),
+     categories d'experiences touristiques, et informations
+     pratiques pour les voyageurs. En dessous, une ligne avec le
+     copyright et une mention affectueuse.
+══════════════════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-top row">
@@ -345,6 +483,18 @@
 </footer>
 
 
+<!-- ════════════════════════════════════════════════════════════════
+     OVERLAY MODALE - FENETRE DE DETAILS DES VILLES
+     ════════════════════════════════════════════════════════════════
+     C'est une fenetre qui s'affiche par-dessus toute la page
+     quand on clique sur une ville. Elle est cachee par defaut
+     grace au CSS. Son contenu est rempli dynamiquement par
+     JavaScript en fonction de la ville choisie.
+     
+     Structure : en-tete avec nom de ville + bouton fermer,
+     barre d'onglets avec 5 rubriques, et 5 zones de contenu
+     correspondant aux onglets. Seule la zone active est visible.
+══════════════════════════════════════════════════════════════════ -->
 <div id="city-overlay">
   <div class="ov-header" id="ov-header">
     <button class="ov-close" onclick="closeCity()">✕</button>
@@ -368,7 +518,16 @@
   <div class="ov-body" id="tab-activites"></div>
 </div>
 
-<!-- Scripts -->
+<!-- ════════════════════════════════════════════════════════════════
+     SCRIPTS JAVASCRIPT
+     ════════════════════════════════════════════════════════════════
+     Bootstrap JS Bundle contient tous les composants interactifs
+     du framework (menu hamburger, modales, tooltips, etc.).
+     Notre fichier script.js contient toute la logique du site :
+     la base de donnees des villes, les fonctions openCity(),
+     closeCity(), showTab(), et l'injection du contenu dans
+     l'overlay.
+══════════════════════════════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
