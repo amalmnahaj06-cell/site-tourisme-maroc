@@ -127,11 +127,11 @@ body {
   }
 }
 .hero-eyebrow {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #b8935a;
-  font-weight: 400;
+  color: #f3e3cc;
+  font-weight: 550;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -213,16 +213,16 @@ body {
 }
 .hs-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  font-weight: 300;
-  color: #e8c878;
+  font-size: 40px;
+  font-weight: 400;
+  color: #dbb657;
 }
 .hs-label {
   font-size: 8.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #7a6848;
-  font-weight: 400;
+  color: #efdec1;
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -243,6 +243,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #8a7860;
