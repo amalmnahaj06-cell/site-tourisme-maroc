@@ -1,14 +1,28 @@
-/* ============================================================
-   RESET & BASE (complément à Bootstrap)
-   ============================================================ */
+
+
+/* --------- RESET & BASE (complément à Bootstrap) --------*/
+
+/* On applique le modèle de boîte "border-box" à tous les éléments :
+   cela signifie que padding et border sont INCLUS dans la largeur/hauteur,
+   ce qui évite les débordements inattendus.
+   On remet aussi les marges et espacement internes à 0 pour partir
+   d'une base propre, sans les styles par défaut du navigateur. */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* Active le défilement doux  quand on clique sur un lien ancre  */
 html {
   scroll-behavior: smooth;
 }
+
+/* Style global du corps de page :
+   - Police principale : Montserrat (importée depuis Google Fonts)
+   - Fond très sombre presque noir (#0c0a08) pour un rendu luxueux
+   - Texte beige clair pour contraster avec le fond sombre
+   - overflow-x: hidden empêche un scroll horizontal indésirable */
 body {
   font-family: 'Montserrat', sans-serif;
   background: #0c0a08;
@@ -16,9 +30,14 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   NAVBAR (surcharge Bootstrap)
-   ============================================================ */
+
+/*------------  NAVBAR (surcharge Bootstrap) -----------------*/
+
+/* La barre de navigation est fixée en haut.
+   - Fond semi-transparent (rgba) avec un flou d'arrière-plan (backdrop-filter)
+     pour un effet "verre dépoli" moderne
+   - Une fine bordure inférieure sépare la navbar du contenu
+   - La transition rend le changement de fond fluide si on le modifie en JS */
 .navbar {
   background: rgba(12, 10, 8, 0.95);
   backdrop-filter: blur(12px);
@@ -26,6 +45,9 @@ body {
   padding: 12px 48px !important;
   transition: background 0.4s;
 }
+
+/* Logo de la marque : police serif élégante (Cormorant Garamond),
+   poids léger (300), lettres très espacées pour un look haut de gamme */
 .navbar-brand {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
@@ -34,25 +56,40 @@ body {
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
+
+/* La balise <span> dans le logo prend une couleur dorée et une police italique
+   pour mettre en valeur une partie du nom de la marque */
 .navbar-brand span {
   color: #b8935a;
   font-style: italic;
   font-weight: 400;
 }
+
+/* Liens de navigation : très petits, tout en majuscules, très espacés.
+   Le !important force ces styles à prendre le dessus sur Bootstrap */
 .nav-link {
   font-size: 10px !important;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #a09070 !important;
-  transition: color 0.3s;
+  transition: color 0.3s; /* changement de couleur animé au survol */
 }
+
+/* Au survol, le lien devient doré */
 .nav-link:hover {
   color: #c9a05a !important;
 }
+
+/* Le lien actif (page courante) est aussi doré pour indiquer la position */
 .navbar-nav .nav-link.active {
   color: #c9a05a !important;
 }
+
+/* Bouton "Réserver" dans la navbar : bordure dorée sur fond transparent.
+   border-radius: 0 supprime les coins arrondis pour un style plus carré/luxe.
+   La transition anime le remplissage au survol */
+
 .btn-outline-nav {
   border: 1px solid #b8935a;
   color: #b8935a;
@@ -65,17 +102,27 @@ body {
   background: transparent;
   border-radius: 0;
 }
+
+/* Au survol : le fond devient doré et le texte devient noir → inversion des couleurs */
 .btn-outline-nav:hover {
   background: #b8935a;
   color: #0c0a08;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+
+/*--------------------------  HERO  --------------------------------------- */
+
+/* Décale le contenu vers le bas pour ne pas être caché derrière la navbar fixe */
 #home {
   padding-top: 60px;
 }
+
+/* Grande image de fond pleine hauteur ( 100% de la fenêtre).
+   - double background : d'abord un dégradé sombre en superposition, puis l'image URL
+   - Le dégradé va du transparent (haut) vers le noir (bas) pour une transition douce
+   - display:flex + align-items:flex-end place le texte en bas de la section
+   - position:relative permet de positionner des éléments enfants en absolu */
+
 .hero-img {
   width: 100%;
   height: 100vh;
@@ -87,45 +134,50 @@ body {
   padding: 0 48px 60px;
   position: relative;
 }
+
+/* Ornement décoratif : fine ligne horizontale centrée en haut du hero.
+   Créé en CSS pur avec position:absolute et une largeur fixe.
+   Le dégradé transparent - doré transparent donne un effet de fondu élégant */
 .hero-ornament {
   position: absolute;
   top: 40px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* centrage horizontal précis */
   width: 280px;
   height: 1px;
   background: linear-gradient(to right, transparent, #b8935a44, transparent);
 }
+
+/* Les pseudo-éléments ::before et ::after créent deux petits cercles dorés
+   aux extrémités de la ligne ornementale, sans HTML supplémentaire */
 .hero-ornament::before,
 .hero-ornament::after {
+
   content: '';
   position: absolute;
   top: -3px;
   width: 6px;
   height: 6px;
   border: 1px solid #b8935a66;
-  border-radius: 50%;
+  border-radius: 50%; /* cercle parfait */
 }
-.hero-ornament::before {
-  left: 0;
-}
-.hero-ornament::after {
-  right: 0;
-}
+.hero-ornament::before { left: 0; }
+.hero-ornament::after  { right: 0; }
+
+/* Animation d'entrée du texte hero : apparaît en remontant depuis le bas.
+   animation-fill-mode: both conserve l'état final après l'animation */
 .hero-text {
   animation: fadeUp 0.9s ease both;
-  
 }
+
+/* Définition de l'animation : de invisible+décalé vers visible+position normale */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Eyebrow = petit texte accrocheur au-dessus du titre principal.
+   Flex + gap permet d'aligner proprement le petit trait doré avec le texte */
 .hero-eyebrow {
   font-size: 11px;
   letter-spacing: 0.35em;
@@ -137,6 +189,8 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+/* Petit trait doré avant le texte eyebrow, généré sans HTML (pseudo-élément) */
 .hero-eyebrow::before {
   content: '';
   display: block;
@@ -144,6 +198,9 @@ body {
   height: 1px;
   background: #b8935a;
 }
+
+/* Titre principal : police serif, taille fluide grâce à clamp()
+   clamp(min, préféré, max) adapte la taille selon la largeur d'écran */
 .hero-h1 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
@@ -153,11 +210,16 @@ body {
   letter-spacing: 0.02em;
   margin-bottom: 14px;
 }
+
+/* Les mots en italique dans le titre prennent une couleur or chaude */
 .hero-h1 em {
   font-style: italic;
   color: #e8c878;
   font-weight: 300;
 }
+
+/* Paragraphe d'accroche sous le titre : petite taille, léger, couleur grisée.
+   max-width limite la largeur pour une meilleure lisibilité (pas trop large) */
 .hero-body {
   font-size: 12px;
   font-weight: 300;
@@ -167,11 +229,15 @@ body {
   margin-bottom: 20px;
   letter-spacing: 0.04em;
 }
+
+/* Conteneur des boutons : flex en ligne avec un espace entre eux */
 .hero-actions {
   display: flex;
   gap: 14px;
   align-items: center;
 }
+
+/* Bouton principal doré, sans coins arrondis (style luxe) */
 .btn-primary-custom {
   background: #b8935a;
   color: #0c0a08;
@@ -184,10 +250,15 @@ body {
   transition: all 0.3s;
   border-radius: 0;
 }
+
+/* Au survol : fond légèrement plus clair */
 .btn-primary-custom:hover {
   background: #d4a86a;
   color: #0c0a08;
 }
+
+/* Bouton secondaire "fantôme" : transparent avec bordure subtile.
+   Devient doré au survol */
 .btn-ghost-custom {
   border: 1px solid #4a3a28;
   color: #a09070;
@@ -204,20 +275,27 @@ body {
   border-color: #c9a05a;
   color: #c9a05a;
 }
+
+/* Bloc de statistiques à droite du texte hero.
+   Une bordure gauche sert de séparateur visuel avec le texte */
 .hero-stats {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-left: 40px;
   border-left: 1px solid #2a2218;
-  margin-left:50px;
+  margin-left: 50px;
 }
+
+/* Grand chiffre doré en police serif pour attirer l'œil */
 .hs-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 40px;
   font-weight: 400;
   color: #dbb657;
 }
+
+/* Libellé sous le chiffre : très petit, espacé, tout en majuscules */
 .hs-label {
   font-size: 8.5px;
   letter-spacing: 0.2em;
@@ -226,9 +304,11 @@ body {
   font-weight: 500;
 }
 
-/* ============================================================
-   STRIP
-   ============================================================ */
+
+/*------------------  STRIP (bande de promesses)  -------------------------- */
+
+/* Bande horizontale avec des icônes/textes de réassurance.
+   flex + flex-wrap permet aux éléments de passer à la ligne sur mobile */
 .divider {
   display: flex;
   align-items: center;
@@ -238,6 +318,9 @@ body {
   border-bottom: 1px solid #1a1510;
   flex-wrap: wrap;
 }
+
+/* Chaque item prend le même espace (flex:1 = répartition égale).
+   Une bordure droite les sépare visuellement */
 .div-item {
   flex: 1;
   display: flex;
@@ -251,20 +334,20 @@ body {
   padding: 0 20px;
   border-right: 1px solid #2a2218;
 }
-.div-item:first-child {
-  padding-left: 0;
-}
-.div-item:last-child {
-  border-right: none;
-}
+.div-item:first-child { padding-left: 0; }   /* supprime le padding gauche du premier */
+.div-item:last-child  { border-right: none; } /* supprime la bordure du dernier */
+
+/* L'icône de chaque item est colorée en doré pour attirer l'attention */
 .div-icon {
   color: #c9a05a;
   font-size: 14px;
 }
 
-/* ============================================================
-   SECTIONS COMMUNS
-   ============================================================ */
+
+/* -----------------------  SECTIONS COMMUNES --------------------------*/
+
+/* Texte accrocheur au-dessus des titres de section.
+   ::after génère un petit trait doré automatiquement après le texte */
 .sec-eyebrow {
   font-size: 8.5px;
   letter-spacing: 0.35em;
@@ -283,6 +366,9 @@ body {
   height: 1px;
   background: #c9a05a;
 }
+
+/* Titre principal de chaque section : police serif, poids léger */
+
 .sec-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
@@ -291,6 +377,8 @@ body {
   letter-spacing: 0.05em;
   margin-bottom: 4px;
 }
+
+/* Sous-titre de section : discret, grisé, pour apporter du contexte */
 .sec-sub {
   font-size: 11px;
   font-weight: 300;
@@ -299,20 +387,23 @@ body {
   margin-bottom: 32px;
 }
 
-/* ============================================================
-   CARTES VILLES (avec Bootstrap cards)
-   ============================================================ */
+
+/* --------------------  CARTES VILLES  --------------------------*/
+
+/* Carte cliquable : taille fixe avec overflow:hidden pour masquer
+   les débordements lors du zoom de l'image au survol */
 .city-card {
   cursor: pointer;
-  transition: filter 0.4s;
+  transition: filter 0.4s; /* éclaircissement progressif au survol */
   overflow: hidden;
   position: relative;
   height: 180px;
   margin-bottom: 2px;
 }
-.city-card:hover {
-  filter: brightness(1.12);
-}
+.city-card:hover { filter: brightness(1.12); }
+
+/* Image de fond de la carte : remplit toute la hauteur.
+   La transition sur transform permet le zoom doux au survol */
 .city-card-img {
   height: 100%;
   background-size: cover;
@@ -320,27 +411,35 @@ body {
   transition: transform 0.6s ease;
   position: relative;
 }
-.city-card:hover .city-card-img {
-  transform: scale(1.05);
-}
+.city-card:hover .city-card-img { transform: scale(1.05); }
+
+/* Superposition sombre en dégradé (du bas vers le haut)
+   pour que le texte reste lisible sur n'importe quelle image.
+   ::after crée ce calque sans HTML supplémentaire */
 .city-card-img::after {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0; /* équivalent à top:0; right:0; bottom:0; left:0 */
   background: linear-gradient(to top, rgba(10, 8, 5, 0.9) 0%, rgba(10, 8, 5, 0.15) 60%, transparent 100%);
   transition: background 0.4s;
 }
+
+/* Au survol, la superposition s'allège légèrement pour révéler plus l'image */
 .city-card:hover .city-card-img::after {
   background: linear-gradient(to top, rgba(10, 8, 5, 0.75) 0%, rgba(184, 147, 90, 0.08) 60%, transparent 100%);
 }
+
+/* Zone de texte positionnée en absolu en bas de la carte */
 .city-card-inner {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 14px 14px 12px;
-  z-index: 1;
+  z-index: 1; /* passe au-dessus de la superposition ::after */
 }
+
+/* Nom de la ville en serif, assez grand pour être lisible */
 .city-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -350,6 +449,8 @@ body {
   display: block;
   margin-bottom: 2px;
 }
+
+/* Région/pays en tout petit, doré, espacé */
 .city-region {
   font-size: 8px;
   letter-spacing: 0.2em;
@@ -357,6 +458,9 @@ body {
   color: #b8935a;
   font-weight: 400;
 }
+
+/* Trait doré animé qui s'étend en bas de la carte au survol.
+   width passe de 0 à 100% grâce à la transition, créant un effet "soulignement" */
 .city-hover-line {
   position: absolute;
   bottom: 0;
@@ -366,64 +470,40 @@ body {
   background: linear-gradient(to right, #b8935a, #e8c878);
   transition: width 0.5s ease;
 }
-.city-card:hover .city-hover-line {
-  width: 100%;
-}
-/* Gradients/Images */
-.g-tanger {
-  background: url('https://trendeviajes.com/wp-content/uploads/2025/11/panoramica-de-tanger.webp?w=1024') center/cover;
-}
-.g-tetouan {
-  background: url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover;
-}
-.g-chefchaouen {
-  background: url('https://puertaazulchaouen.com/wp-content/uploads/2025/12/Things-to-do-in-Chefchaouen-18-1.jpg') center/cover;
-}
-.g-houceima {
-  background: url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover;
-}
-.g-fes {
-  background: url('https://i.pinimg.com/1200x/a4/f9/86/a4f9864de1c7046d437f52c776e39b1d.jpg') center/cover;
-}
-.g-ifrane {
-  background: url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover;
-}
-.g-casa {
-  background: url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover;
-}
-.g-rabat {
-  background: url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover;
-}
-.g-marrakech {
-  background: url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover;
-}
-.g-essaouira {
-  background: url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover;
-}
-.g-agadir {
-  background: url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover;
-}
-.g-taghazout {
-  background: url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover;
-}
-.g-merzouga {
-  background: url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover;
-}
-.g-ouarzazate {
-  background: url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover;
-}
-.g-dakhla {
-  background: url('https://travedis.com/assets/dakhla-1-DGEqa_Xw.jpg') center/cover;
-}
+.city-card:hover .city-hover-line { width: 100%; }
 
-/* ============================================================
-   EXPÉRIENCES
-   ============================================================ */
+/* Chaque classe .g- associe une image de fond à une carte de ville.
+   L'URL pointe vers une photo représentative de la destination */
+
+.g-tanger     { background: url('https://trendeviajes.com/wp-content/uploads/2025/11/panoramica-de-tanger.webp?w=1024') center/cover; }
+.g-tetouan    { background: url('https://mnarcastle.ma/wp-content/uploads/2025/09/tetouan-maroc.jpg') center/cover; }
+.g-chefchaouen{ background: url('https://puertaazulchaouen.com/wp-content/uploads/2025/12/Things-to-do-in-Chefchaouen-18-1.jpg') center/cover; }
+.g-houceima   { background: url('https://i.pinimg.com/1200x/5f/45/51/5f45517eff51367699993d1e7a657252.jpg') center/cover; }
+.g-fes        { background: url('https://i.pinimg.com/1200x/a4/f9/86/a4f9864de1c7046d437f52c776e39b1d.jpg') center/cover; }
+.g-ifrane     { background: url('https://i.pinimg.com/1200x/a5/0f/ff/a50fff62a1aed2f31d6b2f5b3b0968c4.jpg') center/cover; }
+.g-casa       { background: url('https://cdn.britannica.com/16/177616-050-0167E767/Casablanca-Morocco.jpg') center/cover; }
+.g-rabat      { background: url('https://tse1.mm.bing.net/th/id/OIP.ti14EziWYnB6KbkiFi7VagHaE7?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover; }
+.g-marrakech  { background: url('https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80') center/cover; }
+.g-essaouira  { background: url('https://media.routard.com/image/13/1/photo.1575131.jpg') center/cover; }
+.g-agadir     { background: url('https://cdn.getyourguide.com/img/tour/6481c4ef598ba.jpeg/98.jpg') center/cover; }
+.g-taghazout  { background: url('https://mediaim.expedia.com/destination/1/fce12b04208a70d76ded7df136328ff9.jpg') center/cover; }
+.g-merzouga   { background: url('https://www.journalofnomads.com/wp-content/uploads/2019/01/PANA8826-1-1024x768.jpg') center/cover; }
+.g-ouarzazate { background: url('https://www.vivamorocco.com/wp-content/uploads/2017/08/Ouarzazate-morocco-768x585.jpg') center/cover; }
+.g-dakhla     { background: url('https://travedis.com/assets/dakhla-1-DGEqa_Xw.jpg') center/cover; }
+
+
+/* -----------------------------  EXPÉRIENCES  -------------------------------*/
+
+/* Carte d'expérience de base : fond sombre, rembourrage généreux.
+   height:100% assure que toutes les cartes d'une même ligne ont la même hauteur */
 .exp-card {
   background: #0c0a08;
   padding: 28px 22px;
   height: 100%;
 }
+
+/* Icône entourée d'un carré (pas de border-radius = angles droits).
+   display:flex centre parfaitement l'icône à l'intérieur */
 .exp-icon {
   width: 38px;
   height: 38px;
@@ -435,6 +515,8 @@ body {
   font-size: 17px;
   margin-bottom: 14px;
 }
+
+/* Nom de l'expérience en serif léger */
 .exp-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -443,6 +525,8 @@ body {
   margin-bottom: 6px;
   letter-spacing: 0.04em;
 }
+
+/* Description courte, très petite et grisée */
 .exp-desc {
   font-size: 10px;
   font-weight: 300;
@@ -451,9 +535,11 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* ============================================================
-   HÔTELS VEDETTE
-   ============================================================ */
+
+/* ----------------------- HÔTELS VEDETTE -------------------------*/
+
+/* Carte hôtel : flex en colonne pour que le bouton reste en bas.
+   height:100% pour l'alignement dans la grille Bootstrap */
 .hotel-card {
   background: #0c0a08;
   overflow: hidden;
@@ -461,6 +547,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* En-tête de la carte avec image de fond.
+   Flex positionne les badges en bas de l'image */
 .hotel-img-h {
   height: 110px;
   display: flex;
@@ -470,11 +559,15 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+/* Étoiles de notation : petites lettres espacées en couleur or */
 .h-stars {
   font-size: 10px;
   color: #c8a870;
   letter-spacing: 0.1em;
 }
+
+/* Badge ville : texte très petit dans une bordure semi-transparente */
 .h-city {
   font-size: 8px;
   letter-spacing: 0.15em;
@@ -483,10 +576,14 @@ body {
   border: 1px solid #b8935a44;
   padding: 3px 8px;
 }
+
+/* Corps de la carte : flex:1 lui permet de prendre tout l'espace restant
+   pour pousser le bouton vers le bas */
 .hotel-body-c {
   padding: 16px 14px 18px;
   flex: 1;
 }
+
 .hotel-name-c {
   font-family: 'Cormorant Garamond', serif;
   font-size: 17px;
@@ -495,6 +592,7 @@ body {
   margin-bottom: 5px;
   letter-spacing: 0.04em;
 }
+
 .hotel-desc-c {
   font-size: 10px;
   font-weight: 300;
@@ -503,6 +601,9 @@ body {
   margin-bottom: 12px;
   letter-spacing: 0.03em;
 }
+
+/* Affichage du prix : le grand chiffre (span) utilise la police serif
+   pour un contraste fort entre le libellé et la valeur */
 .hotel-price-c {
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -515,6 +616,9 @@ body {
   font-size: 15px;
   font-weight: 300;
 }
+
+/* Bouton de réservation pleine largeur, style "outline" sobre.
+   display:block + width:100% l'étire sur toute la largeur de la carte */
 .btn-book {
   display: block;
   text-align: center;
@@ -535,13 +639,16 @@ body {
   color: #c9a05a;
 }
 
-/* ============================================================
-   GASTRONOMIE
-   ============================================================ */
+
+/* ----------------------------- GASTRONOMIE ---------------------------- */
+
+/* Liste de plats empilés verticalement */
 .plats-list {
   display: flex;
   flex-direction: column;
 }
+
+/* Chaque plat : flex horizontal avec une bordure inférieure séparatrice */
 .plat-item {
   display: flex;
   align-items: center;
@@ -549,15 +656,21 @@ body {
   padding: 14px 0;
   border-bottom: 1px solid #1a1510;
 }
+
+/* Numéro de plat en grand, doré, en serif.
+   width:50px + flex-shrink:0 garantissent une largeur fixe
+   pour aligner proprement les titres de tous les plats */
 .plat-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;        
-  font-weight: 400;       
-  color: #c9a05a;         
-  width: 50px;            
+  font-size: 28px;
+  font-weight: 400;
+  color: #c9a05a;
+  width: 50px;
   flex-shrink: 0;
-  text-shadow: 0 0 2px rgba(0,0,0,0.5); /
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
+
+/* Nom du plat en serif clair */
 .plat-n {
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
@@ -565,6 +678,8 @@ body {
   color: #e0d0a8;
   letter-spacing: 0.06em;
 }
+
+/* Description courte du plat */
 .plat-d {
   font-size: 9.5px;
   font-weight: 300;
@@ -572,11 +687,16 @@ body {
   margin-top: 2px;
   letter-spacing: 0.04em;
 }
+
+/* Carte restaurant en gastronomie : fond sombre, hauteur 100% pour la grille */
 .resto-item-g {
   background: #0c0a08;
   padding: 18px;
   height: 100%;
 }
+
+/* En-tête restaurant : nom à gauche, étoiles à droite.
+   justify-content:space-between les écarte aux extrémités */
 .resto-top {
   display: flex;
   justify-content: space-between;
@@ -610,28 +730,30 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* ============================================================
-   OVERLAY
-   ============================================================ */
+
+/* --------- OVERLAY (fenêtre de détail d'une ville) ------------*/
+
+/* L'overlay recouvre toute la page (position:fixed + inset:0).
+   z-index:200 le place au-dessus de tout le reste.
+   display:none → affiché par JavaScript au clic sur une ville */
 #city-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
   background: #0a0806;
-  overflow-y: auto;
+  overflow-y: auto; /* scroll interne si le contenu dépasse */
   display: none;
-  animation: overlayIn 0.35s ease both;
+  animation: overlayIn 0.35s ease both; /* apparition animée */
 }
+
+/* Animation d'entrée de l'overlay : remonte en douceur en apparaissant */
 @keyframes overlayIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+/* En-tête de l'overlay : grande image de fond avec le nom de la ville en bas.
+   overflow:hidden cache les coins de l'image qui dépasseraient */
 .ov-header {
   position: relative;
   height: 460px;
@@ -642,6 +764,7 @@ body {
   padding: 36px 52px;
   overflow: hidden;
 }
+
 .ov-eyebrow {
   font-size: 9px;
   letter-spacing: 0.3em;
@@ -649,6 +772,8 @@ body {
   color: #b8935a;
   margin-bottom: 6px;
 }
+
+/* Titre de la ville très grand, clamp() le rend fluide selon la taille d'écran */
 .ov-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(32px, 5vw, 58px);
@@ -657,6 +782,7 @@ body {
   letter-spacing: 0.04em;
   line-height: 1;
 }
+
 .ov-subtitle {
   font-size: 10px;
   font-weight: 300;
@@ -665,6 +791,9 @@ body {
   margin-top: 6px;
   text-transform: uppercase;
 }
+
+/* Bouton de fermeture (×) positionné en absolu en haut à droite.
+   Carré avec bordure, centré par flex. Inverse ses couleurs au survol */
 .ov-close {
   position: absolute;
   top: 70px;
@@ -687,6 +816,9 @@ body {
   background: #b8935a;
   color: #0c0a08;
 }
+
+/* Superposition sombre légère sur l'image de l'overlay pour lisibilité du titre.
+   z-index:1 place ce calque au-dessus de l'image mais sous le contenu texte */
 .ov-header::after {
   content: '';
   position: absolute;
@@ -695,11 +827,14 @@ body {
   z-index: 1;
 }
 
-/* Donner au contenu de l'en-tête un z-index supérieur */
+/* Le contenu texte de l'en-tête passe au-dessus du ::after grâce à z-index:5 */
 .ov-header-content {
   position: relative;
   z-index: 5;
 }
+
+/* Barre d'onglets collante (sticky) qui reste visible en scrollant dans l'overlay.
+   top:0 = elle colle au haut de la zone de scroll */
 .ov-tabs {
   display: flex;
   border-bottom: 1px solid #1e1a14;
@@ -709,6 +844,9 @@ body {
   top: 0;
   z-index: 10;
 }
+
+/* Onglet individuel : soulignement transparent par défaut,
+   devient doré pour l'onglet actif (classe .active) */
 .ov-tab {
   padding: 14px 18px;
   font-size: 9px;
@@ -717,30 +855,28 @@ body {
   color: #6a5a40;
   font-weight: 400;
   border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
+  margin-bottom: -1px; /* fusionné avec la bordure du conteneur */
   cursor: pointer;
   transition: color 0.3s, border-color 0.3s;
 }
-.ov-tab:hover {
-  color: #a09070;
-}
-.ov-tab.active {
-  color: #c9a05a;
-  border-bottom-color: #c9a05a;
-}
-.ov-body {
-  padding: 44px 52px;
-  display: none;
-}
-.ov-body.active {
-  display: block;
-}
+.ov-tab:hover  { color: #a09070; }
+.ov-tab.active { color: #c9a05a; border-bottom-color: #c9a05a; }
+
+/* Contenu de chaque onglet : caché par défaut, visible avec la classe .active.
+   Le JS ajoute/retire cette classe selon l'onglet sélectionné */
+.ov-body { padding: 44px 52px; display: none; }
+.ov-body.active { display: block; }
+
+/* Grille deux colonnes pour la section "Histoire" :
+   la première colonne est légèrement plus large (1.2fr) */
 .histoire-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 48px;
   align-items: start;
 }
+
+/* Texte historique : grand interligne pour une lecture confortable */
 .hist-text {
   font-size: 12px;
   font-weight: 300;
@@ -749,13 +885,16 @@ body {
   letter-spacing: 0.04em;
   margin-bottom: 20px;
 }
+
+/* Frise chronologique : la bordure gauche forme le "fil" de la timeline */
 .timeline {
   border-left: 1px solid #2a2218;
   padding-left: 18px;
 }
-.tl-item {
-  margin-bottom: 14px;
-}
+
+.tl-item { margin-bottom: 14px; }
+
+/* Année de la timeline : petite, dorée, en capitales */
 .tl-yr {
   font-size: 8.5px;
   letter-spacing: 0.15em;
@@ -763,6 +902,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
 }
+
 .tl-tx {
   font-size: 10px;
   color: #8a7860;
@@ -770,12 +910,17 @@ body {
   line-height: 1.55;
   margin-top: 2px;
 }
+
+/* Galerie photos en grille 2×2, séparées de 3px */
 .gallery-2x2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3px;
   margin-top: 20px;
 }
+
+/* Chaque photo de galerie : hauteur fixe, image en fond couvrant tout.
+   Le dégradé ::after assure la lisibilité du label en bas */
 .gal-ph {
   height: 200px;
   background-size: cover;
@@ -792,6 +937,8 @@ body {
   inset: 0;
   background: linear-gradient(to top, rgba(5, 3, 2, 0.88), transparent 60%);
 }
+
+/* Label de la photo : z-index:1 pour passer au-dessus du ::after */
 .gal-label {
   font-size: 8px;
   color: #c8a870;
@@ -800,16 +947,23 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* Grille de sites touristiques : 2 colonnes séparées par une couleur de fond
+   (les éléments n'ont pas de bordure, c'est le background de la grille qui crée
+   l'illusion de séparation entre les cartes) */
 .sites-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   background: #1a1510;
 }
+
 .site-card {
   background: #0e0c09;
   padding: 22px;
 }
+
+/* Type de site (monument, musée…) avec un petit trait avant le texte (::before) */
 .site-type {
   font-size: 7.5px;
   letter-spacing: 0.2em;
@@ -828,6 +982,7 @@ body {
   height: 1px;
   background: #c9a05a55;
 }
+
 .site-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -836,6 +991,7 @@ body {
   letter-spacing: 0.04em;
   margin-bottom: 6px;
 }
+
 .site-desc {
   font-size: 10px;
   font-weight: 300;
@@ -843,16 +999,21 @@ body {
   line-height: 1.6;
   letter-spacing: 0.03em;
 }
+
+/* Grille hôtels dans l'overlay : 3 colonnes */
 .hotels-ov-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: #1a1510;
 }
+
 .hotel-ov {
   background: #0e0c09;
   overflow: hidden;
 }
+
+/* Image de l'hôtel overlay : plus haute que la version vedette (200px vs 110px) */
 .hotel-ov-img {
   height: 200px;
   display: flex;
@@ -862,9 +1023,9 @@ body {
   background-size: cover;
   background-position: center;
 }
-.hotel-ov-body {
-  padding: 14px 14px 16px;
-}
+
+.hotel-ov-body { padding: 14px 14px 16px; }
+
 .hotel-ov-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -873,6 +1034,7 @@ body {
   margin-bottom: 4px;
   letter-spacing: 0.04em;
 }
+
 .hotel-ov-desc {
   font-size: 9.5px;
   font-weight: 300;
@@ -881,6 +1043,7 @@ body {
   margin-bottom: 10px;
   letter-spacing: 0.03em;
 }
+
 .hotel-ov-price {
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -892,6 +1055,9 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
 }
+
+/* Bouton réserver dans l'overlay : même style que .btn-book mais sans width:100%
+   (il sera mis en display:block dans le HTML) */
 .btn-reserve {
   display: block;
   text-align: center;
@@ -904,28 +1070,33 @@ body {
   cursor: pointer;
   transition: all 0.3s;
   background: transparent;
-  text-decoration: none;
+  text-decoration: none; /* supprime le soulignement si c'est un <a> */
 }
 .btn-reserve:hover {
   border-color: #c9a05a;
   color: #c9a05a;
 }
+
+/* Grille restaurants dans l'overlay : 2 colonnes */
 .restos-ov-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   background: #1a1510;
 }
+
 .resto-ov {
   background: #0e0c09;
   padding: 20px;
 }
+
 .resto-ov-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4px;
 }
+
 .resto-ov-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 17px;
@@ -933,11 +1104,9 @@ body {
   color: #e8d8b0;
   letter-spacing: 0.04em;
 }
-.resto-ov-stars {
-  font-size: 10px;
-  color: #c9a05a;
-  letter-spacing: 0.1em;
-}
+
+.resto-ov-stars { font-size: 10px; color: #c9a05a; letter-spacing: 0.1em; }
+
 .resto-ov-cuisine {
   font-size: 8px;
   letter-spacing: 0.15em;
@@ -945,6 +1114,7 @@ body {
   color: #7a6848;
   margin-bottom: 8px;
 }
+
 .resto-ov-desc {
   font-size: 10px;
   font-weight: 300;
@@ -953,6 +1123,8 @@ body {
   letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
+
+/* Pied de carte restaurant : infos pratiques séparées par une fine bordure */
 .resto-ov-contact {
   display: flex;
   gap: 14px;
@@ -961,6 +1133,7 @@ body {
   padding-top: 8px;
   border-top: 1px solid #1a1510;
 }
+
 .resto-ov-info {
   font-size: 9px;
   color: #8a7860;
@@ -969,16 +1142,17 @@ body {
   align-items: center;
   gap: 5px;
 }
+
+/* Grille d'activités : même principe de 2 colonnes que les restaurants */
 .acts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   background: #1a1510;
 }
-.act-card {
-  background: #0e0c09;
-  padding: 22px;
-}
+
+.act-card { background: #0e0c09; padding: 22px; }
+
 .act-type {
   font-size: 7.5px;
   letter-spacing: 0.2em;
@@ -997,6 +1171,7 @@ body {
   height: 1px;
   background: #c9a05a55;
 }
+
 .act-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -1005,6 +1180,7 @@ body {
   letter-spacing: 0.04em;
   margin-bottom: 6px;
 }
+
 .act-desc {
   font-size: 10px;
   font-weight: 300;
@@ -1013,6 +1189,7 @@ body {
   letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
+
 .act-contact {
   font-size: 9px;
   color: #8a7860;
@@ -1022,20 +1199,25 @@ body {
   gap: 6px;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+
+/* ---------------------------   FOOTER    -------------------------- */
+
+/* Pied de page très sombre, légèrement différent du fond (#060503 vs #0c0a08)
+   pour créer une distinction subtile */
 .footer {
   background: #060503;
   border-top: 1px solid #1a1510;
   padding: 48px;
 }
+
+/* Grille 4 colonnes : la première (description de la marque) est deux fois plus large */
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 36px;
 }
+
 .f-brand {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -1045,10 +1227,9 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.f-brand span {
-  color: #b8935a;
-  font-style: italic;
-}
+.f-brand span { color: #b8935a; font-style: italic; }
+
+/* Courte description de la marque avec une largeur max pour ne pas s'étirer */
 .f-desc {
   font-size: 10px;
   font-weight: 300;
@@ -1057,6 +1238,8 @@ body {
   letter-spacing: 0.04em;
   max-width: 240px;
 }
+
+/* Titres des colonnes du footer : très petits et espacés */
 .f-head {
   font-size: 8.5px;
   letter-spacing: 0.2em;
@@ -1065,6 +1248,9 @@ body {
   margin-bottom: 14px;
   font-weight: 500;
 }
+
+/* Liens de navigation du footer : display:block pour qu'ils soient sur
+   leur propre ligne et cliquables sur toute la largeur */
 .f-link {
   display: block;
   font-size: 10px;
@@ -1075,9 +1261,10 @@ body {
   cursor: pointer;
   transition: color 0.3s;
 }
-.f-link:hover {
-  color: #c9a05a;
-}
+.f-link:hover { color: #c9a05a; }
+
+/* Barre inférieure du footer : copyright à gauche, éventuels liens à droite.
+   space-between les écarte aux deux bouts */
 .footer-bot {
   border-top: 1px solid #1a1510;
   padding-top: 18px;
@@ -1085,52 +1272,59 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
 .f-copy {
   font-size: 8.5px;
   letter-spacing: 0.1em;
   color: #4a3a22;
 }
 
-/* ============================================================
-   RESPONSIVE (complément)
-   ============================================================ */
+
+/* ---------------------  RESPONSIVE (mobile)   -------------------------- */
+
+/* @media = règles qui s'appliquent SEULEMENT si la fenêtre est < 768px de large.
+   On réorganise les éléments pour qu'ils s'adaptent aux petits écrans */
 @media (max-width: 768px) {
+
+  /* La bande "strip" passe en colonne (empilée) sur mobile */
   .divider {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
   }
   .div-item {
-    border-right: none;
-    border-bottom: 1px solid #2a2218;
+    border-right: none;    /* plus de séparation verticale */
+    border-bottom: 1px solid #2a2218; /* on sépare maintenant par le bas */
     padding: 8px 0;
   }
+
+  /* Le hero passe en colonne, texte et stats empilés */
   .hero-img {
     flex-direction: column;
     justify-content: flex-end;
     gap: 20px;
     padding: 0 24px 40px;
   }
+
+  /* Les stats passent en ligne horizontale sous le texte */
   .hero-stats {
     flex-direction: row;
     padding-left: 0;
-    border-left: none;
-    border-top: 1px solid #2a2218;
+    border-left: none;    /* supprime la bordure gauche (ne fonctionne pas en ligne) */
+    border-top: 1px solid #2a2218; /* on met une bordure supérieure à la place */
     padding-top: 14px;
   }
-  .ov-header {
-    height: 220px;
-    padding: 24px;
-  }
-  .ov-tabs {
-    padding: 0 20px;
-  }
-  .ov-body {
-    padding: 28px 20px;
-  }
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-  }
+
+  /* L'overlay se réduit : moins de hauteur et moins de padding */
+  .ov-header { height: 220px; padding: 24px; }
+  .ov-tabs  { padding: 0 20px; }
+  .ov-body  { padding: 28px 20px; }
+
+  /* Le footer passe à 2 colonnes au lieu de 4 */
+  .footer-top { grid-template-columns: 1fr 1fr; }
+
+  /* Toutes les grilles multi-colonnes passent à 1 colonne sur mobile
+     pour éviter des éléments trop étroits et illisibles */
   .histoire-grid,
   .sites-grid,
   .hotels-ov-grid,
@@ -1139,6 +1333,11 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/*  -----------  VARIANTES DES CARTES EXPÉRIENCES (avec image de fond) ----------------- */
+
+/* Version enrichie de .exp-card : une image remplace le fond uni.
+   position:relative est nécessaire pour le pseudo-élément ::before */
 .exp-card {
   background-size: cover;
   background-position: center;
@@ -1146,8 +1345,12 @@ body {
   height: 100%;
   position: relative;
   color: white;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7); /* ombre portée sur le texte pour lisibilité */
 }
+
+/* Superposition sombre semi-transparente sur l'image de fond.
+   position:absolute + inset:0 la fait couvrir toute la carte.
+   z-index:0 la place derrière le contenu texte */
 .exp-card::before {
   content: '';
   position: absolute;
@@ -1155,13 +1358,18 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5); /* superposition sombre pour lisibilité */
+  background: rgba(0,0,0,0.5);
   z-index: 0;
 }
+
+/* Tous les enfants directs passent au-dessus de la superposition ::before */
 .exp-card > * {
   position: relative;
   z-index: 1;
 }
+
+/* Miniature du plat dans la liste gastronomie :
+   objet-fit:cover garantit que l'image remplit son carré sans se déformer */
 .plat-item img {
   width: 60px;
   height: 60px;
