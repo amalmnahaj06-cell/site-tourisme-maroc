@@ -1260,6 +1260,7 @@ body {
   margin-bottom: 7px;
   cursor: pointer;
   transition: color 0.3s;
+   text-decoration: none;
 }
 .f-link:hover { color: #c9a05a; }
 
